@@ -6,16 +6,16 @@ button,
 input,
 select,
 textarea {
-  color: $dark-grey;
+  color: $color-text-base;
 }
 
 ::-moz-selection {
-  background: #b3d4fc;
+  background: $color-selection;
   text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
+  background: $color-selection;
   text-shadow: none;
 }
 
@@ -50,28 +50,28 @@ textarea {
 }
 
 html { 
-  font: normal normal;
+	font: normal normal;
   font-style: normal;
   font-weight: 300;
   font-family: $content-font;
   font-size:em($base-size, 16);
-  line-height: 1.4;
 }
 
 body { 
-  color: $dark-grey;
+  color: $color-text-base;
   font-smooth: always; 
   -webkit-font-smoothing: subpixel-antialiased; // smooth fonts
   text-shadow: 0 1px 0 rgba(0,0,0,0.01); // smooth fonts
-  background: #fff;
+  background: $theme-color;
+  line-height: 1.5em;
 }
 
 h1,h2,h3 { 
   margin: 1.414em 0 0.5em;
   font-family: $header-font;
-  line-height: 1.2;
   font-style: normal;
   font-weight: 800;
+	line-height: 1.5em;
   font-stretch: normal;
 }
 
@@ -79,7 +79,7 @@ h1 { margin-top: 0; font-size: em($base-size * ($ratio * $ratio * $ratio * $rati
 
 h2 { font-size: em($base-size * ($ratio * $ratio), $base-size); }
 
-h3 { font-size: em($base-size * $ratio, $base-size); }
+h3 { font-size: em($base-size, $base-size); }
 
 a{
 	text-decoration: none;
@@ -88,7 +88,7 @@ a{
 	}
 }
 
-p { margin-bottom: 1.3em; }
+p { margin-bottom: 1.5em; }
 
 small, .font_small {font-size: 0.667em;}
 

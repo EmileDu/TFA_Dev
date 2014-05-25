@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Lazy Lunch Case Study | Emile Duval</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<link href="assets/favicon.ico" rel="shortcut icon">
+		<link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+		
+		
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link'); 
+                    for (var i = 0; i < links.length;i++) { 
+                    var link = links[i]; 
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+		
+		<link rel='stylesheet' href='assets/css/app.css'>
+
+		<script src="assets/libs/modernizr.2.8.1.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	</head>
+	<body class="projectCaseStudy">
+<header role="banner" class="center">
+	<div class="wrapper">
+		<h1>Lazy Lunch</h1>
+    <p>Une nouvelle façon de manger à la cafétéria</p>
+	</div>
+</header>
+<main role="main">
+	<div class="wrapper">
+		<div class="col-s-12 col-m-12 col-l-10 col-l-center">
+			<h2>Introduction</h2>
+			<p>La demande est simple</p>
+			<p>Réalisation d’un web application mobile pour une cafétéria en ligne, afin de comprendre les enjeux lié au web mobile.</p>
+			<h2>Notre approche graphique</h2>
+			<p>On a choisit de concentrer notre app sur 5 fonctionnalités qui nous semblaient essentiel pour ce genre d’application.</p>
+			<ol>
+				<li>Menu en ligne</li>
+				<li>Commande en ligne</li>
+				<li>Connaitre l’état de la file a la cafétéria</li>
+				<li>Gérer son budget</li>
+				<li>Vote de suggestion pour la semaine suivant</li>
+			</ol>
+			<p>Un design a été construit, un design voulu simple et chaleur. Faut pas oublié que c’est une app « gastronomique » il faut que ça donne envie de mangé.</p>
+			<img src="" alt="" width="" height=""/>
+			<h2>Le développement</h2>
+			<p>Après 5 séances, consacré au wireframes, test utilisateur et conception du graphisme, le développement commence.</p>
+			<p>C’est la première fois que je m’attaque a une web app, il a donc d’abord fallut définir exactement en quoi ça consiste.</p>
+			<p>Pour donner l’impression d’une application native, il faudrait pouvoir lancer l’application en full-screen, avec un icon et un « launch screen » c’est a dire un écran qui s’affiche au démarrage de l’application.</p>
+			<p>Pour vite mettre en place une structure de projets efficace et fonctionnelle, j’ai choisi d’utiliser le boilerplate mobile html5.</p>
+			<a href="http://html5boilerplate.com/mobile/">http://html5boilerplate.com/mobile/</a>
+			<p>Avec ce template, le full-screen, l’icon, le launch screen sont directement mis en place, il ne reste plus qu’a modifié les fichiers.</p>
+			<p>Parmi les spécifications du smartphone utiliser, deux nous intéresse particulièrement d’un point de vu graphique:</p>
+			<ul>
+				<li>Écran rétina</li>
+				<li>Résolution physique: 480 * 320 pixels</li>
+			</ul>
+			<p>Le design construit par notre groupe avait l’avantage de pouvoir être entièrement fait en CSS. La contrainte du support de la technologie rétina a donc été nécessaire uniquement pour l’image d’avatar, et le loading screen.</p>
+			<p>Apres avoir intégrer le design, il restai le plus dur à faire. Les interactions et et tout le back end.</p>
+			<p>J’ai choisi d’utiliser la librairie Hammer.js pour facilité la gestion des événements tactile. Ça ma permis de mettre en place le tap et le switch pour accéder au menu et au panier.</p>
+			<img src="" alt="" width="" height=""/>
+			<h3>L’optimisation</h3>
+			<p>L’optimisation est un sujet important pour n’importe quel site, mais ça l’est d’autant plus pour un projet mobile, puisque les débits sont inférieurs a ceux disponible sur desktop. On ne peut pas se permettre d’effectuer 10 requête DNS de 10mo chacune.</p>
+			<p>J’ai choisi de faire une font d’icon pour tous les avantages que cette solution apporte par rapport a une image sprite par exemple.</p>
+			<p>Ça m’offre la possibilité de redimensionné les icons sans aucune  perte de qualité. Ca offre aussi la possibilité de changer la couleur des icons juste avec une ligne css.
+	Pour faire cette font d’icon, j’ai utilisé la web app du site fontastic.me.</p>
+			<img src="" alt="" width="" height=""/>
+			<h3>Amélioration de l’experience utilisateur</h3>
+			<p>Le dernier point que j’aimerai aborder est le changement de page.</p>
+			<p>Un problème se pose quand on clique sur un lien: on quitte l’application pour  ouvrir le lien dans le browser, même si ce lien est un lien interne.</p>
+			<p>Autant dire que c’est juste désagréable.</p>
+			<p>Il y avait deux solution à ce problème.</p>
+			<p>L’AJAX m’a semblé la meilleure solution, et c’était surtout l’occasion d’apprendre cette pratique.</p>
+			<h2>Ressenti et Evolution</h2>
+			<p>Parmi les différents workshops effectués, c’est sans doute celui qui m’a le plus parlé. Ça m’a permis de découvrir cette univers, et ces possibilités ainsi que celle des web applications au sens général puisque ce n’est pas exclusivement sur le mobile. J’espère pouvoir vite retravaillé dans ce domaine, que ce sois personnellement ou professionnellement.</p>
+			<p>Parce qu’un projet n’est jamais terminer et encore moins dans mon cas, vu que je suis un peu trop perfectionniste. Aussi j’ai continué a me renseigné, sur le développement mobile, par après et une possible évolution qu’y m’est venu en tête est l’ajout d’un mode hors-ligne, grâce notamment a l’API offline web application.</p>
+		</div>
+	</div>
+</main>
+		<footer></footer>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+		<!-- scripts -->
+		<script src='assets/js/holder.js'></script>
+<script src='assets/js/plugins.js'></script>
+<script src='assets/js/main.js'></script>
+
+		<script>
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+
+		<script> 
+			var $buoop = {}; 
+			$buoop.ol = window.onload; 
+			window.onload=function(){ 
+				try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+				var e = document.createElement("script"); 
+				e.setAttribute("type", "text/javascript"); 
+				e.setAttribute("src", "//browser-update.org/update.js"); 
+				document.body.appendChild(e); 
+			} 
+		</script> 
+	</body>
+</html>

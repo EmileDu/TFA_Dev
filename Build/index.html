@@ -13,7 +13,7 @@
 		<link href="assets/favicon.ico" rel="shortcut icon">
 		<link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
 
-		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 		
 		
         <!-- Hammer reload -->
@@ -41,14 +41,14 @@
 		
 		<link rel='stylesheet' href='assets/css/app.css'>
 
-		<script src="assets/libs/modernizr-2.8.1.min.js"></script>
+		<script src="assets/libs/modernizr.2.8.1.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 	</head>
 	<body class="home">
-<header>
+<header role="banner" >
 	<div class="wrapper">
-		<h1>Emile Duval</h1>
-        <p>Développeur Front-End</p>
+		<h1 class="center">Emile Duval</h1>
+    <p class="center">Développeur Front-End</p>
 	</div>
 </header>
 <main>
@@ -60,14 +60,29 @@
       <p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
     </div>
   </section>
-  <section>
+  <section class="projets-container">
     <div class="wrapper">
-      <h2></h2>
+      <h2>J'ai travaillé sur quelque projets</h2>
+			<article class="projets">
+				<h3 class="projets-title"></h3>
+				<p class="projets-desc"></p>
+				<img class="projets-thumb" src="" alt="" width="" height="" />
+				<p></p>
+				<a href=""></a>
+			</article>	
     </div>
   </section>
 </main>
 <footer>
 	<div class="wrapper">
+		<h2>On se contact</h2>
+		<form method="post" action="traitement.php">
+			<input type="submit" value="Envoyer"/>
+		</form>
+		<h2>Et sinon je suis actif la-bas</h2>
+		<ul class="social-list">
+			<li class="social-list-item"><a href="mailto:bonjour@emileduval.be">Mail</a></li>
+		</ul>
 	</div>
 </footer>
 		<footer></footer>

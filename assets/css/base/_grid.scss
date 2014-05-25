@@ -1,0 +1,43 @@
+%clearfix{
+	zoom: 1;
+	&:before,
+	&:after{
+		content: "";
+		display: table;
+	}
+	&:after{
+		clear: both;	
+	}
+}
+
+%column{
+	float: left;
+	position: relative; 
+	min-height: 1px;
+	padding: 0 $gutter*.5;
+}
+
+.row{
+	@extend clearfix;
+	margin: 0 $gutter * -0.5;
+}
+
+@for $i from 1 through $columns{
+	.col-s-#{$i}, .col-m-#{$i}, .col-l-#{$i}, .col-xl-#{$i}{
+		@extend %column;	
+	}
+}
+@include responsiveGrid('-s');
+	
+
+@media only screen and (min-width: $width-tablet){
+	@include responsiveGrid('-m');
+}
+
+@media only screen and (min-width: $width-desktop){
+	@include responsiveGrid('-l');
+}
+
+@media only screen and (min-width: $width-largedesktop){
+	@include responsiveGrid('-xl');
+}

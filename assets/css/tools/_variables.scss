@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+// Fonts
+
+$content-font: 'Lato', sans-serif;
+$header-font: 'Droid Sans', sans-serif;
+
+$base-size: 18; // 18px corps de base
+$ratio: 1.500; // 1.500 -- Perfect Fifth
+
+// Colors 
+
+$color1: #fff;
+$color2: #272727;
+$color3: #eb7347;
+
+$color-text-base: $color2;
+
+$color-link: $color2;
+$color-link-hover: $color3;
+
+$color-selection: lighten($color3, 30%);
+
+$theme-color: $color1;
+
+// Responsive 
+
+$width-largedesktop: 75em; // 1200 / 16
+$width-desktop: 64em; // 1024/16
+$width-tablet: 40em; // 640/16
+
+$columns: 12!default; // Number of columns
+$gutter: 20px!default; // Size of gutter 

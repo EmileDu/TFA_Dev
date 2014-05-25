@@ -1,0 +1,266 @@
+// Prefixer
+$prefix-for-webkit:    true !default;
+$prefix-for-mozilla:   true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera:     true !default;
+$prefix-for-spec:      true !default;
+
+@mixin prefixer ($property, $value, $prefixes) {
+	@each $prefix in $prefixes {
+
+		@if $prefix == webkit and $prefix-for-webkit == true {
+			-webkit-#{$property}: $value;
+		}
+		@else if $prefix == moz and $prefix-for-mozilla == true {
+			-moz-#{$property}: $value;
+		}
+		@else if $prefix == ms and $prefix-for-microsoft == true {
+			-ms-#{$property}: $value;
+		}
+		@else if $prefix == o and $prefix-for-opera == true {
+			-o-#{$property}: $value;
+		}
+		@else if $prefix == spec and $prefix-for-spec == true {
+			#{$property}: $value;
+		}
+		@else {
+			@warn "Unrecognized prefix: #{$prefix}";
+		}
+	}
+}
+
+@mixin disable-prefix-for-all() {
+	$prefix-for-webkit:    false;
+	$prefix-for-mozilla:   false;
+	$prefix-for-microsoft: false;
+	$prefix-for-opera:     false;
+	$prefix-for-spec:      false;
+}
+
+
+// Grid responsive 
+@mixin responsiveGrid($support: ''){
+	@for $i from 0 through $columns{
+		@if $i != 0{
+			.col#{$support}-#{$i}{ width: $i / $columns * 100%; }	
+		}
+		.col#{$support}-center{ margin: 0 auto; float: none;}
+		.col#{$support}-push-#{$i}{ left: $i / $columns * 100%; }
+		.col#{$support}-offset-#{$i}{ margin-left: $i / $columns * 100%; } 
+	}
+}
+
+// Border-radius
+@mixin border-radius($radius : 5px) {
+	@include prefixer(border-radius, $radius, moz spec)
+}
+
+@mixin border-top-radius($radius : 5px) {
+	@include prefixer(border-top-left-radius, $radius, moz spec);
+	@include prefixer(border-top-right-radius, $radius, moz spec);
+}
+
+@mixin border-bottom-radius($radius : 5px) {
+	@include prefixer(border-bottom-left-radius, $radius, moz spec);
+	@include prefixer(border-bottom-right-radius, $radius, moz spec);
+}
+
+@mixin border-left-radius($radius : 5px) {
+	@include prefixer(border-top-left-radius, $radius, moz spec);
+	@include prefixer(border-bottom-left-radius, $radius, moz spec);
+}
+
+@mixin border-right-radius($radius : 5px) {
+	@include prefixer(border-top-right-radius, $radius, moz spec);
+	@include prefixer(border-bottom-right-radius, $radius, moz spec);
+}
+
+
+// Clearfix
+/* Include clearfix on parent to clear nested columns,
+or wrap each row of columns in a @include row */
+@mixin clearfix {
+    zoom: 1;
+    &:after { clear: both; }
+    &:before, &:after {
+        content: '\0020';
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0; 
+    } 
+}
+
+/* You can also use a @include clear to clear columns */
+@mixin clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0; 
+}
+
+// Placeholder
+
+@mixin placeholder($color : $clr-mixin-placeholder) {
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+	&:-moz-placeholder {
+		color: $color;
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+// Opacity
+
+@mixin opacity($opacity) {
+    filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+    opacity: $opacity;
+
+    /* Hack IE6 */
+    .lt-ie7 & {
+        filter : alpha(opacity=#{round($opacity * 100)});
+        zoom: 1;
+    }
+}
+
+// Position
+
+@mixin position ($position: relative, $coordinates: 0 0 0 0) {
+	@if type-of($position) == list {
+		$coordinates: $position;
+		$position: relative;
+	}
+	$top: nth($coordinates, 1);
+	$right: nth($coordinates, 2);
+	$bottom: nth($coordinates, 3);
+	$left: nth($coordinates, 4);
+	position: $position;
+	@if $top == auto {
+		top: $top;
+	}
+	@else if not(unitless($top)) {
+		top: $top;
+	}
+	@if $right == auto {
+		right: $right;
+	}
+	@else if not(unitless($right)) {
+		right: $right;
+	}
+	@if $bottom == auto {
+		bottom: $bottom;
+	}
+	@else if not(unitless($bottom)) {
+		bottom: $bottom;
+	}
+	@if $left == auto {
+		left: $left;
+	}
+	@else if not(unitless($left)) {
+		left: $left;
+	}
+}
+
+// Transition
+
+@mixin transition ($transition : all .3s ease-in-out) {
+	@include prefixer(transition, $transition, webkit moz ms o spec);
+}
+
+
+// Box-sizing
+
+@mixin box-sizing ($box : border-box) {
+	//  content-box | border-box | inherit
+	@include prefixer(box-sizing, $box, webkit moz spec);
+}
+
+
+// Filter
+
+@mixin filter (
+	$filter-1,
+	$filter-2 : false,
+	$filter-3 : false,
+	$filter-4 : false,
+	$filter-5 : false,
+	$filter-6 : false,
+	$filter-7 : false,
+	$filter-8 : false,
+	$filter-9 : false,
+	$filter-10: false
+	) {
+	$filter : compact($filter-1, $filter-2, $filter-3, $filter-4, $filter-5, $filter-6, $filter-7, $filter-8, $filter-9, $filter-10);
+	@include prefixer(filter, $filter, webkit moz spec);
+}
+
+// UL
+
+@mixin ul-list-inline() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        @include inline-block();
+    }
+}
+
+@mixin reset-ul() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// Calc
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -o-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+// Keyframes
+
+@mixin keyframes($name) {
+    $original-prefix-for-webkit:    $prefix-for-webkit;
+    $original-prefix-for-mozilla:   $prefix-for-mozilla;
+    $original-prefix-for-microsoft: $prefix-for-microsoft;
+    $original-prefix-for-opera:     $prefix-for-opera;
+    $original-prefix-for-spec:      $prefix-for-spec;
+
+    @if $original-prefix-for-webkit {
+        @include disable-prefix-for-all();
+        $prefix-for-webkit: true;
+        @-webkit-keyframes #{$name} {
+            @content;
+        }
+    }
+    @if $original-prefix-for-mozilla {
+        @include disable-prefix-for-all();
+        $prefix-for-mozilla: true;
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+    }
+    @if $original-prefix-for-spec {
+        @include disable-prefix-for-all();
+        $prefix-for-spec: true;
+        @keyframes #{$name} {
+            @content;
+        }
+    }
+
+    $prefix-for-webkit:    $original-prefix-for-webkit   ;
+    $prefix-for-mozilla:   $original-prefix-for-mozilla  ;
+    $prefix-for-microsoft: $original-prefix-for-microsoft;
+    $prefix-for-opera:     $original-prefix-for-opera    ;
+    $prefix-for-spec:      $original-prefix-for-spec     ;
+}
