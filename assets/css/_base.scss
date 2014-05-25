@@ -1,0 +1,53 @@
+@import 
+    'reset',
+    'grid';
+
+// orange default
+$theme-color: #fff; // dark #b84712
+$accent-color: darken($theme-color, 10); // That is, 10% darker than the brand-color.
+
+// other colors
+
+// fonts
+$content-font: 'Lato', sans-serif;
+$header-font: 'PT Sans', sans-serif;
+$base-size: 18; // 18px corps de base
+$ratio: 1.500; // 1.500 -- Perfect Fifth
+
+// Type color
+$light-grey: #696158;
+$dark-grey: #1f1f1f;
+
+
+/* Custom mixins & Placeholders */
+
+// border-radius
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+
+/* Include clearfix on parent to clear nested columns,
+or wrap each row of columns in a @include row */
+@mixin clearfix {
+    zoom: 1;
+    &:after { clear: both; }
+    &:before, &:after {
+        content: '\0020';
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0; 
+    } 
+}
+
+/* You can also use a @include clear to clear columns */
+@mixin clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0; 
+}

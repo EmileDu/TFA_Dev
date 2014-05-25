@@ -1,0 +1,21 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Emile Duval -- Web Developper -- #Emile_D_
+
+# THANKS
+
+    @remysaintcricq
+    @aqro
+    @fbourgaux
+    @aplennevaux
+    @lipelip
+    @Briiiieuc
+    @maurine_bee
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, Javascript
+    Reset.css ( Eric Meyer ), jQuery, Modernizr, Hammer.js.

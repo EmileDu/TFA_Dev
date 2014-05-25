@@ -1,0 +1,99 @@
+/* Typography
+----------------------------------------- */
+
+html,
+button,
+input,
+select,
+textarea {
+  color: $dark-grey;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+html { 
+  font: normal normal;
+  font-style: normal;
+  font-weight: 300;
+  font-family: $content-font;
+  font-size:em($base-size, 16);
+  line-height: 1.4;
+}
+
+body { 
+  color: $dark-grey;
+  font-smooth: always; 
+  -webkit-font-smoothing: subpixel-antialiased; // smooth fonts
+  text-shadow: 0 1px 0 rgba(0,0,0,0.01); // smooth fonts
+  background: #fff;
+}
+
+h1,h2,h3 { 
+  margin: 1.414em 0 0.5em;
+  font-family: $header-font;
+  line-height: 1.2;
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: normal;
+}
+
+h1 { margin-top: 0; font-size: em($base-size * ($ratio * $ratio * $ratio * $ratio), $base-size);}
+
+h2 { font-size: em($base-size * ($ratio * $ratio), $base-size); }
+
+h3 { font-size: em($base-size * $ratio, $base-size); }
+
+a{
+	text-decoration: none;
+	&:hover{
+		color: #444;
+	}
+}
+
+p { margin-bottom: 1.3em; }
+
+small, .font_small {font-size: 0.667em;}
+
+strong { font-weight: bold; }
+
+em { font-style: italic; }
+
+.center{ text-align: center; }

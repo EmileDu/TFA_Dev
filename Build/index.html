@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Emile Duval | Developpeur Front-End</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<link href="assets/favicon.ico" rel="shortcut icon">
+		<link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link'); 
+                    for (var i = 0; i < links.length;i++) { 
+                    var link = links[i]; 
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+		
+		<link rel='stylesheet' href='assets/css/app.css'>
+
+		<script src="assets/libs/modernizr-2.8.1.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	</head>
+	<body class="home">
+<header>
+	<div class="wrapper">
+		<h1>Emile Duval</h1>
+        <p>Développeur Front-End</p>
+	</div>
+</header>
+<main>
+  <section>
+    <div class="wrapper">
+      <h2>Vous cherchez un développeur ?</h2>
+      <p>Ça tombe bien, je cherche un stage dans le développement web.</p>
+      <p>J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
+      <p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrapper">
+      <h2></h2>
+    </div>
+  </section>
+</main>
+<footer>
+	<div class="wrapper">
+	</div>
+</footer>
+		<footer></footer>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+		<!-- scripts -->
+		<script src='assets/js/holder.js'></script>
+<script src='assets/js/plugins.js'></script>
+<script src='assets/js/main.js'></script>
+
+		<script>
+			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+
+		<script> 
+			var $buoop = {}; 
+			$buoop.ol = window.onload; 
+			window.onload=function(){ 
+				try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+				var e = document.createElement("script"); 
+				e.setAttribute("type", "text/javascript"); 
+				e.setAttribute("src", "//browser-update.org/update.js"); 
+				document.body.appendChild(e); 
+			} 
+		</script> 
+	</body>
+</html>
