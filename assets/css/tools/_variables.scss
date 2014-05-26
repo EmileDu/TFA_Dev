@@ -25,9 +25,9 @@ $theme-color: $color1;
 
 // Responsive 
 
-$width-largedesktop: 75em; // 1200 / 16
-$width-desktop: 64em; // 1024/16
-$width-tablet: 40em; // 640/16
+$width-largedesktop: em(1200, $base-size); // 1200/18
+$width-desktop: em(1024, $base-size); // 1024/18
+$width-tablet: em(640, $base-size); // 640/18
 
 $columns: 12!default; // Number of columns
 $gutter:27px!default; // Size of gutter 

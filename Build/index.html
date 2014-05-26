@@ -15,7 +15,7 @@
 		<link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
 
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Gentium+Book+Basic:400,700italic,700,400italic' rel='stylesheet' type='text/css'>
-		
+		<link href="assets/css/hugrid.css" rel="stylesheet" type="text/css">
 		
         <!-- Hammer reload -->
           <script>
@@ -46,25 +46,25 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 	</head>
 	<body class="home">
-<header role="banner" >
+<header role="banner" class="header">
 	<canvas></canvas>
-	<div class="wrapper">
-		<h1 class="center">Emile Duval</h1>
-    <p class="center">Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
-	</div>
+		<h1 class="title">Emile Duval</h1>
+    <p>Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
 </header>
 <main>
   <section>
     <div class="wrapper">
-      <h2>Vous cherchez un développeur ?</h2>
-      <p>Ça tombe bien, je cherche un stage dans le développement web.</p>
-      <p>J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
-      <p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
+			<div class="col-s-12 col-m-12 col-l-8 col-l-center">
+				<h2 class="subtitle">Vous cherchez un développeur ?</h2>
+				<strong>Ça tombe bien, je cherche un stage dans le développement web.</strong>
+				<p>J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
+				<p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
+			</div>
     </div>
   </section>
   <section class="projets-container">
     <div class="wrapper">
-      <h2>La façon dont je travaille </h2>
+      <h2 class="subtitle col-s-12 col-m-12 col-l-8 col-l-center">La façon dont je travaille </h2>
 			<article class="projets">
 				<h3 class="projets-title">Lazy Lunch</h3>
 				<img class="projets-thumb" src="" alt="" width="" height="" />
@@ -101,8 +101,14 @@
 </main>
 <footer>
 	<div class="wrapper">
-		<h2>On se contacte ?</h2>
+		<h2 class="subtitle">On se contacte ?</h2>
 		<form method="post" action="traitement.php">
+			<p>Salut Emile, je m'apelle</p>
+			<input type="text" placeholder="ton nom"/>
+			<p> et mon mail est</p>
+			<input type="email" placeholder="ton email"/>
+			<p>Je voulais te dire que</p>
+			<textarea>ton message.</textarea>
 			<input type="submit" value="Envoyer"/>
 		</form>
 		<h2>Et sinon je suis actif là-bas</h2>
@@ -117,10 +123,10 @@
 		<small>@ Emile Duval 2014 - Tous droit réservé - <a href="http://dwm.re/">DWM</a> - <a href="http://www.infographie-sup.be/">ESIAJ</a> - Grille</small>
 	</div>
 </footer>
-		<footer></footer>
-
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+		<script src="assets/libs/hugrid.js"></script>
 
 		<!-- scripts -->
 		<script src='assets/js/holder.js'></script>

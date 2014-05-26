@@ -42,7 +42,15 @@ $prefix-for-spec:      true !default;
 @mixin responsiveGrid($support: ''){
 	@for $i from 0 through $columns{
 		@if $i != 0{
-			.col#{$support}-#{$i}{ width: $i / $columns * 100%; }	
+			.col#{$support}-#{$i}{ 
+				width: $i / $columns * 100%; 
+				&:first-child{
+					padding-left: 0;
+				}
+				&:last-child{
+					padding-right: 0;
+				}
+			}	
 		}
 		.col#{$support}-center{ margin: 0 auto; float: none;}
 		.col#{$support}-push-#{$i}{ left: $i / $columns * 100%; }
