@@ -63,14 +63,14 @@ body {
   -webkit-font-smoothing: subpixel-antialiased; // smooth fonts
   text-shadow: 0 1px 0 rgba(0,0,0,0.01); // smooth fonts
   background: $theme-color;
-  line-height: 1.5em;
+  line-height: 1.5rem;
 }
 
 h1,h2,h3 { 
 //  margin: 1.414em 0 0.5em;
   font-family: $header-font;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
 	line-height: 1.5em;
   font-stretch: normal;
 }
@@ -79,7 +79,7 @@ h1 { font-size: em($base-size * ($ratio * $ratio * $ratio * $ratio), $base-size)
 
 h2 { font-size: em($base-size * ($ratio * $ratio), $base-size); }
 
-h3 { font-size: em($base-size, $base-size); }
+h3 { font-size: em($base-size * $ratio, $base-size); }
 
 a{
 	text-decoration: none;

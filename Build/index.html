@@ -7,14 +7,16 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Emile Duval | Developpeur Front-End</title>
-		<meta name="description" content="">
+		<meta name="description" content="Salut moi c'est Emile, jeune front-end developpeur qui a pas peur de nouvelles expériences, notament dans le back-end et ">
 		<meta name="author" content="Emile Duval">
+		<meta name="keywords" content="HTML, CSS, JS, Javascript, Front-end, ESIAJ, HEAJ, Emile, Duval, Stage, Developpeur, Web, albert, jacquard, DWM, Back-end, PHP, jQuery, développement">
+		<meta name="robots" content="INDEX">												
 		<meta name="viewport" content="width=device-width">
 
 		<link href="assets/favicon.ico" rel="shortcut icon">
 		<link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
 
-		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Gentium+Book+Basic:400,700italic,700,400italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic|Gentium+Book+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href="assets/css/hugrid.css" rel="stylesheet" type="text/css">
 		
         <!-- Hammer reload -->
@@ -48,16 +50,16 @@
 	<body class="home">
 <header role="banner" class="header">
 	<canvas></canvas>
-		<h1 class="title">Emile Duval</h1>
-    <p>Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
+		<h1 class="header-title">Emile Duval</h1>
+    <p class="header-subtitle">Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
 </header>
-<main>
-  <section>
+<main role="main" class="main">
+  <section class="about-container">
     <div class="wrapper">
 			<div class="col-s-12 col-m-12 col-l-8 col-l-center">
 				<h2 class="subtitle">Vous cherchez un développeur ?</h2>
-				<strong>Ça tombe bien, je cherche un stage dans le développement web.</strong>
-				<p>J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
+				<strong class="subsubtitle">Ça tombe bien, je cherche un stage dans le développement web.</strong>
+				<p class="returnParag">J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
 				<p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
 			</div>
     </div>
@@ -65,51 +67,57 @@
   <section class="projets-container">
     <div class="wrapper">
       <h2 class="subtitle col-s-12 col-m-12 col-l-8 col-l-center">La façon dont je travaille </h2>
-			<article class="projets">
-				<h3 class="projets-title">Lazy Lunch</h3>
-				<img class="projets-thumb" src="" alt="" width="" height="" />
-				<div class="projets-desc">
+			<article class="projet">
+				<h3 class="projet-title col-s-12 col-m-12 col-l-6">Lazy Lunch</h3>
+				<div class="projet-thumb-container col-s-12 col-m-12 col-l-6">
+					<img class="projet-thumb" src="assets/img/Lazy_Lunch.png" alt="Mise en situation Projet Lazy Lunch" width="468" height="432" />
+				</div>
+				<div class="projet-desc col-s-12 col-m-12 col-l-6">
 					<p>Mobile web application développer dans un cadre pedagogique.</p>
 					<p>L'application à pour but d'offrir les services proposé à la cafétéria de l'ESIAJ mias en ligne.</p>
-					<p>Elle permet donc de consulté le menu, vérifié le budget sur votre carte, commander, voter pour la suggestion de la semaine suivante, savoir quand aller faire la file.</p>
+					<p class="returnParag">Elle permet donc de consulté le menu, vérifié le budget sur votre carte, commander, voter pour la suggestion de la semaine suivante, savoir quand aller faire la file.</p>
 					<p>Développé grâce à jQuery, Hammer.js</p>
 				</div>
-				<a href="">Comprendre mes choix</a>
+				<a class="btn col-s-12 col-m-6 col-l-3" href="">Comprendre mes choix</a>
 			</article>
-			<article class="projets">
-				<h3 class="projets-title">DW'M'Twitter</h3>
-				<img class="projets-thumb" src="" alt="" width="" height="" />
-				<div class="projets-desc">
+			<article class="projet">
+				<h3 class="projet-title col-s-12 col-m-12 col-l-6">DW'M'Twitter</h3>
+				<div class="projet-thumb-container col-s-12 col-m-12 col-l-6">
+					<img class="projet-thumb" src="assets/img/DW'M'Twitter.png" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432" />
+				</div>
+				<div class="projet-desc">
 					<p>Datavisualisation développé dans un cadre pédagogique.</p>
-					<p>Le but étant de présenter les resultat d’une étude mener sur l’utilisation de twitter par les élèves de DWM de l’ESIAJ. Et de montrer l’impact de ce derniers sur leurs résultats de fin d’année.</p>
+					<p class="returnParag">Le but étant de présenter les resultat d’une étude mener sur l’utilisation de twitter par les élèves de DWM de l’ESIAJ. Et de montrer l’impact de ce derniers sur leurs résultats de fin d’année.</p>
 					<p>Développé grâce à jQuery, D3.js, SVG, Waypoint.js, JSON</p>
 				</div>
-				<a href="">Comprendre mes choix</a>
+				<a class="btn col-s-12 col-m-6 col-l-3" href="">Comprendre mes choix</a>
 			</article>
-			<article class="projets">
-				<h3 class="projets-title">Writte in Particule</h3>
-				<img class="projets-thumb" src="" alt="" width="" height="" />
-				<div class="projets-desc">
+			<article class="projet">
+				<h3 class="projet-title col-s-12 col-m-12 col-l-6">Writte in Particule</h3>
+				<div class="projet-thumb-container col-s-12 col-m-12 col-l-6">
+					<img class="projet-thumb" src="assets/img/DW'M'Twitter.png" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432" />
+				</div>
+				<div class="projet-desc col-s-12 col-m-12 col-l-6">
 					<p>Plugin jQuery développé pour un projet personnel.</p>
-					<p>Ce plugin a pour but d'intégrer facilement un système de particule sur votre site. Et de pouvoir écrire avec ces particules.</p>
+					<p class="returnParag">Ce plugin a pour but d'intégrer facilement un système de particule sur votre site. Et de pouvoir écrire avec ces particules.</p>
 					<p>Développé grâce à jQuery</p>
 				</div>
-				<a href="">Comprendre mes choix</a>
+				<a class="btn col-s-12 col-m-6 col-l-3" href="">Comprendre mes choix</a>
 			</article>	
     </div>
   </section>
 </main>
-<footer>
+<footer class="footer" role="contentinfo">
 	<div class="wrapper">
 		<h2 class="subtitle">On se contacte ?</h2>
-		<form method="post" action="traitement.php">
+		<form method="post" action="traitement.php" role="form" >
 			<p>Salut Emile, je m'apelle</p>
 			<input type="text" placeholder="ton nom"/>
 			<p> et mon mail est</p>
 			<input type="email" placeholder="ton email"/>
 			<p>Je voulais te dire que</p>
 			<textarea>ton message.</textarea>
-			<input type="submit" value="Envoyer"/>
+			<input class="btn col-s-12 col-m-6 col-l-3" type="submit" value="Envoyer"/>
 		</form>
 		<h2>Et sinon je suis actif là-bas</h2>
 		<ul class="social-list">

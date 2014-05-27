@@ -1,0 +1,44 @@
+.title{
+	
+}
+.subtitle{
+	margin: 0 auto 3rem auto;
+	position: relative;
+	padding: 0;
+	padding-top: 6rem;
+}
+
+.subsubtitle{
+	display: block;
+	position: relative;
+	top: -9px;
+	margin-bottom: 1.5rem;
+}
+
+main p{
+	position: relative;
+	top: -9px;
+}
+
+.col-l-center {
+	position: relative;
+	left: 2px;
+}
+
+.about-container{
+	p:last-child{
+		margin-bottom: 3rem;
+	}
+	.subtitle{
+		margin-bottom: 1.5rem;
+	}
+	.subsubtitle{
+		margin-bottom: 3rem;	
+	}
+}
+
+.projets-container{
+	.subtitle{
+		margin: -3rem auto 7.5rem auto;
+	}
+}

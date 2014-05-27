@@ -24,7 +24,7 @@
 	
 	definegrid = function() {
 		var browserWidth = $(window).width(); 
-		if (browserWidth >= 1024) 
+		if (browserWidth >= 1025) 
 		{
 			pageUnits = 'px';
 			colUnits = 'px';
@@ -32,22 +32,22 @@
 			columns = 12;
 			columnwidth = 55.25;
 			gutterwidth = 27;
-			pagetopmargin = 0;
+			pagetopmargin = 27;
 			rowheight = 27;
-			gridonload = 'on';
+			gridonload = 'on',
 			makehugrid();
 		} 
-		if (browserWidth <= 1023) 
+		if (browserWidth <= 1024) 
 		{
 			pageUnits = '%';
 			colUnits = '%';
 			pagewidth = 94;
-			columns = 6;
+			columns = 2;
 			columnwidth = 48;
 			gutterwidth = 4;
-			pagetopmargin = 35;
-			rowheight = 20;
-			gridonload = 'on';
+			pagetopmargin = 27;
+			rowheight = 27;
+			gridonload = 'on',
 			makehugrid();
 		}
 		if (browserWidth <= 640) 
@@ -58,9 +58,9 @@
 			columns = 2;
 			columnwidth = 49;
 			gutterwidth = 2;
-			pagetopmargin = 35;
-			rowheight = 20;
-			gridonload = 'on';
+			pagetopmargin = 27;
+			rowheight = 27;
+			gridonload = 'on',
 			makehugrid();
 		}
 	}
@@ -70,7 +70,18 @@
 		SHORT_NAME.init();
 		
 		definegrid();
-		setgridonload();  
+		setgridonload(); 
+		
+		var $headerHeight = $('.header').height();
+//		var $titleOffset = $('.header .header-title').offset();
+//		var $subtitleOffset = $('.header .header-subtitle').offset();
+//		if ( $headerHeight % 27 != 0 ){
+//			$('.header').height(Math.ceil($headerHeight / 27) * 27);
+//			title = Math.floor($titleOffset / 27) * 27;
+//			subtitle = Math.floor($subtitleOffset / 27) * 27
+//			$('.header .header-title').offset({top: title, left: $titleOffset.left});
+//			$('.header .header-subtitle').offset({top: subtitle, left: $subtitleOffset.left});
+//		}
 			
 	});//close document ready
 	

@@ -116,6 +116,9 @@ or wrap each row of columns in a @include row */
 .f-color2 {
   color: #272727; }
 
+.returnParag {
+  margin-bottom: 1.5rem; }
+
 /* =Wordpress alignment
 -------------------*/
 .alignleft {
@@ -261,12 +264,12 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.01);
   background: white;
-  line-height: 1.5em; }
+  line-height: 1.5rem; }
 
 h1, h2, h3 {
-  font-family: "Gentium Book Basic", serif;
+  font-family: "PT Sans", sans-serif;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.5em;
   font-stretch: normal; }
 
@@ -277,7 +280,7 @@ h2 {
   font-size: 2.25em; }
 
 h3 {
-  font-size: 1em; }
+  font-size: 1.5em; }
 
 a {
   text-decoration: none; }
@@ -1166,5 +1169,103 @@ em {
   position: relative;
   padding: 0 1.77777777777778rem; }
 
+.home .header {
+  height: 100%;
+  background: #272727;
+  color: white; }
+
+.header-title {
+  position: absolute;
+  left: 1.66666666666667rem;
+  bottom: 6.16666666666667rem; }
+
+.header-subtitle {
+  position: absolute;
+  left: 1.77777777777778rem;
+  bottom: 6.16666666666667rem;
+  margin-bottom: 0; }
+
+.main {
+  position: relative; }
+
+.about-container {
+  background: #f3f3f3;
+  min-height: 30rem; }
+
+.projets-container {
+  background: white;
+  margin-top: -3rem; }
+
+.footer {
+  background: #272727;
+  color: white; }
+
+.btn {
+  display: block;
+  background: #eb7347;
+  height: 3rem;
+  text-align: center;
+  color: white;
+  line-height: 3rem;
+  padding-left: 0;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
 .subtitle {
-  margin-bottom: 27px; }
+  margin: 0 auto 3rem auto;
+  position: relative;
+  padding: 0;
+  padding-top: 6rem; }
+
+.subsubtitle {
+  display: block;
+  position: relative;
+  top: -9px;
+  margin-bottom: 1.5rem; }
+
+main p {
+  position: relative;
+  top: -9px; }
+
+.col-l-center {
+  position: relative;
+  left: 2px; }
+
+.about-container p:last-child {
+  margin-bottom: 3rem; }
+.about-container .subtitle {
+  margin-bottom: 1.5rem; }
+.about-container .subsubtitle {
+  margin-bottom: 3rem; }
+
+.projets-container .subtitle {
+  margin: -3rem auto 7.5rem auto; }
+
+.projet {
+  display: block;
+  min-height: 18rem;
+  margin-bottom: 7.5rem;
+  border: 1px solid black;
+  zoom: 1; }
+  .projet:after {
+    clear: both; }
+  .projet:before, .projet:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0; }
+  .projet .projet-thumb-container {
+    float: right;
+    padding-right: 0;
+    height: auto;
+    display: block; }
+    .projet .projet-thumb-container img {
+      width: 100%;
+      height: auto; }
+  .projet .projet-desc {
+    margin-bottom: 3rem; }
+  .projet .projet-title {
+    margin-bottom: 1.5rem;
+    margin-top: -4px; }
