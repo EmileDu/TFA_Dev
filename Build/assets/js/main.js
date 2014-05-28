@@ -75,13 +75,13 @@
 		var $headerHeight = $('.header').height();
 //		var $titleOffset = $('.header .header-title').offset();
 //		var $subtitleOffset = $('.header .header-subtitle').offset();
-//		if ( $headerHeight % 27 != 0 ){
-//			$('.header').height(Math.ceil($headerHeight / 27) * 27);
+		if ( $headerHeight % 27 != 0 ){
+			$('.header').height(Math.ceil($headerHeight / 27) * 27);
 //			title = Math.floor($titleOffset / 27) * 27;
 //			subtitle = Math.floor($subtitleOffset / 27) * 27
 //			$('.header .header-title').offset({top: title, left: $titleOffset.left});
 //			$('.header .header-subtitle').offset({top: subtitle, left: $subtitleOffset.left});
-//		}
+		}
 			
 	});//close document ready
 	

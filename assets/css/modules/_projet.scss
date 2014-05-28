@@ -1,25 +1,20 @@
-.projet{
-	display: block;
-	min-height: 18rem;
-	margin-bottom: 7.5rem;
-	border: 1px solid black;
-	@include clearfix;
-	.projet-thumb-container{
-		float: right;
-		padding-right: 0;
-		height: auto;
-		display: block;
-		img{
-			width: 100%;
-			height: auto;
-		}
-	}
-	.projet-desc{
-		margin-bottom: 3rem;	
-	}
-	.projet-title{
-		margin-bottom: 1.5rem;	
-		margin-top: -4px;
-	}
+.case-preview{
+  @include clearfix;  
+  margin-bottom: 7.5rem;
+  .case-preview--title{
+
+  }
+  .case-preview--thumb-container{
+    width: auto;
+    float: right;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .case-preview--description{
+
+  }
+
 }
 

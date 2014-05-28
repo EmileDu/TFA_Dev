@@ -1,13 +1,13 @@
 .main{
-	position: relative;
+
 }
 
 .about-container{
-	background: lighten($color2, 80%);
-	min-height: 30rem; 
+  background: lighten($color2, 80%);
+  padding: 4.5rem 0;
 }
 
 .projets-container{
-	background: lighten($color2, 90%);
-	margin-top: -3rem;
+  background: lighten($color2, 90%);
+
 }

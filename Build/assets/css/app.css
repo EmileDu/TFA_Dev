@@ -206,9 +206,6 @@ table {
   margin: 0 auto;
   padding: 0 1.77777777777778rem; }
 
-.center {
-  text-align: center; }
-
 /* Typography
 ----------------------------------------- */
 html,
@@ -1167,7 +1164,6 @@ em {
 /* Layout */
 .header {
   position: relative;
-  height: 100%;
   padding: 0 1.77777777777778rem; }
 
 .home .header {
@@ -1175,31 +1171,17 @@ em {
   background: #272727;
   color: white; }
 
-.header-title {
-  position: absolute;
-  left: 1.66666666666667rem;
-  bottom: 6.16666666666667rem; }
-
-.header-subtitle {
-  position: absolute;
-  left: 1.77777777777778rem;
-  bottom: 6.16666666666667rem;
-  margin-bottom: 0; }
-
-.main {
-  position: relative; }
-
 .about-container {
   background: #f3f3f3;
-  min-height: 30rem; }
+  padding: 4.5rem 0; }
 
 .projets-container {
-  background: white;
-  margin-top: -3rem; }
+  background: white; }
 
 .footer {
   background: #272727;
-  color: white; }
+  color: white;
+  margin-bottom: 0; }
 
 .btn {
   display: block;
@@ -1212,61 +1194,21 @@ em {
   -moz-border-radius: 3px;
   border-radius: 3px; }
 
-.subtitle {
-  margin: 0 auto 3rem auto;
-  position: relative;
-  padding: 0;
-  padding-top: 6rem; }
-
-.subsubtitle {
-  display: block;
-  position: relative;
-  top: -9px;
-  margin-bottom: 1.5rem; }
-
-main p {
-  position: relative;
-  top: -9px; }
-
-.col-l-center {
-  position: relative;
-  left: 2px; }
-
-.about-container p:last-child {
-  margin-bottom: 3rem; }
-.about-container .subtitle {
-  margin-bottom: 1.5rem; }
-.about-container .subsubtitle {
-  margin-bottom: 3rem; }
-
-.projets-container .subtitle {
-  margin: -3rem auto 7.5rem auto; }
-
-.projet {
-  display: block;
-  min-height: 18rem;
-  margin-bottom: 7.5rem;
-  border: 1px solid black;
-  zoom: 1; }
-  .projet:after {
+.case-preview {
+  zoom: 1;
+  margin-bottom: 7.5rem; }
+  .case-preview:after {
     clear: both; }
-  .projet:before, .projet:after {
+  .case-preview:before, .case-preview:after {
     content: '\0020';
     display: block;
     overflow: hidden;
     visibility: hidden;
     width: 0;
     height: 0; }
-  .projet .projet-thumb-container {
-    float: right;
-    padding-right: 0;
-    height: auto;
-    display: block; }
-    .projet .projet-thumb-container img {
+  .case-preview .case-preview--thumb-container {
+    width: auto;
+    float: right; }
+    .case-preview .case-preview--thumb-container img {
       width: 100%;
       height: auto; }
-  .projet .projet-desc {
-    margin-bottom: 3rem; }
-  .projet .projet-title {
-    margin-bottom: 1.5rem;
-    margin-top: -4px; }

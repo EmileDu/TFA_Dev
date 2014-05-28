@@ -1,23 +1,17 @@
 .header{
-	position: relative;
-	height: 100%;
-	padding: 0 1.77777777777778rem;
+  position: relative;
+  padding: 0 1.77777777777778rem;
 }
 
 .home .header{
-	height: 100%;
-	background: $color2;
-	color: $color1;
+  height: 100%;
+  background: $color2;
+  color: $color1;
 }
 
 .header-title{
-	position: absolute;
-	left: 1.66666666666667rem;
-	bottom: 6.16666666666667rem;
+  
 }
 .header-subtitle{
-	position: absolute;	
-	left: 1.77777777777778rem;
-	bottom: 6.16666666666667rem;
-	margin-bottom: 0;
+  
 }
