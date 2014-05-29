@@ -35,15 +35,11 @@
 	padding-left: 5px;
 	vertical-align:baseline;
 	line-height: 1.5rem;
-	width: 15.77777777777778rem;
-}
-
-.contact-form-input--email{
-	width: 19.38888888888889rem;
+	width: 100%;
 }
 
 .contact-form-input--message{
-	width: 26rem;;
+	width: 100%;
 	resize: none;
 	height: 7.5rem;
 	padding: 0 0.11111111111111rem;
@@ -60,6 +56,7 @@
 
 .contact-form-input--submit{
 	@include box-sizing(border-box);
+	width: 100%;
 	margin-top: -21px;
 	margin-bottom: 3rem;
 	height: 3rem;
@@ -69,5 +66,22 @@
 	&:hover{
 		background: transparent;
 		border: 1px solid $color3;
+	}
+}
+
+@media only screen and (min-width: $width-desktop){
+	.contact-form-input--name{
+		width: 15.77777777777778rem;
+	}
+	.contact-form-input--email{
+		width: 19.38888888888889rem;
+	}
+	
+	.contact-form-input--message{
+		width: 26rem;
+	}
+	
+	.contact-form-input--submit{
+		width: 12.20833333333333rem;
 	}
 }

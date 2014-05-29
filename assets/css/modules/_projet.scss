@@ -1,36 +1,70 @@
 .case-preview{
   @include clearfix;  
-	padding: 4.5rem 0;
-	height: 33rem;
+	padding: 4.5rem 0 4.83333333333333rem 0;
+	min-height: 33rem;
 }
-
 .case-preview--title{
-	width: 50%;
+	width: 100%;
 	float: left;
-	padding-right:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
 	margin-bottom: 1.5rem;
-	margin-top: -0.22222222222222rem;
+	margin-top: -0.55555555555556rem;
+	text-align: center;
 }
 
 .case-preview--thumb-container{
-	width: 50%;
+	width: 100%;
+	min-height: 13.5rem;
 	max-height: 24rem;
+	margin-bottom: 1.94444444444444rem;
+	margin-top: -10px;
 	float: right;
 	img{
 		width: 100%;
 		height: auto;
+		margin: 0;
 	}
 }
 
 .case-preview--description{
-	width: 50%;
+	width: 100%;
 	float: left;
-	padding-right: (($base-size * $ratio) / 2) * 0.05555555555556rem;
 	margin-bottom: 3rem;
 	margin-top: -0.11111111111111rem;
 }
 
 .case-preview--link{
 	float: left;
-	margin-top: -0.38888888888889rem;
+	width: 100%;
+	margin: -0.38888888888889rem auto 0 auto;
+	
+}
+
+@media only screen and (min-width: $width-desktop){
+	.case-preview{
+		padding: 4.5rem 0;
+	}
+	.case-preview--title{
+		width: 50%;
+		padding-right:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
+		text-align: left;
+		margin-top: -0.22222222222222rem;
+	}
+	
+	.case-preview--thumb-container{
+		width: 50%;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	
+	.case-preview--description{
+		width: 50%;
+		height: auto;
+		padding-right: (($base-size * $ratio) / 2) * 0.05555555555556rem;
+	}
+	
+	.case-preview--link{
+		width: 12.20833333333333rem;
+		margin-left: 0;
+		margin-right: 0;
+	}
 }

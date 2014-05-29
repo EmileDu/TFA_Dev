@@ -9,17 +9,13 @@
 }
 .contact-form-container{
 	float: left;
-	width: 50%;
-	padding-right:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
+	width: 100%;
 }
 .social-list-container{
 	float: right;
-	width: 50%;
-	padding-left:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
+	width: 100%;
 	@include clearfix();
-	.subtitle{
-			
-	}
+	margin-top: 5px;
 }
 
 .legal-mention{
@@ -35,5 +31,17 @@
 		&:hover{
 			color: $color3;	
 		}
+	}
+}
+
+@media only screen and(min-width: $width-desktop){
+	.contact-form-container{
+		width: 50%;
+		padding-right:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
+	}
+	.social-list-container{
+		width: 50%;
+		padding-left:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
+		margin-top: 0;
 	}
 }

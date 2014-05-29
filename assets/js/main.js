@@ -34,34 +34,34 @@
 			gutterwidth = 27;
 			pagetopmargin = 27;
 			rowheight = 27;
-			gridonload = 'off',
+			gridonload = 'on',
 			makehugrid();
 		} 
-		if (browserWidth <= 1024) 
+		if (browserWidth <= 1000) 
 		{
-			pageUnits = '%';
-			colUnits = '%';
-			pagewidth = 94;
-			columns = 2;
-			columnwidth = 48;
-			gutterwidth = 4;
-			pagetopmargin = 27;
-			rowheight = 27;
-			gridonload = 'off',
-			makehugrid();
+				pageUnits = '%';
+				colUnits = '%';
+				pagewidth = 92;
+				columns = 2;
+				columnwidth = 47;
+				gutterwidth = 6;
+				pagetopmargin = 27;
+				rowheight = 27;
+				gridonload = 'on';
+				makehugrid();
 		}
-		if (browserWidth <= 640) 
+		if (browserWidth <= 768) 
 		{
-			pageUnits = '%';
-			colUnits = '%';
-			pagewidth = 96;
-			columns = 2;
-			columnwidth = 49;
-			gutterwidth = 2;
-			pagetopmargin = 27;
-			rowheight = 27;
-			gridonload = 'off',
-			makehugrid();
+				pageUnits = '%';
+				colUnits = '%';
+				pagewidth = 92;
+				columns = 2;
+				columnwidth = 47;
+				gutterwidth = 6;
+				pagetopmargin = 27;
+				rowheight = 27;
+				gridonload = 'on';
+				makehugrid();
 		}
 	}
 

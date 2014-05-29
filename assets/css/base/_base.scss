@@ -2,6 +2,11 @@
 	display: block;
 	max-width: $width-desktop;
 	margin: 0 auto;
-	padding: 0 1.77777777777778rem;
+	padding: 0 4%;
 	@include clearfix();
+}
+@media only screen and (min-width: $width-desktop){
+	.wrapper{
+		padding: 0 1.77777777777778rem;
+	}
 }

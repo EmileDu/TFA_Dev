@@ -2,7 +2,7 @@
   display: block;
   background: $color3;
   height: 3rem;
-	width: 12.20833333333333rem;
+	width: 100%;
   text-align: center;
   color: $color1;
   line-height: 3rem;
@@ -14,5 +14,17 @@
 		color: $color3;
 		background: transparent;
 		border-width: 1px;
+	}
+}
+
+@media only screen and (min-width: $width-tablet){
+	.btn{
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width: $width-desktop){
+	.btn{
+		width: 12.20833333333333rem;
 	}
 }
