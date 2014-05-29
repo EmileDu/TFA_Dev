@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
@@ -118,6 +118,7 @@
 </main>
 <footer class="footer" role="contentinfo">
 	<div class="wrapper">
+		<div class="contact-form-container">
       <h2 class="subtitle">On se contacte ?</h2>
       <form class="contact-form" method="post" action="traitement.php" role="form" >
         <p>
@@ -136,16 +137,61 @@
         	<input class=" btn" type="submit" value="Envoyer"/>
 				</div>
       </form>
-      <h2>Et sinon je suis actif là-bas</h2>
+		</div>
+		<div class="social-list-container">
+      <h2 class="subtitle">Et sinon je suis actif là-bas</h2>
       <ul class="social-list">
-          <li class="social-list-item"><a href="mailto:bonjour@emileduval.be">Mail</a></li>
-          <li class="social-list-item"><a href="mailto:bonjour@emileduval.be">Twitter</a></li>
-          <li class="social-list-item"><a href="mailto:bonjour@emileduval.be">Google+</a></li>
-          <li class="social-list-item"><a href="mailto:bonjour@emileduval.be">Github</a></li>
-          <li class="social-list-item"><a href="mailto:bonjour@emileduval.be">Codepen</a></li>
-          <li class="social-list-item"><a href="mailto:bonjour@emileduval.be">LinkedIn</a></li>
-      </ul>
-      <small>@ Emile Duval 2014 - Tous droit réservé - <a href="http://dwm.re/">DWM</a> - <a href="http://www.infographie-sup.be/">ESIAJ</a> - Grille</small>
+          <li class="social-list-item">
+						<a href="mailto:bonjour@emileduval.be">
+							<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+								<use xlink:href="assets/img/sprites.svg#icon-mail"></use>
+							</svg>
+							<span class="social-list-item--name">Mail</span>
+						</a>
+					</li>
+          <li class="social-list-item">
+						<a href="https://twitter.com/Emile_D_" target="_blank">
+							<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+								<use xlink:href="assets/img/sprites.svg#icon-twitter"></use>
+							</svg>
+							<span class="social-list-item--name">Twitter</span>
+						</a>
+					</li>          
+          <li class="social-list-item">
+						<a href="https://plus.google.com/u/0/100374744664485436800/posts" target="_blank">
+							<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+								<use xlink:href="assets/img/sprites.svg#icon-googleplus"></use>
+							</svg>
+							<span class="social-list-item--name">Google +</span>
+						</a>
+					</li>
+          <li class="social-list-item">
+						<a href="https://github.com/EmileDu" target="_blank">
+							<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+								<use xlink:href="assets/img/sprites.svg#icon-github"></use>
+							</svg>
+							<span class="social-list-item--name">Github</span>
+						</a>
+					</li>
+          <li class="social-list-item">
+						<a href="http://codepen.io/Emile_D/" target="_blank">
+							<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+								<use xlink:href="assets/img/sprites.svg#icon-codepen"></use>
+							</svg>
+							<span class="social-list-item--name">Codepen</span>
+						</a>
+					</li>
+          <li class="social-list-item">
+						<a href="https://www.linkedin.com/profile/view?id=333895220" target="_blank">
+							<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+								<use xlink:href="assets/img/sprites.svg#icon-linkedin"></use>
+							</svg>
+							<span class="social-list-item--name">LinkedIn</span>
+						</a>
+					</li>
+			</ul>
+		</div>
+      <small class="legal-mention">@ Emile Duval 2014 - Tous droit réservé - <a href="">Politique de confidentialité</a> - <a href="http://dwm.re/">DWM</a> - <a href="http://www.infographie-sup.be/">ESIAJ</a></small>
 	</div>
 </footer>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

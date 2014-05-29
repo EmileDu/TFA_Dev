@@ -35,21 +35,21 @@
 	padding-left: 5px;
 	vertical-align:baseline;
 	line-height: 1.5rem;
-	width: 284px;
+	width: 15.77777777777778rem;
 }
 
 .contact-form-input--email{
-	width: 349px;
+	width: 19.38888888888889rem;
 }
 
 .contact-form-input--message{
-	width: 25.91666666666667rem;
+	width: 26rem;;
 	resize: none;
 	height: 7.5rem;
-	padding: 0;
+	padding: 0 0.11111111111111rem;
 	line-height: 1.5rem;
 	text-indent: 9.13888888888889rem;
-	margin-left: -8.88888888888889rem;
+	margin-left: -8.83333333333333rem;
 	margin-bottom: 3rem;
 }
 .start-message{
@@ -59,6 +59,15 @@
 }
 
 .contact-form-input--submit{
-	margin-top: -20px;
+	@include box-sizing(border-box);
+	margin-top: -21px;
 	margin-bottom: 3rem;
+	height: 3rem;
+	.btn{
+		padding: 0;
+	}
+	&:hover{
+		background: transparent;
+		border: 1px solid $color3;
+	}
 }

@@ -34,7 +34,7 @@
 			gutterwidth = 27;
 			pagetopmargin = 27;
 			rowheight = 27;
-			gridonload = 'on',
+			gridonload = 'off',
 			makehugrid();
 		} 
 		if (browserWidth <= 1024) 
