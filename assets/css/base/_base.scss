@@ -5,6 +5,13 @@
 	padding: 0 4%;
 	@include clearfix();
 }
+
+@media only screen and (min-width: $width-tablet){
+	.wrapper{
+		padding: 0 4%;
+	}
+}
+
 @media only screen and (min-width: $width-desktop){
 	.wrapper{
 		padding: 0 1.77777777777778rem;

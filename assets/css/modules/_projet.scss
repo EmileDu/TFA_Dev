@@ -5,7 +5,6 @@
 }
 .case-preview--title{
 	width: 100%;
-	float: left;
 	margin-bottom: 1.5rem;
 	margin-top: -0.55555555555556rem;
 	text-align: center;
@@ -17,7 +16,6 @@
 	max-height: 24rem;
 	margin-bottom: 1.94444444444444rem;
 	margin-top: -10px;
-	float: right;
 	img{
 		width: 100%;
 		height: auto;
@@ -27,16 +25,36 @@
 
 .case-preview--description{
 	width: 100%;
-	float: left;
 	margin-bottom: 3rem;
 	margin-top: -0.11111111111111rem;
 }
 
 .case-preview--link{
-	float: left;
 	width: 100%;
 	margin: -0.38888888888889rem auto 0 auto;
-	
+}
+
+@media only screen and (min-width: $width-tablet){
+
+	.case-preview--thumb-container{
+		width: 66%;
+		margin-left: auto;
+		margin-right: auto;
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.case-preview--description{
+		width: 66%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.case-preview--link{
+		width: 66%;
+	}
 }
 
 @media only screen and (min-width: $width-desktop){
@@ -45,6 +63,7 @@
 	}
 	.case-preview--title{
 		width: 50%;
+		float: left;
 		padding-right:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
 		text-align: left;
 		margin-top: -0.22222222222222rem;
@@ -54,15 +73,18 @@
 		width: 50%;
 		margin-bottom: 0;
 		margin-top: 0;
+		float: right;
 	}
 	
 	.case-preview--description{
 		width: 50%;
 		height: auto;
+		float: left;
 		padding-right: (($base-size * $ratio) / 2) * 0.05555555555556rem;
 	}
 	
 	.case-preview--link{
+		float: left;
 		width: 12.20833333333333rem;
 		margin-left: 0;
 		margin-right: 0;

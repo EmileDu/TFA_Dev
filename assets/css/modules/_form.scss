@@ -1,5 +1,5 @@
 .contact-form{
-	margin-top: -.44444444444444rem;
+	margin-top: -4px;
 }
 
 .contact-form-input{
@@ -69,7 +69,14 @@
 	}
 }
 
+@media only screen and (min-width: $width-tablet){
+
+}
+
 @media only screen and (min-width: $width-desktop){
+	.contact-form{
+		margin-top: -6px;
+	}
 	.contact-form-input--name{
 		width: 15.77777777777778rem;
 	}

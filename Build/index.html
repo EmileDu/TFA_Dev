@@ -18,32 +18,8 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href="assets/css/hugrid.css" rel="stylesheet" type="text/css">
-		
-        <!-- Hammer reload -->
-          <script>
-            setInterval(function(){
-              try {
-                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
-                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
-                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
-                ws.onmessage = function(){
-                  var links = document.getElementsByTagName('link'); 
-                    for (var i = 0; i < links.length;i++) { 
-                    var link = links[i]; 
-                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
-                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
-                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
-                    }
-                  }
-                }
-              }catch(e){}
-            }, 1000)
-          </script>
-        <!-- /Hammer reload -->
-      
 		<link rel='stylesheet' href='assets/css/app.css'>
 		<script src="assets/libs/modernizr.2.8.1.min.js"></script>
-<!--		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>s-->
 	</head>
 	<body class="home">
 <header role="banner" class="header">
@@ -139,7 +115,7 @@
       </form>
 		</div>
 		<div class="social-list-container">
-      <h2 class="subtitle">Et sinon je suis actif là-bas</h2>
+      <h2 class="subtitle">Et sinon je suis actif ici</h2>
       <ul class="social-list">
           <li class="social-list-item">
 						<a href="mailto:bonjour@emileduval.be">

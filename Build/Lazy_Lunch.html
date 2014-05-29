@@ -18,43 +18,19 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href="assets/css/hugrid.css" rel="stylesheet" type="text/css">
-		
-        <!-- Hammer reload -->
-          <script>
-            setInterval(function(){
-              try {
-                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
-                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
-                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
-                ws.onmessage = function(){
-                  var links = document.getElementsByTagName('link'); 
-                    for (var i = 0; i < links.length;i++) { 
-                    var link = links[i]; 
-                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
-                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
-                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
-                    }
-                  }
-                }
-              }catch(e){}
-            }, 1000)
-          </script>
-        <!-- /Hammer reload -->
-      
 		<link rel='stylesheet' href='assets/css/app.css'>
 		<script src="assets/libs/modernizr.2.8.1.min.js"></script>
-<!--		<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>s-->
 	</head>
-	<body class="projectCaseStudy">
-<header role="banner" class="center">
+	<body class="case-study--Lazy-Lunch">
+<header role="banner" class="header case-study--header">
 	<div class="wrapper">
 		<h1 class="title">Lazy Lunch</h1>
     <p>Une  nouvelle façon de manger à la cafétéria</p>
 	</div>
 </header>
-<main role="main">
+<main role="main" class="case-study--content">
 	<div class="wrapper">
-		<div class="col-s-12 col-m-12 col-l-8 col-l-center">
+		<div class="container">
 			<h2 class="subtitle">Introduction</h2>
 			<p>La demande est simple</p>
 			<p>Réalisation d’un web application mobile pour une cafétéria en ligne, afin de comprendre les enjeux lié au web mobile.</p>

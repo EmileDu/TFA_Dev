@@ -37,31 +37,31 @@
 			gridonload = 'on',
 			makehugrid();
 		} 
-		if (browserWidth <= 1000) 
+		if (browserWidth <= 1024) 
 		{
-				pageUnits = '%';
-				colUnits = '%';
-				pagewidth = 92;
-				columns = 2;
-				columnwidth = 47;
-				gutterwidth = 6;
-				pagetopmargin = 27;
-				rowheight = 27;
-				gridonload = 'on';
-				makehugrid();
+			pageUnits = '%';
+			colUnits = '%';
+			pagewidth = 92;
+			columns = 6;
+			columnwidth = 15;
+			gutterwidth = 2;
+			pagetopmargin = 27;
+			rowheight = 27;
+			gridonload = 'on';
+			makehugrid();
 		}
-		if (browserWidth <= 768) 
+		if (browserWidth <= 640) 
 		{
-				pageUnits = '%';
-				colUnits = '%';
-				pagewidth = 92;
-				columns = 2;
-				columnwidth = 47;
-				gutterwidth = 6;
-				pagetopmargin = 27;
-				rowheight = 27;
-				gridonload = 'on';
-				makehugrid();
+			pageUnits = '%';
+			colUnits = '%';
+			pagewidth = 92;
+			columns = 2;
+			columnwidth = 47;
+			gutterwidth = 6;
+			pagetopmargin = 27;
+			rowheight = 27;
+			gridonload = 'on';
+			makehugrid();
 		}
 	}
 
@@ -86,7 +86,7 @@
 	});//close document ready
 	
 	$(window).resize(function() {
-		
+		console.log('resize');
 		definegrid();
 		setgridonresize();
 		
