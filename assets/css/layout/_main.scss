@@ -3,11 +3,16 @@
 }
 
 .about-container{
-  background: lighten($color2, 80%);
   padding: 4.5rem 0;
+	height: 27rem;
+	.container{
+		width: 65.625%;
+		margin: 0 auto;
+	}
 }
 
-.projets-container{
-  background: lighten($color2, 90%);
-
+.case-study{
+//	.case-preview:nth-child(odd){
+//		background: darken($color1, 5%);	
+//	}
 }

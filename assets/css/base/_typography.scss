@@ -92,8 +92,12 @@ p { }
 
 small, .font_small {font-size: 0.667em;}
 
-strong { font-weight: bold; }
+strong { font-weight: bold;}
 
 em { font-style: italic; }
 
 .center{ text-align: center; }
+
+textarea, input{
+	font-family: $content-font ;
+}

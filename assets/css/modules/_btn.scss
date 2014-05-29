@@ -1,10 +1,20 @@
 .btn{
   display: block;
   background: $color3;
-  height: 3rem;
+  height: 2.83333333333333rem;
+	width: 219.75px;
   text-align: center;
   color: $color1;
-  line-height: 3rem;
+  line-height: 2.83333333333333rem;
   padding-left: 0;
   @include border-radius(3px);
+	@include box-shadow(darken($color3, 5%) 0 0.16666666666667rem 0);
+	@include transition(all .2s ease-in-out);
+	&:hover{
+		color: $color3;
+		background: transparent;
+		height: 3rem;
+		@include box-shadow(darken($color3, 5%) 0 0 0);
+		border: 1px solid $color3;
+	}
 }

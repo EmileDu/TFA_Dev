@@ -57,4 +57,23 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+};
+
+textarea, select, input[type="color"],
+input[type="date"], input[type="datetime"],
+input[type="datetime-local"], input[type="email"],
+input[type="month"], input[type="number"],
+input[type="range"], input[type="search"],
+input[type="tel"], input[type="time"],
+input[type="url"], input[type="week"],
+input[type="text"], input[type="file"],
+input[type="hidden"], input[type="radio"],
+input[type="reset"], input[type="submit"],
+input[type="password"], input[type="button"],
+input[type="checkbox"], input[type="image"]{
+	@include appearance(caret);
+	font-size: 1em;
+	line-height:normal;
+	border: none;
+	margin: 0;
 }

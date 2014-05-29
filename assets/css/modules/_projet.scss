@@ -1,20 +1,36 @@
 .case-preview{
   @include clearfix;  
-  margin-bottom: 7.5rem;
-  .case-preview--title{
-
-  }
-  .case-preview--thumb-container{
-    width: auto;
-    float: right;
-    img{
-      width: 100%;
-      height: auto;
-    }
-  }
-  .case-preview--description{
-
-  }
-
+	padding: 4.5rem 0;
+	height: 33rem;
 }
 
+.case-preview--title{
+	width: 50%;
+	float: left;
+	padding-right:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
+	margin-bottom: 1.5rem;
+	margin-top: -0.22222222222222rem;
+}
+
+.case-preview--thumb-container{
+	width: 50%;
+	max-height: 24rem;
+	float: right;
+	img{
+		width: 100%;
+		height: auto;
+	}
+}
+
+.case-preview--description{
+	width: 50%;
+	float: left;
+	padding-right: (($base-size * $ratio) / 2) * 0.05555555555556rem;
+	margin-bottom: 3rem;
+	margin-top: -0.11111111111111rem;
+}
+
+.case-preview--link{
+	float: left;
+	margin-top: -0.38888888888889rem;
+}

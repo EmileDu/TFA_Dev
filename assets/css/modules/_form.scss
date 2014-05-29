@@ -1,0 +1,64 @@
+.contact-form{
+	margin-top: -.44444444444444rem;
+}
+
+.contact-form-input{
+	display: inline-block;
+	background: transparent;
+	color: $color3;
+	@include border-radius(.16666666666667rem);
+	&:hover, &:focus, &:active{
+		background: lighten($color2, 10%);
+		color: $color3;
+	}
+	&::-webkit-input-placeholder{ 
+    color: $color3;
+		text-decoration:underline;
+	}	
+	&:-moz-placeholder{ 
+    color: $color3;
+		text-decoration:underline;
+	}
+	&::-moz-placeholder{ 
+    color: $color3;
+		text-decoration:underline;
+	}	
+	&:-ms-input-placeholder{ 
+    color: $color3;
+		text-decoration:underline;
+	}
+}
+
+.contact-form-input--name, 
+.contact-form-input--email{
+	height: 1.5rem;
+	padding-left: 5px;
+	vertical-align:baseline;
+	line-height: 1.5rem;
+	width: 284px;
+}
+
+.contact-form-input--email{
+	width: 349px;
+}
+
+.contact-form-input--message{
+	width: 25.91666666666667rem;
+	resize: none;
+	height: 7.5rem;
+	padding: 0;
+	line-height: 1.5rem;
+	text-indent: 9.13888888888889rem;
+	margin-left: -8.88888888888889rem;
+	margin-bottom: 3rem;
+}
+.start-message{
+	position: relative;
+	float: left;
+	z-index: 10;
+}
+
+.contact-form-input--submit{
+	margin-top: -20px;
+	margin-bottom: 3rem;
+}
