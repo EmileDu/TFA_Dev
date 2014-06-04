@@ -2,11 +2,25 @@
   @include clearfix;  
 	padding: 4.5rem 0 4.83333333333333rem 0;
 	min-height: 33rem;
+	&:after{
+		content: '';
+		display: block;
+		position: relative;
+		top: 4.5rem;
+		width: 12.20833333333333rem;
+		height: 1.5rem;
+		margin: 0 auto;
+		border-bottom: 1px dotted lighten($color2, 70%);
+		visibility: visible;
+	}
+	&:last-child:after{
+		visibility: hidden;
+	}
 }
 .case-preview--title{
 	width: 100%;
-	margin-bottom: 1.5rem;
-	margin-top: -0.55555555555556rem;
+	margin-bottom: 2.61111111111111rem;
+	margin-top: -1.38888888888889rem;
 	text-align: center;
 }
 
@@ -15,7 +29,7 @@
 	min-height: 13.5rem;
 	max-height: 24rem;
 	margin-bottom: 1.94444444444444rem;
-	margin-top: -10px;
+	margin-top: -0.55555555555556rem;
 	img{
 		width: 100%;
 		height: auto;
@@ -66,7 +80,8 @@
 		float: left;
 		padding-right:  (($base-size * $ratio) / 2) * 0.05555555555556rem;
 		text-align: left;
-		margin-top: -0.22222222222222rem;
+		margin-bottom: 1.11111111111111rem;
+		margin-top: -1rem;
 	}
 	
 	.case-preview--thumb-container{
