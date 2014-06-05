@@ -574,6 +574,34 @@ textarea, input {
     width: 12.20833333333333rem;
     margin-left: 0;
     margin-right: 0; } }
+.case-study--content {
+  padding: 6rem 0; }
+  .case-study--content .subtitle {
+    text-align: center;
+    margin-bottom: 49px; }
+  .case-study--content .subsubtitle {
+    margin-top: -11px;
+    margin-bottom: 24px; }
+
+.case-study--content-section {
+  zoom: 1;
+  margin-bottom: 73px; }
+  .case-study--content-section:after {
+    clear: both; }
+  .case-study--content-section:before, .case-study--content-section:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0; }
+  .case-study--content-section:last-child {
+    margin-bottom: 0; }
+
+.case-study--content-section--image {
+  margin: 74px auto 9px auto;
+  text-align: center; }
+
 .contact-form {
   margin-top: -4px; }
 

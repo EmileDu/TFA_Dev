@@ -1,0 +1,25 @@
+.case-study--content{
+	padding: 6rem 0;
+	.subtitle{
+		text-align: center;	
+		margin-bottom: 49px;
+	}
+	
+	.subsubtitle{
+		margin-top: -11px;
+		margin-bottom: 24px;	
+	}
+}
+
+.case-study--content-section{
+	@include clearfix();
+	margin-bottom: 73px;
+	&:last-child{
+		margin-bottom: 0;	
+	}
+}
+
+.case-study--content-section--image{
+	margin: 74px auto 9px auto;
+	text-align: center;
+}
