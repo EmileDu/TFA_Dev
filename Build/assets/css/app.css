@@ -416,9 +416,9 @@ main[role="main"] {
   -ms-transform: translateX(20px) translateY(60px);
   -o-transform: translateX(20px) translateY(60px);
   transform: translateX(20px) translateY(60px);
-  -webkit-animation: translateBallOne 1000ms infinite ease-in-out alternate both, zindex 2000ms infinite ease-in-out both;
-  -moz-animation: translateBallOne 1000ms infinite ease-in-out alternate both, zindex 2000ms infinite ease-in-out both;
-  animation: translateBallOne 1000ms infinite ease-in-out alternate both, zindex 2000ms infinite ease-in-out both;
+  -webkit-animation: translateBallOne 1000ms infinite ease-in-out alternate backwards, zindex 2000ms infinite ease-in-out backwards;
+  -moz-animation: translateBallOne 1000ms infinite ease-in-out alternate backwards, zindex 2000ms infinite ease-in-out backwards;
+  animation: translateBallOne 1000ms infinite ease-in-out alternate backwards, zindex 2000ms infinite ease-in-out backwards;
   -webkit-animation-delay: 0, -2000ms;
   -moz-animation-delay: 0, -2000ms;
   animation-delay: 0, -2000ms;
@@ -440,9 +440,9 @@ main[role="main"] {
   -ms-transform: scale(0.4);
   -o-transform: scale(0.4);
   transform: scale(0.4);
-  -webkit-animation: scale 1000ms infinite ease-in-out alternate both;
-  -moz-animation: scale 1000ms infinite ease-in-out alternate both;
-  animation: scale 1000ms infinite ease-in-out alternate both;
+  -webkit-animation: scale 1000ms infinite ease-in-out alternate backwards;
+  -moz-animation: scale 1000ms infinite ease-in-out alternate backwards;
+  animation: scale 1000ms infinite ease-in-out alternate backwards;
   -webkit-animation-delay: -500ms;
   -moz-animation-delay: -500ms;
   animation-delay: -500ms;
@@ -537,9 +537,9 @@ main[role="main"] {
   -ms-transform: rotateZ(53deg) translateY(25px);
   -o-transform: rotateZ(53deg) translateY(25px);
   transform: rotateZ(53deg) translateY(25px);
-  -webkit-animation: translateLineOne 1000ms infinite ease-in-out alternate, zindex 2000ms infinite ease-in-out;
-  -moz-animation: translateLineOne 1000ms infinite ease-in-out alternate, zindex 2000ms infinite ease-in-out;
-  animation: translateLineOne 1000ms infinite ease-in-out alternate, zindex 2000ms infinite ease-in-out;
+  -webkit-animation: translateLineOne 1000ms infinite ease-in-out alternate backwards, zindex 2000ms infinite ease-in-out backwards;
+  -moz-animation: translateLineOne 1000ms infinite ease-in-out alternate backwards, zindex 2000ms infinite ease-in-out backwards;
+  animation: translateLineOne 1000ms infinite ease-in-out alternate backwards, zindex 2000ms infinite ease-in-out backwards;
   -webkit-animation-delay: 0, -2000ms;
   -moz-animation-delay: 0, -2000ms;
   animation-delay: 0, -2000ms;

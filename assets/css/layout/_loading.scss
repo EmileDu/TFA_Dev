@@ -17,7 +17,7 @@
 .loading--wrap {
 	position: absolute;
   @include transform(translateX(20px) translateY(60px));
-  @include animation(translateBallOne $duration infinite ease-in-out alternate both, zindex ($duration * 2) infinite ease-in-out both);
+  @include animation(translateBallOne $duration infinite ease-in-out alternate backwards, zindex ($duration * 2) infinite ease-in-out backwards);
   @include animation-delay(0, -$duration * 2);
 	@include transition(all .3s ease-in-out);
 }
@@ -29,7 +29,7 @@
   background-color: $color1;
   @include border-radius(50%);
 	@include transform( scale(1 - $scale_diff));
-  @include animation(scale $duration infinite ease-in-out alternate both);
+  @include animation(scale $duration infinite ease-in-out alternate backwards);
   @include animation-delay(-($duration/2));
 	@include transition(all .3s ease-in-out);
 }
@@ -77,7 +77,7 @@
   background: $color1;
   @include transform-origin(center top);
   @include transform(rotateZ(53deg) translateY(25px));
-  @include animation(translateLineOne $duration infinite ease-in-out alternate, zindex ($duration * 2) infinite ease-in-out);
+  @include animation(translateLineOne $duration infinite ease-in-out alternate backwards, zindex ($duration * 2) infinite ease-in-out backwards);
   @include animation-delay(0, -$duration * 2);
 	@include transition(all .3s ease-in-out);
   &.loading--line--two{
