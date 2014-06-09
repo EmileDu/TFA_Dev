@@ -9,9 +9,9 @@
 <!-- $bodyClass home -->
 <!-- @include _header -->
 <header role="banner" class="header">
-	<canvas></canvas>
-		<h1 class="header-title">Emile Duval</h1>
-    <p class="header-subtitle">Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
+	<canvas class="header--experiment"></canvas>
+	<h1 class="header--title">Emile Duval</h1>
+	<p class="header--subtitle">Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
 </header>
 <main role="main" class="main">
   <section class="about-container">
@@ -40,7 +40,7 @@
             <p>Développé grâce à jQuery, Hammer.js</p>
         </div>
         <div class="case-preview--link">
-            <a class="btn" href="">Comprendre mes choix</a>
+            <a class="btn" href="<!-- @path lazylunch.html -->">Comprendre mes choix</a>
         </div> 
       </div>
     </article>
@@ -56,7 +56,7 @@
             <p>Développé grâce à jQuery, D3.js, SVG, Waypoint.js, JSON</p>
         </div>
         <div class="case-preview--link">
-            <a class="btn" href="">Comprendre mes choix</a>
+            <a class="btn" href="<!-- @path dwmtwitter.html -->">Comprendre mes choix</a>
         </div> 
       </div>
     </article>	
@@ -68,11 +68,11 @@
         <h2 class="subtitle">On se contacte ?</h2>
         <form class="contact-form" method="post" action="traitement.php" role="form" >
           <p>
-            <span>Salut Emile, je m'appelle</span>
+            <span class="start-message">Salut Emile, je m'appelle</span>
             <input class="contact-form-input contact-form-input--name" type="text" name="name" id="name" placeholder="ton nom"/>
           </p>
           <p>
-            <span>Et mon mail est</span>
+            <span class="start-message">Et mon mail est</span>
             <input class="contact-form-input contact-form-input--email" type="email" name="email" id="email" placeholder="ton email"/>
           </p>
           <p>

@@ -1,3 +1,36 @@
+.case-study--header{
+	background: url(CaseStudy--LazyLunch__header.jpg);
+	background-position: center bottom;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 25rem;
+	text-align: center;
+	.wrapper{
+		position: absolute;
+		margin: auto;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 350px;
+	}
+	
+}
+
+.case-study--link{
+	width: 191.5px;
+	margin: 74px auto 0 auto;
+	.btn{
+		background: $color2;
+		&:hover{
+			background: transparent;
+			color: $color2;
+			border-color: $color2;
+		}
+	}
+}
 .case-study--content{
 	padding: 6rem 0;
 	.subtitle{
@@ -6,8 +39,9 @@
 	}
 	
 	.subsubtitle{
-		margin-top: -11px;
-		margin-bottom: 24px;	
+		margin-top: 9px;
+		margin-bottom: 17px;
+		line-height: 3rem;
 	}
 }
 
@@ -20,6 +54,39 @@
 }
 
 .case-study--content-section--image{
+	width: 100%;
 	margin: 74px auto 9px auto;
 	text-align: center;
+	img{
+		width: 100%;
+		height: auto;
+		margin: 0;
+	}
+}
+
+.image--animated_gif{
+	margin-bottom: 61px;
+	img{
+		margin-right: 68.75px;
+		&:last-child{
+			margin-left: 68.75px;
+			margin-right: 0;
+		}
+	}
+}
+
+.image--icon{
+	margin-bottom: 78px;
+}
+
+@media only screen and (min-width: $width-tablet){
+
+}
+
+@media only screen and (min-width: $width-desktop){
+	.case-study--content-section--image{
+		img{
+			width: auto;
+		}
+	}
 }

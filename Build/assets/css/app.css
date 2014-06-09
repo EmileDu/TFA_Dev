@@ -116,9 +116,6 @@ or wrap each row of columns in a @include row */
 .f-color2 {
   color: #272727; }
 
-.returnParag {
-  margin-bottom: 1.5rem; }
-
 /* =Wordpress alignment
 -------------------*/
 .alignleft {
@@ -342,21 +339,27 @@ textarea, input {
 /* Layout */
 .header {
   position: relative;
-  padding: 0 1.77777777777778rem; }
+  padding: 33px 1.77777777777778rem 0 1.77777777777778rem; }
 
 .home .header {
   height: 100%;
   background: #272727;
   color: white; }
 
-.case-study--header {
-  height: 25rem;
-  text-align: center;
-  background: url(../img/CaseStudy--LazyLunch__header.jpg);
-  background-position: center bottom;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover; }
+.header--title {
+  margin-left: -3px;
+  line-height: 4.5rem; }
+
+.header--experiment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+main[role="main"] {
+  background: white;
+  position: relative; }
 
 .about-container {
   background: #e6e6e6;
@@ -455,9 +458,6 @@ textarea, input {
     background: transparent;
     border-width: 1px; }
 
-@media only screen and (min-width: 56.88889em) {
-  .btn {
-    width: 12.20833333333333rem; } }
 .icon {
   display: inline-block;
   width: 1.5rem;
@@ -466,7 +466,9 @@ textarea, input {
   margin-right: .55555555555556rem; }
 
 .title {
-  font-size: 5.0625em; }
+  font-size: 5.0625em;
+  line-height: 6rem;
+  margin-bottom: 10px; }
 
 .subtitle {
   font-size: 2.25em;
@@ -476,6 +478,14 @@ textarea, input {
 .subsubtitle {
   display: block;
   margin: -0.44444444444444rem 0 4.5rem 0; }
+
+.returnParag {
+  display: block;
+  margin-bottom: 1.5rem; }
+
+.italic {
+  font-style: italic;
+  margin-left: 82.25px; }
 
 .case-preview {
   zoom: 1;
@@ -574,14 +584,43 @@ textarea, input {
     width: 12.20833333333333rem;
     margin-left: 0;
     margin-right: 0; } }
+.case-study--header {
+  background: url(../img/CaseStudy--LazyLunch__header.jpg);
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 25rem;
+  text-align: center; }
+  .case-study--header .wrapper {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 350px; }
+
+.case-study--link {
+  width: 191.5px;
+  margin: 74px auto 0 auto; }
+  .case-study--link .btn {
+    background: #272727; }
+    .case-study--link .btn:hover {
+      background: transparent;
+      color: #272727;
+      border-color: #272727; }
+
 .case-study--content {
   padding: 6rem 0; }
   .case-study--content .subtitle {
     text-align: center;
     margin-bottom: 49px; }
   .case-study--content .subsubtitle {
-    margin-top: -11px;
-    margin-bottom: 24px; }
+    margin-top: 9px;
+    margin-bottom: 17px;
+    line-height: 3rem; }
 
 .case-study--content-section {
   zoom: 1;
@@ -599,9 +638,28 @@ textarea, input {
     margin-bottom: 0; }
 
 .case-study--content-section--image {
+  width: 100%;
   margin: 74px auto 9px auto;
   text-align: center; }
+  .case-study--content-section--image img {
+    width: 100%;
+    height: auto;
+    margin: 0; }
 
+.image--animated_gif {
+  margin-bottom: 61px; }
+  .image--animated_gif img {
+    margin-right: 68.75px; }
+    .image--animated_gif img:last-child {
+      margin-left: 68.75px;
+      margin-right: 0; }
+
+.image--icon {
+  margin-bottom: 78px; }
+
+@media only screen and (min-width: 56.88889em) {
+  .case-study--content-section--image img {
+    width: auto; } }
 .contact-form {
   margin-top: -4px; }
 
@@ -628,12 +686,22 @@ textarea, input {
     text-decoration: underline; }
 
 .contact-form-input--name,
+.contact-form-input--email,
+.contact-form-input--message {
+  position: relative; }
+
+.contact-form-input--name,
 .contact-form-input--email {
   height: 1.5rem;
   padding-left: 5px;
   vertical-align: baseline;
   line-height: 1.5rem;
-  width: 100%; }
+  width: 100%;
+  text-indent: 10rem;
+  top: -28px; }
+
+.contact-form-input--email {
+  text-indent: 6.44444444444444rem; }
 
 .contact-form-input--message {
   width: 100%;
@@ -641,13 +709,12 @@ textarea, input {
   height: 7.5rem;
   padding: 0 0.11111111111111rem;
   line-height: 1.5rem;
-  text-indent: 9.13888888888889rem;
-  margin-left: -8.83333333333333rem;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  text-indent: 8.94444444444444rem;
+  top: -26px; }
 
 .start-message {
   position: relative;
-  float: left;
   z-index: 10; }
 
 .contact-form-input--submit {
@@ -667,15 +734,6 @@ textarea, input {
 @media only screen and (min-width: 56.88889em) {
   .contact-form {
     margin-top: -6px; }
-
-  .contact-form-input--name {
-    width: 15.77777777777778rem; }
-
-  .contact-form-input--email {
-    width: 19.38888888888889rem; }
-
-  .contact-form-input--message {
-    width: 26rem; }
 
   .contact-form-input--submit {
     width: 12.20833333333333rem; } }

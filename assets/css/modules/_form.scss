@@ -30,12 +30,24 @@
 }
 
 .contact-form-input--name, 
+.contact-form-input--email,
+.contact-form-input--message{
+	position: relative;
+}
+
+.contact-form-input--name, 
 .contact-form-input--email{
 	height: 1.5rem;
 	padding-left: 5px;
 	vertical-align:baseline;
 	line-height: 1.5rem;
 	width: 100%;
+	text-indent: 10rem;
+	top: -28px;
+}
+
+.contact-form-input--email{
+	text-indent: 6.44444444444444rem;
 }
 
 .contact-form-input--message{
@@ -44,13 +56,13 @@
 	height: 7.5rem;
 	padding: 0 0.11111111111111rem;
 	line-height: 1.5rem;
-	text-indent: 9.13888888888889rem;
-	margin-left: -8.83333333333333rem;
 	margin-bottom: 3rem;
+	text-indent: 8.94444444444444rem;
+	top: -26px;
 }
+
 .start-message{
 	position: relative;
-	float: left;
 	z-index: 10;
 }
 
@@ -77,17 +89,6 @@
 	.contact-form{
 		margin-top: -6px;
 	}
-	.contact-form-input--name{
-		width: 15.77777777777778rem;
-	}
-	.contact-form-input--email{
-		width: 19.38888888888889rem;
-	}
-	
-	.contact-form-input--message{
-		width: 26rem;
-	}
-	
 	.contact-form-input--submit{
 		width: 12.20833333333333rem;
 	}

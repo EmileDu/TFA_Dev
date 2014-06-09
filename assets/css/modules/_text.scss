@@ -1,5 +1,7 @@
 .title{
   font-size: em($base-size * ($ratio * $ratio * $ratio * $ratio), $base-size);
+	line-height: 6rem;
+	margin-bottom: 10px;
 }
 
 .subtitle{
@@ -11,4 +13,13 @@
 .subsubtitle{
 	display: block;
 	margin: -0.44444444444444rem 0 4.5rem 0;
+}
+
+.returnParag{
+	display: block;
+	margin-bottom: 1.5rem;
+}
+.italic{
+	font-style: italic;
+	margin-left: 82.25px;
 }

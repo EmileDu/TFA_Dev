@@ -1,6 +1,6 @@
 .header{
   position: relative;
-  padding: 0 1.77777777777778rem;
+  padding: 33px 1.77777777777778rem 0 1.77777777777778rem;
 }
 
 .home .header{
@@ -9,19 +9,17 @@
   color: $color1;
 }
 
-.header-title{
-  
+.header--title{
+	margin-left: -3px;
+	line-height: 4.5rem;
 }
-.header-subtitle{
-  
+.header--subtitle{
 }
 
-.case-study--header{
-	height: 25rem;
-	text-align: center;
-	background: url(CaseStudy--LazyLunch__header.jpg);
-	background-position: center bottom;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
+.header--experiment{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }

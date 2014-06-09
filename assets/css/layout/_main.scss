@@ -1,3 +1,8 @@
+main[role="main"]{
+	background: $color1;	
+	position: relative;
+}
+
 .about-container{
 	background: darken($color1, 10%);
   padding: 4.5rem 0;

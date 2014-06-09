@@ -73,7 +73,7 @@
       var hugridRows = document.createElement("div") ;
       hugridRows.id  = "hugridRows";
       /* Create Rows */
-      for (var i = 0; i < (pageheight / rowheight); i++) {
+      for (var i = 0; i < ((pageheight / rowheight) - 1); i++) {
         rowDiv = document.createElement("div");
         rowDiv.className = "hugrow";
         hugridRows.appendChild(rowDiv);

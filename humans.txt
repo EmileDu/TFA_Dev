@@ -18,4 +18,4 @@
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3, Javascript
-    Reset.css ( Eric Meyer ), jQuery, Modernizr, Hammer.js.
+    Reset.css ( Eric Meyer ), jQuery, Modernizr, Canvas
