@@ -98,17 +98,18 @@
 }
 
 
-.is-finish-loading{
+.is-finish-load{
 	.loading--wrap{
-		@include animation-name('');
-		@include transition(all .3s ease-in-out);
-		@include transform(translateX(100px) translateY(0px));
+		@include animation-play-state(paused);
+//		@include animation(translateBallEnd ($duration / 2) ease-in-out backwards);
+//		@include transform(translateX(100px) translateY(0px));
 	}
 	.loading--ball{
-		@include animation-name('');
+		@include animation-play-state(paused);
 	}
 	.loading--line{
-		@include animation-name('');		
-		height: 0px;
+		@include animation-play-state(paused);
+//		@include animation(translateLineEnd ($duration / 2) ease-in-out backwards);
+//		height: 0px;
 	}
 }

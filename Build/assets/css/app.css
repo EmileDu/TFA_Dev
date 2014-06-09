@@ -243,6 +243,9 @@ input[type="checkbox"], input[type="image"] {
 @media only screen and (min-width: 56.88889em) {
   .wrapper {
     padding: 0 1.77777777777778rem; } }
+.content {
+  height: 100%; }
+
 /* Typography
 ----------------------------------------- */
 html,
@@ -585,29 +588,18 @@ main[role="main"] {
     -moz-animation-delay: -2500ms;
     animation-delay: -2500ms; }
 
-.is-finish-loading .loading--wrap {
-  -webkit-animation-name: "";
-  -moz-animation-name: "";
-  animation-name: "";
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  -webkit-transform: translateX(100px) translateY(0px);
-  -moz-transform: translateX(100px) translateY(0px);
-  -ms-transform: translateX(100px) translateY(0px);
-  -o-transform: translateX(100px) translateY(0px);
-  transform: translateX(100px) translateY(0px); }
-.is-finish-loading .loading--ball {
-  -webkit-animation-name: "";
-  -moz-animation-name: "";
-  animation-name: ""; }
-.is-finish-loading .loading--line {
-  -webkit-animation-name: "";
-  -moz-animation-name: "";
-  animation-name: "";
-  height: 0px; }
+.is-finish-load .loading--wrap {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  animation-play-state: paused; }
+.is-finish-load .loading--ball {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  animation-play-state: paused; }
+.is-finish-load .loading--line {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  animation-play-state: paused; }
 
 .footer {
   background: #272727;
@@ -1287,6 +1279,30 @@ a, .social-list-item--icon, .btn {
   100% {
     transform: rotateZ(327deg) rotateX(-180deg) translateY(25px);
     height: 100px; } }
+
+@-webkit-keyframes translateBallEnd {
+  100% {
+    -webkit-transform: translateX(100px) translateY(0px); } }
+
+@-moz-keyframes translateBallEnd {
+  100% {
+    -moz-transform: translateX(100px) translateY(0px); } }
+
+@keyframes translateBallEnd {
+  100% {
+    transform: translateX(100px) translateY(0px); } }
+
+@-webkit-keyframes translateLineEnd {
+  100% {
+    height: 0px; } }
+
+@-moz-keyframes translateLineEnd {
+  100% {
+    height: 0px; } }
+
+@keyframes translateLineEnd {
+  100% {
+    height: 0px; } }
 
 /* Hugrid 
  * Personalize hugrid css

@@ -58,7 +58,7 @@
 		<script src="assets/libs/modernizr.2.8.1.min.js"></script>
 	</head>
 	<body class="case-study--DWMTwitter">
-		<div class="loading">
+		<div class="loading" id="loading">
 			<div class="loading--container">
 				<div class="loading--ball loading--ball--me"></div>
 				<div class='loading--wrap loading--wrap--one'>
@@ -80,6 +80,7 @@
 				<div class="loading--line loading--line--four"></div>
 			</div>
 		</div>
+		<div class="content" id="content">
 <header role="banner" class="header case-study--header">
 	<div class="wrapper">
 		<h1 class="title">DW'M'Twitter</h1>
@@ -147,15 +148,15 @@
 		</div>
 	</div>
 </main>
+		</div>		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
-
+	
+		<script src="assets/libs/TweenMax.min.js"></script>
 		<script src="assets/libs/hugrid.js"></script>
 
 		<!-- scripts -->
-		<script src='assets/js/holder.js'></script>
-<script src='assets/js/plugins.js'></script>
-<script src='assets/js/main.js'></script>
+		<script src='assets/js/main.js'></script>
 
 		<script>
 			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
