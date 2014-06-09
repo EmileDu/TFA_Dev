@@ -31,3 +31,9 @@ $width-tablet: em(640, $base-size); // 640/18
 
 $columns: 12!default; // Number of columns
 $gutter:27px!default; // Size of gutter 
+
+// Loading 
+$duration: 1000ms; 
+$ball_diametre: 50px;
+$translate_distance: 200px;
+$scale_diff: .6;

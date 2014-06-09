@@ -1,26 +1,4 @@
 (function($){
-
-	window.PROJECT_NAME = {};
-
-	var SHORT_NAME = window.PROJECT_NAME;
-
-	SHORT_NAME.init = function(){
-		SHORT_NAME.setElements();
-		SHORT_NAME.basics();
-	}
-
-	SHORT_NAME.setElements = function(){
-		SHORT_NAME.elems = {};
-	}
-	
-	SHORT_NAME.basics = function(){
-
-	}
-
-	$(window).load(function() {
-
-	});
-
 	
 	definegrid = function() {
 		var browserWidth = $(window).width(); 
@@ -34,7 +12,7 @@
 			gutterwidth = 27;
 			pagetopmargin = 27;
 			rowheight = 27;
-			gridonload = 'on',
+			gridonload = 'off',
 			makehugrid();
 		} 
 		if (browserWidth <= 1024) 
@@ -47,7 +25,7 @@
 			gutterwidth = 2;
 			pagetopmargin = 27;
 			rowheight = 27;
-			gridonload = 'on';
+			gridonload = 'off';
 			makehugrid();
 		}
 		if (browserWidth <= 640) 
@@ -60,15 +38,22 @@
 			gutterwidth = 6;
 			pagetopmargin = 27;
 			rowheight = 27;
-			gridonload = 'on';
+			gridonload = 'off';
 			makehugrid();
 		}
 	}
 
-	$(document).ready(function(){
-		
-		SHORT_NAME.init();
-		
+	function preinit(){
+		console.log('Start loading');
+		$('.loading').show();
+		$(window).load(function(){
+			console.log('Loading finish');
+			$('.loading').fadeOut();
+			init();
+		});
+	}
+	
+	function init(){
 		definegrid();
 		setgridonload(); 
 		
@@ -76,7 +61,9 @@
 		if ( $headerHeight % 27 != 0 ){
 			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
 		}
-			
+	}	
+	$(document).ready(function(){
+//		preinit();	
 	});//close document ready
 	
 	$(window).resize(function() {
@@ -85,5 +72,7 @@
 		setgridonresize();
 		
 	});
+	
+	
 
 })(jQuery);
