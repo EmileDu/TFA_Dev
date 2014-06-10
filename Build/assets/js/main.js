@@ -62,23 +62,21 @@
 		
 		$('[data-ajaxLink]').on('click tap', function(ev){
 			ev.preventDefault();
-			var src = $(this).attr('href');
-			$.ajaxSetup({async: true});
-			$.ajax({
-				type: 'GET',
-				dataType: 'html',
-				url: src,
-				beforeSend: function(){
-					$('.loading').show();
-				},
-				complete: function(){
-					$('.loading').hide();	
-				},	
-				success: function(response){
-					console.log($(response).find('content'));
-					$('#content').html($(response).find('content').html());
-				}
-			});
+            $('.loading').show();
+			var urlHref = $(this).attr('href');
+			$.get( urlHref, function(response){
+              console.log($('#content', response));
+              $('#content').replaceWith($(response)[81].innerHTML);
+            }, "html" )
+            .done(function(){
+              $('.loading').hide();
+            })
+            .fail(function(){
+
+            })
+            .progress(function(){
+              console.log('progress');
+            })
 		});
 	}	
 	$(document).ready(function(){

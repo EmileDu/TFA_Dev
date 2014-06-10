@@ -9,99 +9,99 @@
 <!-- $bodyClass case-study--Lazy-Lunch -->
 
 <!-- @include _header -->
-				<header role="banner" class="header case-study--header">
-					<div class="wrapper">
-						<h1 class="title">Lazy Lunch</h1>
-						<p>Une  nouvelle façon de manger à la cafétéria</p>
-						<div class="case-study--link">
-							<a class="btn" href="http://www.emileduval.be/projets/rebootfactory/" target="_blank">Voir le projet</a>
-						</div>
-					</div>
-				</header>
-				<main role="main" class="case-study--content">
-					<div class="case-study--content-section">
-						<div class="wrapper">
-							<div class="container">
-								<h2 class="subtitle">Introduction</h2>
-								<p class="returnParag">La demande est simple</p>
-								<p>Réalisation d’un web application mobile pour une cafétéria en ligne, afin de comprendre les enjeux lié au web mobile.</p>
-							</div>
-						</div>
-					</div>
-					<div class="case-study--content-section">
-						<div class="wrapper">
-							<div class="container">
-								<h2 class="subtitle">Notre approche graphique</h2>
-								<p class="returnParag">On a choisit de concentrer notre app sur 5 fonctionnalités qui nous semblaient essentiel pour ce genre d’application.</p>
-								<ul class="returnParag italic">
-									<li>Menu en ligne</li>
-									<li>Commande en ligne</li>
-									<li>Connaitre l’état de la file a la cafétéria</li>
-									<li>Gérer son budget</li>
-									<li>Vote de suggestion pour la semaine suivant</li>
-								</ul>
-								<p>Un design a été construit, un design voulu simple et chaleur. Faut pas oublié que c’est une app « gastronomique » il faut que ça donne envie de mangé.</p>
-							</div>
-						</div>
-						<div class="case-study--content-section--image">
-							<img src="assets/img/CaseStudy--LazyLunch__design.png" alt="Apercu du design de l'application" width="520" height="324"/>
-						</div>
-					</div>
-					<div class="case-study--content-section">
-						<div class="wrapper">
-							<div class="container">
-								<h2 class="subtitle">Le développement</h2>
-								<p class="returnParag">Après 5 séances, consacré au wireframes, test utilisateur et conception du graphisme, le développement commence.</p>
-								<p class="returnParag">C’est la première fois que je m’attaque a une web app, il a donc d’abord fallut définir exactement en quoi ça consiste.</p>
-								<p class="returnParag">Pour donner l’impression d’une application native, il faudrait pouvoir lancer l’application en full-screen, avec un icon et un « launch screen » c’est a dire un écran qui s’affiche au démarrage de l’application.</p>
-								<p class="returnParag">Pour vite mettre en place une structure de projets efficace et fonctionnelle, j’ai choisi d’utiliser le boilerplate mobile html5.</p>
-								<a class="returnParag italic" href="http://html5boilerplate.com/mobile/">http://html5boilerplate.com/mobile/</a>
-								<p class="returnParag">Avec ce template, le full-screen, l’icon, le launch screen sont directement mis en place, il ne reste plus qu’a modifié les fichiers.</p>
-								<p class="returnParag">Parmi les spécifications du smartphone utiliser, deux nous intéresse particulièrement d’un point de vu graphique:</p>
-								<ul class="returnParag italic">
-									<li>Écran rétina</li>
-									<li>Résolution physique: 480 * 320 pixels</li>
-								</ul>
-								<p class="returnParag">Le design construit par notre groupe avait l’avantage de pouvoir être entièrement fait en CSS. La contrainte du support de la technologie rétina a donc été nécessaire uniquement pour l’image d’avatar, et le loading screen.</p>
-								<p class="returnParag">Apres avoir intégrer le design, il restai le plus dur à faire. Les interactions et et tout le back end.</p>
-								<p>J’ai choisi d’utiliser la librairie Hammer.js pour facilité la gestion des événements tactile. Ça ma permis de mettre en place le tap et le switch pour accéder au menu et au panier.</p>
-							</div>
-						</div>
-						<div class="case-study--content-section--image  image--animated_gif">
-							<img src="assets/img/CaseStudy--LazyLunch__swipemenu.gif" alt="Previsualisation de l'animation du swipe menu" width="207" height="405"/>
-							<img src="assets/img/CaseStudy--LazyLunch__swipepanier.gif" alt="Previsualisation de l'animation du swipe panier" width="207" height="405"/>
-						</div>
-						<div class="wrapper">
-							<div class="container">
-								<h3 class="subsubtitle">L’optimisation</h3>
-								<p class="returnParag">L’optimisation est un sujet important pour n’importe quel site, mais ça l’est d’autant plus pour un projet mobile, puisque les débits sont inférieurs a ceux disponible sur desktop. On ne peut pas se permettre d’effectuer 10 requête DNS de 10mo chacune.</p>
-								<p>J’ai choisi de faire une font d’icon pour tous les avantages que cette solution apporte par rapport a une image sprite par exemple.</p>
-								<p>Ça m’offre la possibilité de redimensionné les icons sans aucune  perte de qualité. Ca offre aussi la possibilité de changer la couleur des icons juste avec une ligne css.
-						Pour faire cette font d’icon, j’ai utilisé la web app du site fontastic.me.</p>
-							</div>
-						</div>
-						<div class="case-study--content-section--image  image--icon">
-							<img src="assets/img/CaseStudy--LazyLunch__icon.jpg" alt="Icons utilisé sur le projet Lazy Lunch" width="952" height="174"/>
-						</div>
-						<div class="wrapper">
-							<div class="container">
-								<h3 class="subsubtitle">Amélioration de l’experience utilisateur</h3>
-								<p>Le dernier point que j’aimerai aborder est le changement de page.</p>
-								<p>Un problème se pose quand on clique sur un lien: on quitte l’application pour  ouvrir le lien dans le browser, même si ce lien est un lien interne.</p>
-								<p>Autant dire que c’est juste désagréable.</p>
-								<p class="returnParag">Il y avait deux solution à ce problème.</p>
-								<p>L’AJAX m’a semblé la meilleure solution, et c’était surtout l’occasion d’apprendre cette pratique.</p>
-							</div>
-						</div>
-					</div>
-					<div class="case-study--content-section">
-						<div class="wrapper">
-							<div class="container">
-								<h2 class="subtitle">Ressenti et Evolution</h2>
-								<p class="returnParag">Parmi les différents workshops effectués, c’est sans doute celui qui m’a le plus parlé. Ça m’a permis de découvrir cette univers, et ces possibilités ainsi que celle des web applications au sens général puisque ce n’est pas exclusivement sur le mobile. J’espère pouvoir vite retravaillé dans ce domaine, que ce sois personnellement ou professionnellement.</p>
-								<p>Parce qu’un projet n’est jamais terminer et encore moins dans mon cas, vu que je suis un peu trop perfectionniste. Aussi j’ai continué a me renseigné, sur le développement mobile, par après et une possible évolution qu’y m’est venu en tête est l’ajout d’un mode hors-ligne, grâce notamment a l’API offline web application.</p>
-							</div>
-						</div>
-					</div>
-				</main>
+      <header role="banner" class="header case-study--header">
+        <div class="wrapper">
+          <h1 class="title">Lazy Lunch</h1>
+          <p>Une  nouvelle façon de manger à la cafétéria</p>
+          <div class="case-study--link">
+            <a class="btn" href="http://www.emileduval.be/projets/rebootfactory/" target="_blank">Voir le projet</a>
+          </div>
+        </div>
+      </header>
+      <main role="main" class="case-study--content">
+        <div class="case-study--content-section">
+          <div class="wrapper">
+            <div class="container">
+              <h2 class="subtitle">Introduction</h2>
+              <p class="returnParag">La demande est simple</p>
+              <p>Réalisation d’un web application mobile pour une cafétéria en ligne, afin de comprendre les enjeux lié au web mobile.</p>
+            </div>
+          </div>
+        </div>
+          <div class="case-study--content-section">
+            <div class="wrapper">
+              <div class="container">
+                <h2 class="subtitle">Notre approche graphique</h2>
+                <p class="returnParag">On a choisit de concentrer notre app sur 5 fonctionnalités qui nous semblaient essentiel pour ce genre d’application.</p>
+                <ul class="returnParag italic">
+                  <li>Menu en ligne</li>
+                  <li>Commande en ligne</li>
+                  <li>Connaitre l’état de la file a la cafétéria</li>
+                  <li>Gérer son budget</li>
+                  <li>Vote de suggestion pour la semaine suivant</li>
+                </ul>
+                <p>Un design a été construit, un design voulu simple et chaleur. Faut pas oublié que c’est une app « gastronomique » il faut que ça donne envie de mangé.</p>
+              </div>
+            </div>
+            <div class="case-study--content-section--image">
+              <img src="assets/img/CaseStudy--LazyLunch__design.png" alt="Apercu du design de l'application" width="520" height="324"/>
+            </div>
+        </div>
+          <div class="case-study--content-section">
+            <div class="wrapper">
+              <div class="container">
+                <h2 class="subtitle">Le développement</h2>
+                <p class="returnParag">Après 5 séances, consacré au wireframes, test utilisateur et conception du graphisme, le développement commence.</p>
+                <p class="returnParag">C’est la première fois que je m’attaque a une web app, il a donc d’abord fallut définir exactement en quoi ça consiste.</p>
+                <p class="returnParag">Pour donner l’impression d’une application native, il faudrait pouvoir lancer l’application en full-screen, avec un icon et un « launch screen » c’est a dire un écran qui s’affiche au démarrage de l’application.</p>
+                <p class="returnParag">Pour vite mettre en place une structure de projets efficace et fonctionnelle, j’ai choisi d’utiliser le boilerplate mobile html5.</p>
+                <a class="returnParag italic" href="http://html5boilerplate.com/mobile/">http://html5boilerplate.com/mobile/</a>
+                <p class="returnParag">Avec ce template, le full-screen, l’icon, le launch screen sont directement mis en place, il ne reste plus qu’a modifié les fichiers.</p>
+                <p class="returnParag">Parmi les spécifications du smartphone utiliser, deux nous intéresse particulièrement d’un point de vu graphique:</p>
+                <ul class="returnParag italic">
+                    <li>Écran rétina</li>
+                    <li>Résolution physique: 480 * 320 pixels</li>
+                </ul>
+                <p class="returnParag">Le design construit par notre groupe avait l’avantage de pouvoir être entièrement fait en CSS. La contrainte du support de la technologie rétina a donc été nécessaire uniquement pour l’image d’avatar, et le loading screen.</p>
+                <p class="returnParag">Apres avoir intégrer le design, il restai le plus dur à faire. Les interactions et et tout le back end.</p>
+                <p>J’ai choisi d’utiliser la librairie Hammer.js pour facilité la gestion des événements tactile. Ça ma permis de mettre en place le tap et le switch pour accéder au menu et au panier.</p>
+              </div>
+            </div>
+            <div class="case-study--content-section--image  image--animated_gif">
+              <img src="assets/img/CaseStudy--LazyLunch__swipemenu.gif" alt="Previsualisation de l'animation du swipe menu" width="207" height="405"/>
+              <img src="assets/img/CaseStudy--LazyLunch__swipepanier.gif" alt="Previsualisation de l'animation du swipe panier" width="207" height="405"/>
+            </div>
+            <div class="wrapper">
+              <div class="container">
+                <h3 class="subsubtitle">L’optimisation</h3>
+                <p class="returnParag">L’optimisation est un sujet important pour n’importe quel site, mais ça l’est d’autant plus pour un projet mobile, puisque les débits sont inférieurs a ceux disponible sur desktop. On ne peut pas se permettre d’effectuer 10 requête DNS de 10mo chacune.</p>
+                <p>J’ai choisi de faire une font d’icon pour tous les avantages que cette solution apporte par rapport a une image sprite par exemple.</p>
+                <p>Ça m’offre la possibilité de redimensionné les icons sans aucune  perte de qualité. Ca offre aussi la possibilité de changer la couleur des icons juste avec une ligne css.
+        Pour faire cette font d’icon, j’ai utilisé la web app du site fontastic.me.</p>
+              </div>
+            </div>
+            <div class="case-study--content-section--image  image--icon">
+              <img src="assets/img/CaseStudy--LazyLunch__icon.jpg" alt="Icons utilisé sur le projet Lazy Lunch" width="952" height="174"/>
+            </div>
+            <div class="wrapper">
+              <div class="container">
+                <h3 class="subsubtitle">Amélioration de l’experience utilisateur</h3>
+                <p>Le dernier point que j’aimerai aborder est le changement de page.</p>
+                <p>Un problème se pose quand on clique sur un lien: on quitte l’application pour  ouvrir le lien dans le browser, même si ce lien est un lien interne.</p>
+                <p>Autant dire que c’est juste désagréable.</p>
+                <p class="returnParag">Il y avait deux solution à ce problème.</p>
+                <p>L’AJAX m’a semblé la meilleure solution, et c’était surtout l’occasion d’apprendre cette pratique.</p>
+              </div>
+            </div>
+          </div>
+          <div class="case-study--content-section">
+            <div class="wrapper">
+              <div class="container">
+                <h2 class="subtitle">Ressenti et Evolution</h2>
+                <p class="returnParag">Parmi les différents workshops effectués, c’est sans doute celui qui m’a le plus parlé. Ça m’a permis de découvrir cette univers, et ces possibilités ainsi que celle des web applications au sens général puisque ce n’est pas exclusivement sur le mobile. J’espère pouvoir vite retravaillé dans ce domaine, que ce sois personnellement ou professionnellement.</p>
+                <p>Parce qu’un projet n’est jamais terminer et encore moins dans mon cas, vu que je suis un peu trop perfectionniste. Aussi j’ai continué a me renseigné, sur le développement mobile, par après et une possible évolution qu’y m’est venu en tête est l’ajout d’un mode hors-ligne, grâce notamment a l’API offline web application.</p>
+              </div>
+            </div>
+          </div>
+      </main>
 <!-- @include _footer -->
