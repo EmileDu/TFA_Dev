@@ -209,12 +209,12 @@ AddDefaultCharset utf-8
 # Also, some cloud hosting services require `RewriteBase` to be set:
 # http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-mod-rewrite-not-working-on-my-site
 
-<IfModule mod_rewrite.c>
-    Options +FollowSymlinks
-  # Options +SymLinksIfOwnerMatch
-    RewriteEngine On
-  # RewriteBase /
-</IfModule>
+# <IfModule mod_rewrite.c>
+#    Options +FollowSymlinks
+#  # Options +SymLinksIfOwnerMatch
+#    RewriteEngine On
+#  # RewriteBase /
+# </IfModule>
 
 # ------------------------------------------------------------------------------
 # | Suppressing / Forcing the "www." at the beginning of URLs                  |
@@ -542,3 +542,10 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+
+# ------------------------------------------------------------------------------
+# | Varnish cache systeme                                                      |
+# ------------------------------------------------------------------------------
+
+Header add Cache-Control "max-age=1"
