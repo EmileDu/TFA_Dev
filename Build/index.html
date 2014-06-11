@@ -10,76 +10,210 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width initial-scale=1">
-		
-		<meta name="author" content="Emile Duval">
-		<meta name="description" content="Salut moi c'est Emile, front-end développeur qui a pas peur des nouvelles expériences, notament dans le back-end et le mobile.">
-		<meta name="keywords" content="HTML, CSS, JS, Javascript, Front-end, ESIAJ, HEAJ, Emile, Duval, Stage, Developpeur, Web, albert, jacquard, DWM, Back-end, PHP, jQuery, développement, mobile">
-		
-		<meta name="robots" content="INDEX">
-		
-    <meta property="og:title" content="Emile Duval | Developpeur Front-End">
-		<meta property="og:image" content="asset/img/avatar.jpg">
-		<meta property="og:site_name" content="Emile Duval">
-		<meta property="og:description" content="Salut moi c'est Emile, front-end développeur qui a pas peur de nouvelles expériences, notament dans le back-end et le mobile.">
-    <meta property="og:url" content="http://www.emileduval.be/" >
-		
-		<title>Emile Duval | Developpeur Front-End</title>
-		
-		<link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
-		<link href="assets/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
-		<link href="assets/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
-		<link href="assets/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-		<link href="assets/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
-		<link href="assets/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-		<link href="assets/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
-		<link href="assets/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
-		<link href="assets/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width initial-scale=1">
 
-		<link href="assets/favicon-196x196.png" rel="icon" type="image/png" sizes="196x196">
-		<link href="assets/favicon-160x160.png" rel="icon" type="image/png" sizes="160x160">
-		<link href="assets/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
-		<link href="assets/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
-		<link href="assets/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
-		<link href="assets/favicon.ico" rel="shortcut icon">
-		
-		<meta name="msapplication-TileColor" content="#272727">
-		<meta name="msapplication-TileImage" content="assets/mstile-144x144.png">	
-		
-		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		<link href="assets/css/hugrid.css" rel="stylesheet" type="text/css">
-		
-		<link rel='stylesheet' href='assets/css/app.css'>
-		
-		<script src="assets/libs/modernizr.2.8.1.min.js"></script>
-	</head>
-	<body class="home">
-		<div class="loading" id="loading">
-			<div class="loading--container">
-				<div class="loading--ball loading--ball--me"></div>
-				<div class='loading--wrap loading--wrap--one'>
-					<div class='loading--ball'></div>
-				</div>
-			 	<div class='loading--wrap loading--wrap--two'>
-					<div class='loading--ball'></div>
-				</div>
-				<div class='loading--wrap loading--wrap--three'>
-					<div class='loading--ball'></div>
-				</div>
-				<div class='loading--wrap loading--wrap--four'>
-					<div class='loading--ball'></div>
-				</div>
-				
-				<div class="loading--line loading--line--one"></div>
-				<div class="loading--line loading--line--two"></div>
-				<div class="loading--line loading--line--three"></div>
-				<div class="loading--line loading--line--four"></div>
-			</div>
-		</div>
-		<div class="content" id="content">
+    <meta name="author" content="Emile Duval">
+    <meta name="description" content="Salut moi c'est Emile, front-end développeur qui a pas peur des nouvelles expériences, notament dans le back-end et le mobile.">
+    <meta name="keywords" content="HTML, CSS, JS, Javascript, Front-end, ESIAJ, HEAJ, Emile, Duval, Stage, Developpeur, Web, albert, jacquard, DWM, Back-end, PHP, jQuery, développement, mobile">
+
+    <meta name="robots" content="INDEX">
+
+    <meta property="og:title" content="Emile Duval | Developpeur Front-End">
+    <meta property="og:image" content="asset/img/avatar.jpg">
+    <meta property="og:site_name" content="Emile Duval">
+    <meta property="og:description" content="Salut moi c'est Emile, front-end développeur qui a pas peur de nouvelles expériences, notament dans le back-end et le mobile.">
+    <meta property="og:url" content="http://www.emileduval.be/" >
+
+    <title>Emile Duval | Developpeur Front-End</title>
+
+    <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+    <link href="assets/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
+    <link href="assets/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="assets/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+    <link href="assets/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="assets/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+    <link href="assets/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+    <link href="assets/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+
+    <link href="assets/favicon-196x196.png" rel="icon" type="image/png" sizes="196x196">
+    <link href="assets/favicon-160x160.png" rel="icon" type="image/png" sizes="160x160">
+    <link href="assets/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
+    <link href="assets/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+    <link href="assets/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="assets/favicon.ico" rel="shortcut icon">
+
+    <meta name="msapplication-TileColor" content="#272727">
+    <meta name="msapplication-TileImage" content="assets/mstile-144x144.png">	
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="assets/css/hugrid.css" rel="stylesheet" type="text/css">
+
+    <link rel='stylesheet' href='assets/css/app.css'>
+
+    <script src="assets/libs/modernizr.2.8.1.min.js"></script>
+  </head>
+  <body class="home">
+    <div class="loading" id="loading">
+      <div class="loading--container">
+        <div class="loading--ball loading--ball--me"></div>
+        <div class='loading--wrap loading--wrap--one'>
+          <div class='loading--ball'></div>
+        </div>
+        <div class='loading--wrap loading--wrap--two'>
+          <div class='loading--ball'></div>
+        </div>
+        <div class='loading--wrap loading--wrap--three'>
+          <div class='loading--ball'></div>
+        </div>
+        <div class='loading--wrap loading--wrap--four'>
+          <div class='loading--ball'></div>
+        </div>
+
+        <div class="loading--line loading--line--one"></div>
+        <div class="loading--line loading--line--two"></div>
+        <div class="loading--line loading--line--three"></div>
+        <div class="loading--line loading--line--four"></div>
+      </div>
+    </div>
+    <div class="content" id="content">
+<<<<<<< HEAD
+      <header role="banner" class="header">
+        <canvas class="header--experiment"></canvas>
+        <h1 class="header--title">Emile Duval</h1>
+        <p class="header--subtitle">Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
+      </header>
+      <main role="main" class="main">
+        <section class="about-container">
+          <div class="wrapper">
+            <div class="container">
+              <h1 class="subtitle">
+                <span class="adaptatif-content" data-desktop="Vous cherchez ">Besoin d'</span>un développeur ?
+              </h1>
+              <strong class="subsubtitle">Ça tombe bien, je cherche un stage dans le développement web.</strong>
+              <p class="returnParag">J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
+              <p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
+            </div>
+          </div>
+        </section>
+        <section class="case-study">
+          <article class="case-preview">
+            <div class="wrapper">
+              <h2 class="case-preview--title">Lazy Lunch</h2>
+              <div class="case-preview--thumb-container">
+                <img class="case-preview--thumb-container" src="assets/img/Lazy_Lunch.png" alt="Mise en situation Projet Lazy Lunch" width="468" height="432"/>
+              </div>
+              <div class="case-preview--description">
+                <p class="returnParag">Mobile web application développer dans un cadre pedagogique.</p>
+                <p>L'application à pour but d'offrir les services proposé à la cafétéria de l'ESIAJ mias en ligne.</p>
+                <p class="returnParag">Elle permet donc de consulté le menu, vérifié le budget sur votre carte, commander, voter pour la suggestion de la semaine suivante, savoir quand aller faire la file.</p>
+                <p>Développé grâce à jQuery, Hammer.js</p>
+              </div>
+              <div class="case-preview--link">
+                <a class="btn" href="lazylunch.html" data-ajaxLink>Comprendre mes choix</a>
+              </div> 
+            </div>
+          </article>
+          <article class="case-preview">
+            <div class="wrapper">
+              <h2 class="case-preview--title">DW'M'Twitter</h2>
+              <div class="case-preview--thumb-container">
+                <img class="case-preview--thumb-container" src="assets/img/DW'M'Twitter.png" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432"/>
+              </div>
+              <div class="case-preview--description">
+                <p class="returnParag">Datavisualisation développé dans un cadre pédagogique.</p>
+                <p class="returnParag">Le but étant de présenter les resultat d’une étude mener sur l’utilisation de twitter par les élèves de DWM de l’ESIAJ. Et de montrer l’impact de ce derniers sur leurs résultats de fin d’année.</p>
+                <p>Développé grâce à jQuery, D3.js, SVG, Waypoint.js, JSON</p>
+              </div>
+              <div class="case-preview--link">
+                <a class="btn" href="dwmtwitter.html" data-ajaxLink>Comprendre mes choix</a>
+              </div> 
+            </div>
+          </article>	
+        </section>
+      </main>
+      <footer class="footer" role="contentinfo">
+        <div class="wrapper">
+          <div class="contact-form-container">
+            <h2 class="subtitle">On se contacte ?</h2>
+            <form class="contact-form" method="post" action="traitement.php" role="form" >
+              <p>
+                <span class="start-message">Salut Emile, je m'appelle</span>
+                <input class="contact-form-input contact-form-input--name" type="text" name="name" id="name" placeholder="ton nom"/>
+              </p>
+              <p>
+                <span class="start-message">Et mon mail est</span>
+                <input class="contact-form-input contact-form-input--email" type="email" name="email" id="email" placeholder="ton email"/>
+              </p>
+              <p>
+                <span class="start-message">Je voulais te dire que</span>
+                <textarea class="contact-form-input contact-form-input--message" placeholder="ton message"></textarea>
+              </p>
+              <div class="contact-form-input contact-form-input--submit">
+                <input class=" btn" type="submit" value="Envoyer"/>
+              </div>
+            </form>
+          </div>
+          <div class="social-list-container">
+            <h2 class="subtitle">Et sinon je suis actif ici</h2>
+            <ul class="social-list">
+              <li class="social-list-item">
+                <a href="mailto:bonjour@emileduval.be">
+                  <svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+                    <use xlink:href="assets/img/sprites.svg#icon-mail"></use>
+                  </svg>
+                  <span class="social-list-item--name">Mail</span>
+                </a>
+              </li>
+              <li class="social-list-item">
+                <a href="https://twitter.com/Emile_D_" target="_blank">
+                  <svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+                    <use xlink:href="assets/img/sprites.svg#icon-twitter"></use>
+                  </svg>
+                  <span class="social-list-item--name">Twitter</span>
+                </a>
+              </li>          
+              <li class="social-list-item">
+                <a href="https://plus.google.com/u/0/100374744664485436800/posts" target="_blank">
+                  <svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+                    <use xlink:href="assets/img/sprites.svg#icon-googleplus"></use>
+                  </svg>
+                  <span class="social-list-item--name">Google +</span>
+                </a>
+              </li>
+              <li class="social-list-item">
+                <a href="https://github.com/EmileDu" target="_blank">
+                  <svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+                    <use xlink:href="assets/img/sprites.svg#icon-github"></use>
+                  </svg>
+                  <span class="social-list-item--name">Github</span>
+                </a>
+              </li>
+              <li class="social-list-item">
+                <a href="http://codepen.io/Emile_D/" target="_blank">
+                  <svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+                    <use xlink:href="assets/img/sprites.svg#icon-codepen"></use>
+                  </svg>
+                  <span class="social-list-item--name">Codepen</span>
+                </a>
+              </li>
+              <li class="social-list-item">
+                <a href="https://www.linkedin.com/profile/view?id=333895220" target="_blank">
+                  <svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+                    <use xlink:href="assets/img/sprites.svg#icon-linkedin"></use>
+                  </svg>
+                  <span class="social-list-item--name">LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <small class="legal-mention">@ Emile Duval 2014 - Tous droit réservé - <a href="">Politique de confidentialité</a> - <a href="http://dwm.re/">DWM</a> - <a href="http://www.infographie-sup.be/">ESIAJ</a></small>
+        </div>
+      </footer>
+=======
 				<header role="banner" class="header">
 					<canvas class="header--experiment"></canvas>
 					<h1 class="header--title">Emile Duval</h1>
@@ -212,33 +346,34 @@
 							<small class="legal-mention">@ Emile Duval 2014 - Tous droit réservé - <a href="">Politique de confidentialité</a> - <a href="http://dwm.re/">DWM</a> - <a href="http://www.infographie-sup.be/">ESIAJ</a></small>
 					</div>
 				</footer>
-		</div>		
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
-	
-		<script src="assets/libs/TweenMax.min.js"></script>
-		<script src="assets/libs/hugrid.js"></script>
+>>>>>>> commit
+    </div>		
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
 
-		<!-- scripts -->
-		<script src='assets/js/main.js'></script>
+    <script src="assets/libs/TweenMax.min.js"></script>
+    <script src="assets/libs/hugrid.js"></script>
 
-		<script>
-			var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-			s.parentNode.insertBefore(g,s)}(document,'script'));
-		</script>
+    <!-- scripts -->
+    <script src='assets/js/main.js'></script>
 
-		<script> 
-			var $buoop = {}; 
-			$buoop.ol = window.onload; 
-			window.onload=function(){ 
-				try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-				var e = document.createElement("script"); 
-				e.setAttribute("type", "text/javascript"); 
-				e.setAttribute("src", "//browser-update.org/update.js"); 
-				document.body.appendChild(e); 
-			} 
-		</script> 
-	</body>
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    <script> 
+      var $buoop = {}; 
+      $buoop.ol = window.onload; 
+      window.onload=function(){ 
+        try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+        var e = document.createElement("script"); 
+        e.setAttribute("type", "text/javascript"); 
+        e.setAttribute("src", "//browser-update.org/update.js"); 
+        document.body.appendChild(e); 
+      } 
+    </script> 
+  </body>
 </html>
