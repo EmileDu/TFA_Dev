@@ -221,6 +221,10 @@ input[type="checkbox"], input[type="image"] {
   border: none;
   margin: 0; }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 50px #272727 inset;
+  -webkit-text-fill-color: #eb7347; }
+
 .wrapper {
   display: block;
   max-width: 56.88889em;
