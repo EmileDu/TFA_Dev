@@ -119,6 +119,7 @@
 				
 		$('#form--submit').on('click', function (ev) {
 			ev.preventDefault();
+<<<<<<< HEAD
 			$('#contact-form').trigger('submit');
 			return false;
 		});
@@ -147,6 +148,23 @@
 				}
 			}
 			return false;
+=======
+            $('.loading').show();
+			var urlHref = $(this).attr('href');
+			$.get( urlHref, function(response){
+              console.log($('#content', response));
+              $('#content').replaceWith($(response)[81].innerHTML);
+            }, "html" )
+            .done(function(){
+              $('.loading').hide();
+            })
+            .fail(function(){
+
+            })
+            .progress(function(){
+              console.log('progress');
+            })
+>>>>>>> FETCH_HEAD
 		});
 	}
 	
