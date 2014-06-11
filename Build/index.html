@@ -138,21 +138,21 @@
 					<div class="wrapper">
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
-								<form class="contact-form" method="post" action="traitement.php" role="form" >
+								<form class="contact-form" id="contact-form" method="post" action="process.php" role="form">
 									<p>
 										<span class="start-message">Salut Emile, je m'appelle</span>
-										<input class="contact-form-input contact-form-input--name" type="text" name="name" id="name" placeholder="ton nom"/>
+										<input class="contact-form-input contact-form-input--name" type="text" name="nom" id="form--nom" placeholder="ton nom"/>
 									</p>
 									<p>
 										<span class="start-message">Et mon mail est</span>
-										<input class="contact-form-input contact-form-input--email" type="email" name="email" id="email" placeholder="ton email"/>
+										<input class="contact-form-input contact-form-input--email" type="email" name="email" id="form--email" placeholder="ton email"/>
 									</p>
 									<p>
 										<span class="start-message">Je voulais te dire que</span>
-										<textarea class="contact-form-input contact-form-input--message" placeholder="ton message"></textarea>
+										<textarea class="contact-form-input contact-form-input--message" name="message" id="form--message" placeholder="ton message" maxlength="250"></textarea>
 									</p>
 									<div class="contact-form-input contact-form-input--submit">
-										<input class=" btn" type="submit" value="Envoyer"/>
+										<input class="btn" id="form--submit" type="submit" value="Envoyer"/>
 									</div>
 								</form>
 							</div>

@@ -1,9 +1,8 @@
-(function($){
-	
-	definegrid = function() {
-		var browserWidth = $(window).width(); 
-		if (browserWidth >= 1025) 
-		{
+(function ($) {
+	valid = true;
+	definegrid = function () {
+		var browserWidth = $(window).width();
+		if (browserWidth >= 1025) {
 			pageUnits = 'px';
 			colUnits = 'px';
 			pagewidth = 960;
@@ -14,9 +13,8 @@
 			rowheight = 27;
 			gridonload = 'off',
 			makehugrid();
-		} 
-		if (browserWidth <= 1024) 
-		{
+		}
+		if (browserWidth <= 1024) {
 			pageUnits = '%';
 			colUnits = '%';
 			pagewidth = 92;
@@ -28,8 +26,7 @@
 			gridonload = 'off';
 			makehugrid();
 		}
-		if (browserWidth <= 640) 
-		{
+		if (browserWidth <= 640) {
 			pageUnits = '%';
 			colUnits = '%';
 			pagewidth = 92;
@@ -43,55 +40,125 @@
 		}
 	}
 
-	function preinit(){
+	function checkValue(name, value){
+		var message = '';
+		switch(name){
+			case 'nom':
+				if(value == ''){
+					valid = false;
+					message = 'J\'aimerai vraiment savoir votre nom.';
+				} else {
+					valid = true;	
+				}
+				break;
+			case 'email':
+				if(value == ''){
+					valid = false;
+					message = 'J\'aimerai vraiment connaitre votre mail.';
+				} else {
+					valid = true;	
+				}
+				break;
+			case 'message':
+				if(value == ''){
+					valid = false;
+					message = 'Vous voulez même pas me dire bonjour ?';
+				} else {
+					valid = true;	
+				}
+				break;
+		}
+		return message;
+	}
+	
+	function preinit() {
 		$('.loading').show();
-		$(window).load(function(){
+		$(window).load(function () {
 			init();
 			$('.loading').fadeOut();
 		});
 	}
-	
-	function init(){
+
+	function init() {
 		definegrid();
-		setgridonload(); 
-		
+		setgridonload();
+
 		var $headerHeight = $('.header').outerHeight();
-		if ( $headerHeight % 27 != 0 ){
+		if ($headerHeight % 27 != 0) {
 			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
 		}
-		
-		$('[data-ajaxLink]').on('click tap', function(ev){
-			ev.preventDefault();
-			var src = $(this).attr('href');
-			$.ajaxSetup({async: true});
-			$.ajax({
-				type: 'GET',
-				dataType: 'html',
-				url: src,
-				beforeSend: function(){
-					$('.loading').show();
-				},
-				complete: function(){
-					$('.loading').hide();	
-				},	
-				success: function(response){
-					console.log($(response).find('content'));
-					$('#content').html($(response).find('content').html());
-				}
-			});
+
+		$('[data-ajaxLink]').on('click tap', function (ev) {
+				ev.preventDefault();
+				var src = $(this).attr('href');
+				$.ajaxSetup({
+					async: true
+				});
+				$.ajax({
+					type: 'GET',
+					dataType: 'html',
+					url: src,
+					beforeSend: function () {
+						$('.loading').show();
+					},
+					complete: function () {
+						$('.loading').hide();
+					},
+					success: function (response) {
+						console.log($(response).find('content'));
+						$('#content').html($(response).find('content').html());
+					}
+				});
 		});
-	}	
-	$(document).ready(function(){
-		preinit();	
-	});//close document ready
+		
+		$('input, textarea').on('focusout', function(ev){
+			var output = checkValue($(this)[0].name, $(this)[0].value);
+			$(this).css('border','1xp solid red');
+			$(this).attr('placeholder', output);
+		});
+				
+		$('#form--submit').on('click', function (ev) {
+			ev.preventDefault();
+			$('#contact-form').trigger('submit');
+			return false;
+		});
+
+		$('#contact-form').on('submit', function(ev) {
+			console.log($(this).attr('action'));
+			var nom = $('#form--nom').val();
+			var mail = $('#form--mail').val();
+			var message = $('#form--message').val();
+			if (valid){
+				if (nom == '' || mail == '' || message == ''){
+					console.log('champ non remplis');
+				} else {
+					$.ajax({
+						type: $(this).attr('method'),
+						url: $(this).attr('action'),
+						data: $(this).serialize(),
+						dataType: 'json',
+						success: function(){
+							alert('Formulaire bien envoyé');
+						},
+						error: function(){
+							alert('Formulaire non envoyé');
+						}
+					});
+				}
+			}
+			return false;
+		});
+	}
 	
-	$(window).resize(function() {
+	$(document).ready(function () {
+		preinit();
+	}); //close document ready
+
+	$(window).resize(function () {
 		console.log('resize');
 		definegrid();
 		setgridonresize();
-		
+
 	});
-	
-	
 
 })(jQuery);
