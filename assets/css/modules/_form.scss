@@ -4,8 +4,9 @@
 
 .contact-form-input{
 	display: inline-block;
-	background: transparent;
+	background: lighten($color2, 10%);
 	color: $color3;
+	-webkit-autofill: lighten($color2, 10%);
 	@include border-radius(.16666666666667rem);
 	&:hover, &:focus, &:active{
 		background: lighten($color2, 10%);
@@ -72,12 +73,71 @@
 	margin-top: -21px;
 	margin-bottom: 3rem;
 	height: 3rem;
+	position: relative;
 	.btn{
-		padding: 0;
-	}
-	&:hover{
-		background: transparent;
 		border: 1px solid $color3;
+		font-size: 1rem;
+		font-family: $content-font;
+		font-weight: 300;
+		padding: 0;
+		&:before,
+		&:after{
+			content: '';
+			display: block;
+			height: 100%;
+			width: 100%;
+			text-align: center;	
+			line-height: 3rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: 0 auto;
+			z-index: 5;
+			@include border-radius(3px);
+		}
+		&:before{
+			content: '';
+			width: 0%;
+			background: darken($color3, 2%);
+			@include transition(all 1s ease-in-out);
+		}
+	}
+}
+
+.contact-form-input--submit.is-on-progress .btn{
+	background: $color3;
+	color: $color1;
+	&:before{
+		display: block;
+		width: 100%;	
+	}
+}
+
+.contact-form-input--submit.is-done .btn{
+	background: $color3;
+	color: $color1;
+	&:before{
+		display: none;
+	}
+	&:after{
+		content: 'Merci';
+		background: darken($color3, 2%);
+		color: $color1;
+	}
+}
+
+.contact-form-input--submit.is-fail .btn{
+	background: $color3;
+	color: $color1;
+	&:before{
+		display: none;
+	}
+	&:after{
+		content: 'Erreur';
+		background: darken($color3, 2%);
+		color: $color1;
 	}
 }
 
@@ -88,6 +148,14 @@
 @media only screen and (min-width: $width-desktop){
 	.contact-form{
 		margin-top: -6px;
+	}
+	.contact-form-input{
+		background: transparent;
+		-webkit-autofill: transparent;
+		&:hover, &:focus, &:active{
+			background: lighten($color2, 10%);
+			color: $color3;
+		}
 	}
 	.contact-form-input--submit{
 		width: 12.20833333333333rem;

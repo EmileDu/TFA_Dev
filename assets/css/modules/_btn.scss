@@ -1,18 +1,22 @@
 .btn{
   display: block;
-  background: $color3;
+  background: transparent;
   height: 3rem;
 	width: 100%;
   text-align: center;
-  color: $color1;
+  color: $color3;
   line-height: 3rem;
   padding-left: 0;
   @include border-radius(.16666666666667rem);
-	border: 0 solid $color3;
+	border: 1px solid $color3;
 	cursor: pointer;
 	&:hover{
-		color: $color3;
-		background: transparent;
-		border-width: 1px;
+		color: $color1;
+		background: $color3;
+	}	
+	&:hover,
+	&:focus,
+	&:active{
+		outline: none;
 	}
 }

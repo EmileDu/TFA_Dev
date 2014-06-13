@@ -40,7 +40,7 @@
 										<p>Développé grâce à jQuery, Hammer.js</p>
 								</div>
 								<div class="case-preview--link">
-										<a class="btn" href="<!-- @path lazylunch.html -->" data-ajaxLink>Comprendre mes choix</a>
+										<a class="btn" href="<!-- @path lazylunch.html -->" data-ajaxLink data-class="case-study--Lazy-Lunch" data-name="Lazy Lunch">Comprendre mes choix</a>
 								</div> 
 							</div>
 						</article>
@@ -56,7 +56,7 @@
 										<p>Développé grâce à jQuery, D3.js, SVG, Waypoint.js, JSON</p>
 								</div>
 								<div class="case-preview--link">
-										<a class="btn" href="<!-- @path dwmtwitter.html -->" data-ajaxLink>Comprendre mes choix</a>
+										<a class="btn" href="<!-- @path dwmtwitter.html -->" data-ajaxLink data-class="case-study--DWMTWitter" data-name="DW'M'Twitter">Comprendre mes choix</a>
 								</div> 
 							</div>
 						</article>	
@@ -66,7 +66,7 @@
 					<div class="wrapper">
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
-								<form class="contact-form" id="contact-form" method="post" action="process.php" role="form">
+								<form class="contact-form" id="contact-form" method="post" action="assets/php/mailer.php" role="form">
 									<p>
 										<span class="start-message">Salut Emile, je m'appelle</span>
 										<input class="contact-form-input contact-form-input--name" type="text" name="nom" id="form--nom" placeholder="ton nom"/>
@@ -79,8 +79,8 @@
 										<span class="start-message">Je voulais te dire que</span>
 										<textarea class="contact-form-input contact-form-input--message" name="message" id="form--message" placeholder="ton message" maxlength="250"></textarea>
 									</p>
-									<div class="contact-form-input contact-form-input--submit">
-										<input class="btn" id="form--submit" type="submit" value="Envoyer"/>
+									<div class="contact-form-input contact-form-input--submit" id="form--submit">
+										<button class="btn" type="submit">Envoyer</button>
 									</div>
 								</form>
 							</div>

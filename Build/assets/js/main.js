@@ -46,7 +46,7 @@
 			case 'nom':
 				if(value == ''){
 					valid = false;
-					message = 'J\'aimerai vraiment savoir votre nom.';
+					message = 'J\'aimerai vraiment savoir ton nom.';
 				} else {
 					valid = true;	
 				}
@@ -54,7 +54,7 @@
 			case 'email':
 				if(value == ''){
 					valid = false;
-					message = 'J\'aimerai vraiment connaitre votre mail.';
+					message = 'J\'aimerai vraiment connaitre ton mail.';
 				} else {
 					valid = true;	
 				}
@@ -62,13 +62,59 @@
 			case 'message':
 				if(value == ''){
 					valid = false;
-					message = 'Vous voulez même pas me dire bonjour ?';
+					message = 'TU veux même pas me dire bonjour ?';
 				} else {
 					valid = true;	
 				}
 				break;
 		}
 		return message;
+	}
+	
+	function startLoading(){
+		$('.loading').show();
+	}
+	
+	function progressLoading(){
+		
+	}
+	
+	function doneLoading(data){
+		var title = $(data)[35].innerHTML;
+		var content = $(data)[81].innerHTML;
+
+		document.title = title;
+		$('#content').html(content);
+		$('body').attr('class', newClass);
+		history.pushState({key: 'case-study'}, 'titre', url);
+		finishLoading();
+	}
+	
+	function failLoading(data){
+		finishLoading();
+	}
+	
+	function finishLoading(){
+		$('.loading').hide();	
+	}
+	
+	
+	function loadAjax(ev){
+		var url = $(this).attr('href');
+		var name = $(this).attr('data-name');
+		var newClass = $(this).attr('data-class');
+		$.ajax({
+				type: 'POST',
+				url: $(this).attr('href'),
+				dataType: 'HTML',
+				data: {},
+				beforeSend: startLoading(),						
+				xhrFields:{
+					onprogress: progressLoading()
+				}
+			})
+			.done(doneLoading(data, url, name))
+			.fail(failLoading(data));
 	}
 	
 	function preinit() {
@@ -82,41 +128,39 @@
 	function init() {
 		definegrid();
 		setgridonload();
-
 		var $headerHeight = $('.header').outerHeight();
 		if ($headerHeight % 27 != 0) {
 			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
 		}
 
-		$('[data-ajaxLink]').on('click tap', function (ev) {
-				ev.preventDefault();
-				var src = $(this).attr('href');
-				$.ajaxSetup({
-					async: true
-				});
-				$.ajax({
-					type: 'GET',
-					dataType: 'html',
-					url: src,
-					beforeSend: function () {
-						$('.loading').show();
-					},
-					complete: function () {
-						$('.loading').hide();
-					},
-					success: function (response) {
-						console.log($(response).find('content'));
-						$('#content').html($(response).find('content').html());
-					}
-				});
+		// Load page in ajax
+		$('body').on('click tap', '[data-ajaxLink]',function(ev){
+			loadAjax(ev);
+			return false;
 		});
 		
+		window.onpopstate = function(ev){
+			if (event.state == ''){
+				
+			}
+		}
+		$('input, textarea').on('focusin', function(){
+			if ($('#form--submit').hasClass('is-done')){
+				$('#form--submit').removeClass('is-done')
+			} else if($('#form--submit').hasClass('is-fail')){
+				$('#form--submit').removeClass('is-fail');
+			}
+		});
+		
+		// Replace placeholder if enter value is not valid
 		$('input, textarea').on('focusout', function(ev){
 			var output = checkValue($(this)[0].name, $(this)[0].value);
 			$(this).css('border','1xp solid red');
 			$(this).attr('placeholder', output);
 		});
 				
+		
+		// Formulaire de contact 
 		$('#form--submit').on('click', function (ev) {
 			ev.preventDefault();
 			$('#contact-form').trigger('submit');
@@ -124,9 +168,8 @@
 		});
 
 		$('#contact-form').on('submit', function(ev) {
-			console.log($(this).attr('action'));
 			var nom = $('#form--nom').val();
-			var mail = $('#form--mail').val();
+			var mail = $('#form--email').val();
 			var message = $('#form--message').val();
 			if (valid){
 				if (nom == '' || mail == '' || message == ''){
@@ -134,15 +177,28 @@
 				} else {
 					$.ajax({
 						type: $(this).attr('method'),
-						url: $(this).attr('action'),
+						url:$(this).attr('action'), 
 						data: $(this).serialize(),
-						dataType: 'json',
-						success: function(){
-							alert('Formulaire bien envoyé');
+						beforeSend: function(){
+							$('#form--submit').addClass('is-on-progress');
 						},
-						error: function(){
-							alert('Formulaire non envoyé');
+						xhrFields:{
+							onprogress: function(ev){
+								var progress = ev.loaded / ev.totalSize * 100;
+							}
 						}
+					})
+					.done(function(data){
+						$('#form--submit').removeClass('is-on-progress');
+						$('#form--submit').addClass('is-done');
+						$('#contact-form')[0].reset();
+						$('#form--nom').attr('placeholder', 'ton nom');
+						$('#form--email').attr('placeholder', 'ton email');
+						$('#form--message').attr('placeholder', 'ton message');
+					})
+					.fail(function(data){
+						$('#form--submit').removeClass('is-on-progress');
+						$('#form--submit').addClass('is-fail');
 					});
 				}
 			}
@@ -155,10 +211,8 @@
 	}); //close document ready
 
 	$(window).resize(function () {
-		console.log('resize');
 		definegrid();
 		setgridonresize();
-
 	});
 
 })(jQuery);
