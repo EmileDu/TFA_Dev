@@ -23,11 +23,12 @@
 	width: 191.5px;
 	margin: 74px auto 0 auto;
 	.btn{
-		background: $color2;
+		background: transparent;
+		color: $color2;
+		border-color: $color2;
 		&:hover{
-			background: transparent;
-			color: $color2;
-			border-color: $color2;
+			background: $color2;
+			color: $color1;
 		}
 	}
 }

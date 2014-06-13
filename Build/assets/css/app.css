@@ -823,11 +823,12 @@ main[role="main"] {
   width: 191.5px;
   margin: 74px auto 0 auto; }
   .case-study--link .btn {
-    background: #272727; }
+    background: transparent;
+    color: #272727;
+    border-color: #272727; }
     .case-study--link .btn:hover {
-      background: transparent;
-      color: #272727;
-      border-color: #272727; }
+      background: #272727;
+      color: white; }
 
 .case-study--content {
   padding: 6rem 0; }

@@ -62,7 +62,7 @@
 			case 'message':
 				if(value == ''){
 					valid = false;
-					message = 'TU veux même pas me dire bonjour ?';
+					message = 'Tu veux même pas me dire bonjour ?';
 				} else {
 					valid = true;	
 				}
@@ -72,49 +72,34 @@
 	}
 	
 	function startLoading(){
+		console.log('start loading');
 		$('.loading').show();
 	}
 	
 	function progressLoading(){
-		
+		console.log('progress loading');
 	}
 	
-	function doneLoading(data){
+	function doneLoading(data, url, name, newClass){
+		console.log('done loading');
 		var title = $(data)[35].innerHTML;
 		var content = $(data)[81].innerHTML;
-
+		url = url.split('.')[0];
 		document.title = title;
 		$('#content').html(content);
 		$('body').attr('class', newClass);
-		history.pushState({key: 'case-study'}, 'titre', url);
+		history.pushState({key: 'case-study'}, name, url);
 		finishLoading();
 	}
 	
 	function failLoading(data){
+		console.log('fail loading');
 		finishLoading();
 	}
 	
 	function finishLoading(){
+		console.log('finish loading');
 		$('.loading').hide();	
-	}
-	
-	
-	function loadAjax(ev){
-		var url = $(this).attr('href');
-		var name = $(this).attr('data-name');
-		var newClass = $(this).attr('data-class');
-		$.ajax({
-				type: 'POST',
-				url: $(this).attr('href'),
-				dataType: 'HTML',
-				data: {},
-				beforeSend: startLoading(),						
-				xhrFields:{
-					onprogress: progressLoading()
-				}
-			})
-			.done(doneLoading(data, url, name))
-			.fail(failLoading(data));
 	}
 	
 	function preinit() {
@@ -126,6 +111,7 @@
 	}
 
 	function init() {
+		history.pushState(null, 'index', document.location.origin);
 		definegrid();
 		setgridonload();
 		var $headerHeight = $('.header').outerHeight();
@@ -135,13 +121,31 @@
 
 		// Load page in ajax
 		$('body').on('click tap', '[data-ajaxLink]',function(ev){
-			loadAjax(ev);
+			var url = $(this).attr('href');
+			var name = $(this).attr('data-name');
+			var newClass = $(this).attr('data-class');
+			$.ajax({
+				type: 'GET',
+				url: $(this).attr('href'),
+				dataType: 'HTML',
+				data: {},
+				beforeSend: startLoading(),						
+				xhrFields:{
+					onprogress: progressLoading()
+				}
+			})
+			.done(function(data){
+				doneLoading(data, url, name, newClass);
+			})
+			.fail(function(data){
+				failLoading(data)
+			});
 			return false;
 		});
 		
 		window.onpopstate = function(ev){
-			if (event.state == ''){
-				
+			if (event.state == null){
+				history.pushState(null, 'index', document.location.origin);
 			}
 		}
 		$('input, textarea').on('focusin', function(){
