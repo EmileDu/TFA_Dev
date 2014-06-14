@@ -21,5 +21,11 @@
 }
 .italic{
 	font-style: italic;
-	margin-left: 82.25px;
+}
+
+
+@media only screen and (min-width: $width-desktop){
+	.italic{
+		margin-left: 82.25px;
+	}
 }

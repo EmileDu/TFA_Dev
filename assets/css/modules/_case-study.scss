@@ -16,7 +16,9 @@
 		width: 100%;
 		height: 350px;
 	}
-	
+	.title{
+		font-size: 4rem;
+	}
 }
 
 .case-study--link{
@@ -56,22 +58,27 @@
 
 .case-study--content-section--image{
 	width: 100%;
-	margin: 74px auto 9px auto;
+	margin-top: 74px;
 	text-align: center;
+	padding: 0 4%;
 	img{
 		width: 100%;
 		height: auto;
-		margin: 0;
 	}
 }
 
 .image--animated_gif{
-	margin-bottom: 61px;
+	@include clearfix();
+	margin-bottom: 3.38888888888889rem;
 	img{
-		margin-right: 68.75px;
+		width: 70%;
+		margin: auto;
+		margin-right: 0;
+		margin-bottom: 4.5rem;
 		&:last-child{
-			margin-left: 68.75px;
+			margin-left: 0;
 			margin-right: 0;
+			margin-bottom: 3,38888888888889rem;
 		}
 	}
 }
@@ -80,14 +87,47 @@
 	margin-bottom: 78px;
 }
 
-@media only screen and (min-width: $width-tablet){
-
+@media only screen and (min-width: $width-tablet){	
+	.case-study--header{
+		.title{
+			font-size: 5rem;
+		}
+	}
+	.image--animated_gif{
+		img{
+			margin-bottom: 0;
+			width: 49%;
+			float: left;
+			margin-right: 1%;
+			&:last-child{
+				float:right;
+				margin-left: 1%;
+				margin-right: 0;
+			}
+		}
+	}
 }
 
 @media only screen and (min-width: $width-desktop){
+	
 	.case-study--content-section--image{
+		width: 100%;
+		text-align: center;
+		padding: 0;
 		img{
 			width: auto;
+		}
+	}
+	
+	.image--animated_gif{
+		img{
+			float: none;
+			margin-right: 68.75px;
+			&:last-child{
+				float: none;
+				margin-left: 68.75px;
+				margin-right: 0;
+			}
 		}
 	}
 }

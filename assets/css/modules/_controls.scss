@@ -1,0 +1,46 @@
+.controls--container{
+	@include position(fixed, 0px 0 0 0px);
+	z-index: 50;
+}
+
+.controls--list{
+	
+}
+
+.controls--list--item{
+	margin-bottom: 1.5rem;
+	a{
+		display: block;
+		width: 3rem;
+		height: 3rem;
+		background: $color2;
+		@include position(relative);
+		@include transition();
+	}	
+}
+
+.controls--list--item--icon{
+	width: 2.5rem;
+	height: 2.5rem;
+	@include position(absolute, 0px 0px 0px 0px);
+	margin: auto;
+}
+
+.controls--list--item--name{
+	display: block;
+	@include position(absolute, 0px 0 0 54px);
+	line-height: 3rem;
+	height: 3rem;
+	width: 0rem;
+	text-align: center;
+	color: $color1;
+	background: $color2;
+	overflow: hidden;
+	@include transition();
+}
+
+.controls--list--item a:hover{
+	.controls--list--item--name{
+		width: 8rem;
+	}
+}
