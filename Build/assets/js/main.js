@@ -90,7 +90,7 @@
 				curpage = window.location.pathname.split('/').pop(),
 				homepage = rootUrl;
 		$('#content').html($dataContent);
-		$
+		$('body').scrollTop(0);
 		$('body').removeClass().addClass(title);
 		
 		document.title = $data.find('.document-title:first').text();
