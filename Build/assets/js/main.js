@@ -90,7 +90,6 @@
 				curpage = window.location.pathname.split('/').pop(),
 				homepage = rootUrl;
 		$('#content').html($dataContent);
-		$('body').scrollTop(0);
 		$('body').removeClass().addClass(title);
 		
 		document.title = $data.find('.document-title:first').text();
@@ -177,7 +176,7 @@
 			var $this = $(this),
 					url = $this.attr('href'),
 					title = $this.attr('title') || null;
-			
+			$('body').animate({ scrollTop : 0}, 100);
 			if ( ev.which == 2 || ev.metaKey ) { // If voluntarily opens in a new window ( cmd + click ) 
 				return true; 
 			}
@@ -274,8 +273,9 @@
 	// When DOM is ready, show loading animation and call preinit function
 	$(document).ready(function () { 
 		
-		startLoading();
-		preinit();
+//		startLoading();
+//		preinit();
+		init();
 		
 	}); 
 	
