@@ -18,6 +18,12 @@ main[role="main"]{
 	}
 }
 
+.contact{
+	background: $color2;
+	color: $color1;
+	padding-top: 4.5rem;
+}
+
 @media only screen and (min-width: $width-tablet){
 	.about-container{
 		.container{

@@ -81,17 +81,15 @@
     </div>
     <div class="content" id="content">
 				<header role="banner" class="header">
-					<canvas class="header--experiment"></canvas>
-					<h1 class="header--title">Emile Duval</h1>
-					<p class="header--subtitle">Développeur Front-End - <strong>À la recherche d'un stage</strong></p>
+					<canvas class="header--experiment" id="canvas-header"></canvas>
+					<h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
+					<p class="header--subtitle">Dév<span class="on-m">eloppeur</span> Front-End<strong> - <span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m">d'</span> un stage</strong></p>
 				</header>
 				<main role="main" class="main">
 					<section class="about-container">
 						<div class="wrapper">
 							<div class="container">
-									<h1 class="subtitle">
-											<span class="adaptatif-content" data-desktop="Vous cherchez ">Besoin d'</span>un développeur ?
-									</h1>
+									<h1 class="subtitle">Besoin d'un développeur ?</h1>
 									<strong class="subsubtitle">Ça tombe bien, je cherche un stage dans le développement web.</strong>
 									<p class="returnParag">J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
 									<p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
@@ -149,9 +147,8 @@
 							</div>
 						</article>	
 					</section>
-				</main>
-				<footer class="footer" role="contentinfo">
-					<div class="wrapper">
+					<section class="contact">
+						<div class="wrapper">
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
 								<form class="contact-form" id="contact-form" method="post" action="assets/php/mailer.php" role="form">
@@ -173,62 +170,65 @@
 								</form>
 							</div>
 							<div class="social-list-container">
-								<h2 class="subtitle">Et sinon je suis actif ici</h2>
+								<h2 class="subtitle"><span class="on-m on-l">Et sinon&nbsp;</span><span class="on-s">je suis actif ici</span></h2>
 								<ul class="social-list">
-										<li class="social-list-item">
-											<a href="mailto:bonjour@emileduval.be">
-												<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-													<use xlink:href="assets/img/sprites.svg#icon-mail"></use>
-												</svg>
-												<span class="social-list-item--name">Mail</span>
-											</a>
-										</li>
-										<li class="social-list-item">
-											<a href="https://twitter.com/Emile_D_" target="_blank">
-												<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-													<use xlink:href="assets/img/sprites.svg#icon-twitter"></use>
-												</svg>
-												<span class="social-list-item--name">Twitter</span>
-											</a>
-										</li>          
-										<li class="social-list-item">
-											<a href="https://plus.google.com/u/0/100374744664485436800/posts" target="_blank">
-												<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-													<use xlink:href="assets/img/sprites.svg#icon-googleplus"></use>
-												</svg>
-												<span class="social-list-item--name">Google +</span>
-											</a>
-										</li>
-										<li class="social-list-item">
-											<a href="https://github.com/EmileDu" target="_blank">
-												<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-													<use xlink:href="assets/img/sprites.svg#icon-github"></use>
-												</svg>
-												<span class="social-list-item--name">Github</span>
-											</a>
-										</li>
-										<li class="social-list-item">
-											<a href="http://codepen.io/Emile_D/" target="_blank">
-												<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-													<use xlink:href="assets/img/sprites.svg#icon-codepen"></use>
-												</svg>
-												<span class="social-list-item--name">Codepen</span>
-											</a>
-										</li>
-										<li class="social-list-item">
-											<a href="https://www.linkedin.com/profile/view?id=333895220" target="_blank">
-												<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-													<use xlink:href="assets/img/sprites.svg#icon-linkedin"></use>
-												</svg>
-												<span class="social-list-item--name">LinkedIn</span>
-											</a>
-										</li>
-									</ul>
+									<li class="social-list-item">
+										<a href="mailto:bonjour@emileduval.be">
+											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+												<use xlink:href="assets/img/sprites.svg#icon-mail"></use>
+											</svg>
+											<span class="social-list-item--name">Mail</span>
+										</a>
+									</li>
+									<li class="social-list-item">
+										<a href="https://twitter.com/Emile_D_" target="_blank">
+											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+												<use xlink:href="assets/img/sprites.svg#icon-twitter"></use>
+											</svg>
+											<span class="social-list-item--name">Twitter</span>
+										</a>
+									</li>          
+									<li class="social-list-item">
+										<a href="https://plus.google.com/u/0/100374744664485436800/posts" target="_blank">
+											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+												<use xlink:href="assets/img/sprites.svg#icon-googleplus"></use>
+											</svg>
+											<span class="social-list-item--name">Google +</span>
+										</a>
+									</li>
+									<li class="social-list-item">
+										<a href="https://github.com/EmileDu" target="_blank">
+											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+												<use xlink:href="assets/img/sprites.svg#icon-github"></use>
+											</svg>
+											<span class="social-list-item--name">Github</span>
+										</a>
+									</li>
+									<li class="social-list-item">
+										<a href="http://codepen.io/Emile_D/" target="_blank">
+											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+												<use xlink:href="assets/img/sprites.svg#icon-codepen"></use>
+											</svg>
+											<span class="social-list-item--name">Codepen</span>
+										</a>
+									</li>
+									<li class="social-list-item">
+										<a href="https://www.linkedin.com/profile/view?id=333895220" target="_blank">
+											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
+												<use xlink:href="assets/img/sprites.svg#icon-linkedin"></use>
+											</svg>
+											<span class="social-list-item--name">LinkedIn</span>
+										</a>
+									</li>
+								</ul>
+							</div>					
 						</div>
-							<small class="legal-mention">@ Emile Duval 2014 - Tous droit réservé - <a href="">Politique de confidentialité</a> - <a href="http://dwm.re/">DWM</a> - <a href="http://www.infographie-sup.be/">ESIAJ</a></small>
-					</div>
+					</section>
+				</main>
+				<footer class="footer" role="contentinfo">
+					<small class="legal-mention">@ <a class='current' href="index.html" title="home" data-ajaxlink>Emile Duval</a> 2014 - Tous droit réservé - <a href="confidentialite.html" title="Politique_Confidentialite" data-ajaxlink>Politique de confidentialité</a> - <a href="http://dwm.re/" target="_blank">DWM</a> - <a href="http://www.infographie-sup.be/" target="_blank">ESIAJ</a> - <a href="credits.html" title="Credits" data-ajaxlink>Crédits</a></small>	
 				</footer>
-    </div>		
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/libs/jquery-2.1.1.min.js"><\/script>')</script>
 

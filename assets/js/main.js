@@ -5,7 +5,14 @@
 	//-----------------
 	
 	var valid = true,
-			rootUrl = History.getRootUrl();
+			rootUrl = History.getRootUrl(),
+			data,
+			nbPays,
+			pays,
+			zoneHeight,
+			zoneWidth,
+			c = document.getElementById('canvas-header'),
+			ctx = c.getContext('2d');
 	
 	
 	//-----------------
@@ -91,7 +98,6 @@
 				homepage = rootUrl;
 		$('#content').html($dataContent);
 		$('body').removeClass().addClass(title);
-		
 		document.title = $data.find('.document-title:first').text();
 		
 		// Inform Google Analytics of the change
@@ -149,18 +155,108 @@
 
 	// Update header Height to always match with baseline
 	function headerHeight(){
+//		$('.header').height($(window).height());
 		var $headerHeight = $('.header').outerHeight();
 		if ($headerHeight % 27 != 0) {
 			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
 		}
 	}
+	function getUserInfo(){
+		$.get('http://ipinfo.io', function(response){
+			var data = {ip:response.ip, country:response.country};
+			sendToServer(data);
+		}, 'jsonp');	
+	}
+	
+	function sendToServer(data){
+		$.post('assets/php/addEntry.php', data, function(response){
+		}, 'json')
+		.always(fetchData());
+	}
+	
+	function fetchData(){
+		$.post('assets/php/getEntry.php', function(response){
+			data = response;
+			initCanvas();
+		},'json');
+	}
+	
+	function initCanvas(){
+		
+		nbPays = 1;
+		pays = [];
+		pays.push(data[0].country);
+		for(var i = 1; i < data.length; i++){
+			flag = false;
+			for(var y = 0; y < pays.length; y++){
+				if(data[i].country == pays[y]){
+					flag = true;
+				}
+			}
+			if(flag == false){
+				pays.push(data[i].country);
+				nbPays++;	
+			}
+		};
+		
+		updateCanvasSize();
+		drawHeader(data, zoneHeight, zoneWidth, nbPays, pays);
+		
+	}	
+	
+	function getHeaderSize(){
+		return {
+			height: $('.header')[0].clientHeight,
+			width: $('.header')[0].clientWidth
+		};
+	}
+	function updateCanvasSize(){
+		size = getHeaderSize();
+		c.width = size.width;
+		c.height = size.height;
+		
+		zoneHeight = ((c.height / 100) * 10) + ((c.height / 100) * 80);
+		zoneWidth = ((c.width / 100) * 10) + ((c.width / 100) * 80);
+	}
+	
+	function resizeCanvas(){
+		
+		updateCanvasSize();
+		drawHeader(data, zoneHeight, zoneWidth, nbPays, pays);
+		
+	}
+	
+	
+	function drawHeader(data, zoneHeight, zoneWidth, nbPays, pays){
+		
+		var previous = {};
+		
+		$.each(data, function(index, value){
+			date = new Date(value.date);
+			hours = date.getHours();
+			var y = ( zoneHeight / 23 ) * hours;
+			var x = ( zoneWidth / (nbPays + 1)) * (pays.indexOf(value.country) + 1);
+			ctx.beginPath();
+			ctx.arc(x, y, 15, 0, 2 * Math.PI, false);
+			ctx.fillStyle = 'white';
+			ctx.fill();		
+			if (previous != ''){
+				ctx.beginPath();
+				ctx.moveTo(previous.x, previous.y);
+				ctx.lineTo(x, y);
+				ctx.strokeStyle = 'white';
+				ctx.stroke();
+			}
+			previous = {x:x, y:y};
+		});
+		
+	}
+	
 	
 	// Call when DOM is ready and wait for document fully loaded, to call init function and end loading
 	function preinit(){
-		$(window).load(function () {
-			init();
-			finishLoading();
-		});
+		getUserInfo();
+		init();
 	}
 	
 
@@ -273,8 +369,7 @@
 	// When DOM is ready, show loading animation and call preinit function
 	$(document).ready(function () { 
 		
-//		startLoading();
-//		preinit();
+		preinit();
 		init();
 		
 	}); 
@@ -283,29 +378,7 @@
 	$(window).resize(function () {
 		definegrid();
 		setgridonresize();
+		resizeCanvas();
 	});
 
 })(jQuery);
-
-
-
-
-
-
-
-
-//	startLoading();
-//
-//$('html body').hide()
-//$(document).ready(function () { 
-//	$('html body').fadeOut('slow', function() {
-//		$('a[href], button[href]').click(function(event) {
-//			var url = $(this).attr('href');
-//			if (url.indexOf('#') == 0 || url.indexOf('javascript:') == 0) return;
-//			event.preventDefault();
-//			$('html body').fadeIn('slow', function() {
-//				window.location = url;
-//			});
-//		});
-//	});
-//});

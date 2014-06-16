@@ -23,9 +23,62 @@
 	font-style: italic;
 }
 
+.on-s, .on-m, .on-l{
+	display: inline-block;
+}
+
+.on-s:first-letter{
+	text-transform: uppercase;
+}
+
+.on-m, .on-l{
+	display: none;
+}
+
+
+@media only screen and (min-width: $width-tablet){
+	.on-s:first-letter{
+		text-transform: lowercase;
+	}
+	
+	.on-m{
+		display: inline-block;
+		&:first-letter{
+			text-transform: uppercase;
+		}
+	}
+}
 
 @media only screen and (min-width: $width-desktop){
 	.italic{
 		margin-left: 82.25px;
 	}
+	
+	.on-s:first-letter,
+	.on-m:first-letter{
+		text-transform: lowercase;
+	}
+	
+	.on-l{
+		display: inline-block;	
+		&:first-letter{
+			text-transform: uppercase;
+		}
+		&.FirstLetterCap:first-letter{
+			text-transform: uppercase;
+		}
+	}
+	
+	.FirstLetterCap:first-letter{
+		text-transform: lowercase;
+	}
+}
+
+
+.noFirstLetterCap:first-letter{
+	text-transform: lowercase;
+}
+
+.FirstLetterCap:first-letter{
+	text-transform: uppercase;
 }
