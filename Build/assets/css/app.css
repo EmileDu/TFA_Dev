@@ -364,6 +364,10 @@ em {
 textarea, input {
   font-family: "Lato", sans-serif; }
 
+blockquote {
+  display: inline-block;
+  font-style: italic; }
+
 /* Layout */
 .header {
   position: relative;
@@ -438,6 +442,20 @@ main[role="main"] {
   .error404 .main .error404--link {
     margin: 3rem auto 0 auto; }
 
+.mail {
+  background: #272727; }
+  .mail .wrapper {
+    background: #272727;
+    text-align: center; }
+    .mail .wrapper .mail-img-container {
+      width: 100%;
+      margin: 4.5rem auto;
+      text-align: center;
+      padding: 0 4%; }
+      .mail .wrapper .mail-img-container img {
+        width: 100%;
+        height: auto; }
+
 .section-container {
   padding: 4.5rem 0;
   min-height: 27rem; }
@@ -501,6 +519,9 @@ main[role="main"] {
 
   .tfa .tfa-home-list-item {
     width: 21.34722222222222rem; }
+
+  .mail-img-container {
+    width: 80%; }
 
   .case-study--content .container {
     width: 65.625%;

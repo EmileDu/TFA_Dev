@@ -90,32 +90,32 @@
 						<div class="wrapper">
 							<div class="container">
 								<h2 class="subtitle">Introduction</h2>
-<p class="returnParag">Lundi 10 mars 2014: Workshop Data Visualization</p>
-								<blockquote>Vous devez réaliser une visualisation de données sur le sujet de votre choix</blockquote>
-								<p>Notre choix c’est porter sur l’utilisation de Twitter par les élèves de DWM et l’influence de ce dernier sur leurs réussite, car on voulait un sujet qui interpelle les actuels et futur élèves DWM.</p>
+<p class="returnParag">Lundi 10 mars 2014 : Workshop Data Visualization.</p>
+								<blockquote class="returnParag">Vous devez réaliser une visualisation de données sur le sujet de votre choix.</blockquote>
+								<p>Notre choix s’est porté sur l’utilisation de Twitter par les élèves de DWM et l’influence de ce dernier sur leur réussite. Nous voulions un sujet qui interpelle les actuels et les futurs élèves DWM.</p>
 							</div>
 						</div>
 					</div>
 					<div class="case-study--content-section">
 						<div class="wrapper">
 							<div class="container">
-								<h2 class="subtitle">La chasse au données</h2>
-								<p>Alors que les membres de mon groupes récoltais « à la main » toutes sortent de données, j’ai voulu automatiser un petit peu le processus. ( plus de 300 étudiants répertorié ça commence a faire beaucoup pour le faire manuellement ).</p>
+								<h2 class="subtitle">La chasse aux données</h2>
+								<p>Alors que les membres de mon groupe récoltaient « à la main » toutes sortes de données, j’ai voulu automatiser un petit peu le processus ( plus de 300 étudiants répertoriés ça commence à faire beaucoup pour le faire manuellement ).</p>
 								<h3 class="subsubtitle">L’API Twitter</h3>
-								<p>C’était l’occasion rêvé d’apprendre a utiliser cette API.</p>
+								<p>C’était l’occasion rêvée d’apprendre à utiliser cette API.</p>
 							</div>
 							<div class="case-study--content-section--image">
 								<img src="../assets/img/CaseStudy--DWMTwitter__API.png" alt="Utilisation de l'API Twitter" width="960" height="135"/>
 							</div>
 							<div class="container">
-								<p class="returnParag">Mes premiers essais, ont pas été très concluant étant donné que mes derniers travaux en php remonte a il y a quatre ans. Et ça n’éffleurai que les bases a l’époque.
-Il a donc fallut ce remettre dedans.</p>
-								<p class="returnParag">J’ai tous de même réussi a faire des requêtes pour récupéré, l’ensemble des étudiant présent dans trois différents listes.</p>
-								<p>Apres avoir compris comment envoyé des requête à l’API les choses s’enchainent assez vite. J’ai pu commencer a récupéré les informations de chacun des étudiants ( followers, followings, nombre de tweets, date d’inscription, etc… )</p>
+								<p class="returnParag">Mes premiers essais n'ont pas été très concluants étant donné que mes derniers travaux en php remonte à quatre ans et ça n’éffleurait que les bases à l’époque.
+Il a donc fallu se remettre dedans.</p>
+								<p class="returnParag">J’ai tout de même réussi à faire des requêtes pour récupérer l’ensemble des étudiants présents dans trois différentes listes.</p>
+								<p>Après avoir compris comment envoyer des requêtes à l’API, les choses s’enchainent assez vite. J’ai pu commencer à récupérer les informations de chacun des étudiants ( followers, followings, nombre de tweets, date d’inscription, etc… )</p>
 								<h3 class="subsubtitle">Limiter les requêtes</h3>
-								<p class="returnParag">La limite de requête mise en place par twitter ma donné un petit peut de fil à retordre. Quand on sait que récupéré la localisation des followers d’un étudiant pouvait demandé plus de 10 requêtes. il a fallu trouvé une solution pour pouvoir étendre la récolte a tous les étudiants sans recevoir la maudite de l’api.</p>
-								<p class="returnParag">J’ai choisi de mettre en place un système de compteur, qui met automatiquement au pause  mes requêtes juste avant que la limite soit atteinte et ce jusqu’a ce qu’il retombe à zéro.</p>
-								<p>C’est surement pas la meilleur solution, mais pour une récolte de masse comme celle la et qui plus est dans un temps limité (ce workshops ne durent malheureusement que deux semaines ) c’était un solution tout a fait viable.</p>
+								<p class="returnParag">La limite de requête mise en place par twitter m'a donné un petit peu de fil à retordre. Quand on sait que récupérer la localisation des followers d’un étudiant peut demander plus de 10 requêtes, il a fallu trouver une solution pour pouvoir étendre la récolte à tous les étudiants sans recevoir la réponse "Rate limit exceeded" de l’API.</p>
+								<p class="returnParag">J’ai choisi de mettre en place un système de compteur qui met automatiquement en pause mes requêtes juste avant que la limite soit atteinte et ce jusqu’à ce qu’il retombe à zéro.</p>
+								<p>Ça n'est sûrement pas la meilleure solution mais pour une récolte de masse comme celle-ci et, qui plus est, dans un temps limité (ce workshop ne dure malheureusement que deux semaines) c’était une solution tout à fait viable.</p>
 							</div>
 						</div>
 					</div>
@@ -123,15 +123,15 @@ Il a donc fallut ce remettre dedans.</p>
 						<div class="wrapper">
 							<div class="container">
 								<h2 class="subtitle">Qu’est ce qu’on va faire de vous ?</h2>
-								<p class="returnParag">Après avoir récupérer toutes ces données, il a fallut réfléchir a comment on allait les utilisé.</p>
-								<p class="returnParag">Deux premiers graphique on assez vite émergé.</p>
+								<p class="returnParag">Après avoir récupérer toutes ces données, il a fallu réfléchir à comment nous allions les utiliser.</p>
+								<p class="returnParag">Deux premiers graphiques ont assez vite émergé.</p>
 								<p>Un graphique du nombre d’inscription par mois.</p>
 							</div>
 							<div class="case-study--content-section--image">
 								<img src="../assets/img/CaseStudy--DWMTwitter__inscription.png" alt="Apercu du graphique d'inscription" width="960" height="486"/>
 							</div>
 							<div class="container">
-								<p>Une mappemonde avec les deux pays les plus suivit par les DWM.</p>
+								<p>Une mappemonde avec les dix pays les plus suivit par les DWM.</p>
 							</div>
 						</div>
 					</div>								
@@ -141,9 +141,8 @@ Il a donc fallut ce remettre dedans.</p>
 					<div class="case-study--content-section">
 						<div class="wrapper">
 							<div class="container">
-								<p class="returnParag">Le graphique principale quand a lui, a du être travaillé un peu plus longtemps. Sous quel forme présenté les données ? Quel type d’interaction ?</p>
-								<p class="returnParag">On a décide de partir de deux point de départ, la réussite ou l’échec de l’étudiant.
-Et de comparer ce point de départ en fonction de si oui ou non l’étudiant était inscrit sur twitter, et si oui quels sont ces stats, son utilisation.</p>
+								<p class="returnParag">Le graphique principal, quant à lui, a dû être travaillé un peu plus longtemps. Sous quelle forme présenter les données ? Quel type d’interaction ?</p>
+								<p class="returnParag">Nous avons décidé de partir de deux points de départ, la réussite ou l’échec de l’étudiant. Puis, nous avons comparé ce point de départ en fonction de si oui ou non l’étudiant était inscrit sur twitter et, si oui quels sont ses statistiques et son utilisation.</p>
 							</div>
 						</div>
 					</div>
@@ -153,10 +152,10 @@ Et de comparer ce point de départ en fonction de si oui ou non l’étudiant é
 					<div class="case-study--content-section">
 						<div class="wrapper">
 							<div class="container">
-								<h2 class="subtitle">Ressenti et Evolution</h2>
-								<p class="returnParag">Ce workshop m’a permis de m’initier a de nombreuse « technologies », API Twitter, SVG, D3.js que je voulais utiliser depuis longtemps sans jamais avoir trouvé d’occasion pour.</p>
-								<p class="returnParag">Mon seul regret est que, nos données sont fixe, on exploité les données récupéré en début de workshop, mais celle-ci on forcement évolué entre le début et la fin du workshop, et elles évoluent toujours.</p>
-								<p>Si je pouvais le recommencé, je baserai l’expérience plus sur des données dynamique.</p>
+								<h2 class="subtitle">Ressentis et Évolution</h2>
+								<p class="returnParag">Ce workshop m’a permis de m’initier à de nombreuses « technologies » : API Twitter, SVG, D3.js que je voulais utiliser depuis longtemps sans jamais avoir trouvé d’occasion.</p>
+								<p class="returnParag">Mon seul regret est que nos données sont fixes. Nous avons exploité les données récupérées en début de workshop mais celles-ci ont forcement évolué entre le début et la fin du projet, et elles évoluent toujours.</p>
+								<p>Si je devais le recommencer, je baserai plus l’expérience sur des données dynamiques.</p>
 							</div>
 						</div>
 					</div>

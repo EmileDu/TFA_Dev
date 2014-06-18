@@ -21,6 +21,23 @@ main[role="main"]{
 		margin: 3rem auto 0 auto;
 	}
 }
+.mail{
+		background: $color2;
+	.wrapper{
+		background: $color2;
+		text-align: center;
+		.mail-img-container{
+			width: 100%;
+			margin: 4.5rem auto;
+			text-align: center;
+			padding: 0 4%;
+			img{
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
 
 .section-container{
 	padding: 4.5rem 0;
@@ -114,6 +131,10 @@ main[role="main"]{
 			width: 21.34722222222222rem;;
 
 		}
+	}
+	
+	.mail-img-container{
+		width: 80%;	
 	}
 	.case-study--content{
 		.container{

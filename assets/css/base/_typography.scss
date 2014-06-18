@@ -101,3 +101,8 @@ em { font-style: italic; }
 textarea, input{
 	font-family: $content-font ;
 }
+
+blockquote{
+	display: inline-block;
+	font-style: italic;
+}
