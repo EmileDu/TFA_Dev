@@ -1,7 +1,6 @@
 <?php
 
-	try{ $bdd = new PDO('mysql:host=localhost;dbname=EmileMetaTFA','root','root'); } 
-	catch (Exception $e){ die('Erreur: '. $e->getMessage()); }
+	include "connect.php";
 
 	if($_SERVER["REQUEST_METHOD"] == "POST"){ 
 

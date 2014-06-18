@@ -42,6 +42,10 @@ a{
 	}
 }
 
+.strong{
+	font-weight: bold;
+}
+
 @media only screen and (min-width: $width-tablet){
 	.on-s:first-letter{
 		text-transform: lowercase;

@@ -115,73 +115,67 @@
 	function fetchData(){
 		$.post('assets/php/getEntry.php', function(response){
 			data = response;
-			initCanvas();
+			if (window.innerWidth > 1024){
+				initExperiment();	
+			}
 		},'json');
 	}
 	
-	function initCanvas(){
-		if($('body').hasClass('home')){
-				
-			c= document.getElementById('canvas-header'),
-			ctx = c.getContext('2d');
-			nbPays = 1;
-			pays = [];
-			pays.push(data[0].country);
-			for(var i = 1; i < data.length; i++){
-				flag = false;
-				for(var y = 0; y < pays.length; y++){
-					if(data[i].country == pays[y]){
-						flag = true;
-					}
+	function initExperiment(){
+		nbPays = 1;
+		pays = [];
+		pays.push(data[0].country);
+		for(var i = 1; i < data.length; i++){
+			flag = false;
+			for(var y = 0; y < pays.length; y++){
+				if(data[i].country == pays[y]){
+					flag = true;
 				}
-				if(flag == false){
-					pays.push(data[i].country);
-					nbPays++;	
-				}
-			};
-
-			updateCanvasSize();
-			drawHeader(data, zoneHeight, zoneWidth, nbPays, pays);
-		}	
+			}
+			if(flag == false){
+				pays.push(data[i].country);
+				nbPays++;	
+			}
+		};
+		
+		
+		c = document.getElementById('experiment');
+		ctx = c.getContext('2d');
+		
+		
+		updateSize();
+		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
+		
 	}	
 	
-	function getHeaderSize(){
-		return {
-			height: $('.header')[0].clientHeight,
-			width: $('.header')[0].clientWidth
-		};
-	}
-	function updateCanvasSize(){
+	function updateSize(){
 		size = getHeaderSize();
 		c.width = size.width;
 		c.height = size.height;
 		
-		zoneHeight = ((c.height / 100) * 10) + ((c.height / 100) * 80);
-		zoneWidth = ((c.width / 100) * 10) + ((c.width / 100) * 80);
+		zoneHeight = ((size.height / 100) * 10) + ((size.height / 100) * 80);
+		zoneWidth = ((size.width / 100) * 10) + ((size.width / 100) * 80);
 	}
 	
 	function resizeCanvas(){
-		
-		updateCanvasSize();
-		drawHeader(data, zoneHeight, zoneWidth, nbPays, pays);
-		
+		updateSize();
+		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
 	}
-
-	function drawHeader(data, zoneHeight, zoneWidth, nbPays, pays){
-		
+	
+	function drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays){
 		var previous = {};
-		
+
 		$.each(data, function(index, value){
 			date = new Date(value.date);
 			hours = date.getHours();
 			day = date.getDate();
 			var now = new Date().getDate();
-			
+
 			var y = ( zoneHeight / 23 ) * hours;
 			var x = ( zoneWidth / (nbPays + 1)) * (pays.indexOf(value.country) + 1);
 			var radius = 27;
 			var opacity = 1;
-			
+
 			if((now - day) >= 30){
 				opacity = .1;
 				radius = 5;
@@ -198,12 +192,12 @@
 				opacity = 1;
 				radius = 27;
 			}
-			
+
 			ctx.beginPath();
 			ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
 			ctx.fillStyle = 'white';
 			ctx.fill();		
-			
+
 			if (previous != ''){
 				ctx.beginPath();
 				ctx.moveTo(previous.x, previous.y);
@@ -213,19 +207,22 @@
 				ctx.restore();
 			}
 			previous = {x:x, y:y};
-		});
-		
+			
+		});	
 	}
 	
+	function getHeaderSize(){
+		return {
+			height: $('#experiment')[0].clientHeight,
+			width: $('#experiment')[0].clientWidth
+		}
+	}
 	
 	// Call when DOM is ready and wait for document fully loaded, to call init function and end loading
 	function preinit(){
 		if($('body').hasClass('home')){
 			getUserInfo();
 		}	
-		if($('body').hasClass('error404')){
-			get404
-		}
 		init();
 	}
 	
@@ -305,7 +302,9 @@
 	$(window).resize(function () {
 		definegrid();
 		setgridonresize();
-		resizeCanvas();
+		if(window.innerWidth > 1024 && $('body').hasClass('home')){
+			resizeCanvas();
+		}
 	});
 
 })(jQuery);

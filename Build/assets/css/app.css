@@ -400,6 +400,9 @@ textarea, input {
   margin-left: -0.16666666666667rem;
   line-height: 4.5rem; }
 
+.header--subtitle {
+  display: inline; }
+
 .header--experiment {
   position: absolute;
   top: 0;
@@ -455,6 +458,28 @@ main[role="main"] {
 .case-study--content .container {
   width: 100%; }
 
+.tfa {
+  background: #272727; }
+  .tfa .main {
+    background: #272727; }
+  .tfa .tfa-home-list {
+    margin-bottom: 6rem; }
+  .tfa .tfa-home-list-item {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1.5rem; }
+  .tfa .title {
+    color: white;
+    text-align: center;
+    margin-bottom: 3rem; }
+  .tfa svg {
+    fill: white;
+    width: 100%;
+    height: 6rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+    text-align: center; }
+
 @media only screen and (min-width: 35.55556em) {
   .section-container-about .container {
     width: 66%;
@@ -473,6 +498,9 @@ main[role="main"] {
   .section-container-confidentialite .container {
     width: 65.625%;
     margin: 0 auto; }
+
+  .tfa .tfa-home-list-item {
+    width: 21.34722222222222rem; }
 
   .case-study--content .container {
     width: 65.625%;
@@ -596,6 +624,9 @@ a {
   color: #272727; }
   a:hover {
     color: #eb7347; }
+
+.strong {
+  font-weight: bold; }
 
 @media only screen and (min-width: 35.55556em) {
   .on-s:first-letter {

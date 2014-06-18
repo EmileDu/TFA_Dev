@@ -9,9 +9,10 @@
 <!-- $bodyClass home -->
 <!-- @include _header -->
 				<header role="banner" class="header">
-					<canvas class="header--experiment" id="canvas-header"></canvas>
+					<canvas class="header--experiment" id="experiment"></canvas>
 					<h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
-					<p class="header--subtitle">Dév<span class="on-m">eloppeur</span> Front-End<strong> - <span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m">d'</span> un stage</strong></p>
+					<p class="header--subtitle">Dév<span class="on-m">eloppeur</span> Front-End</p>
+					<strong>- <span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m">d'</span> un stage</strong>
 				</header>
 				<main role="main" class="main">
 					<section class="section-container section-container-about">
@@ -19,11 +20,6 @@
 							<div class="container">
 									<h1 class="subtitle">Besoin d'un développeur ?</h1>
 									<strong class="subsubtitle">Ça tombe bien, je cherche un stage dans le développement web.</strong>
-<!--
-									<div class="about--link">
-											<a class="btn" href="#contact">Moi choisir comme stagiare</a>
-									</div>
--->
 									<p class="returnParag">J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
 									<p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
 							</div>
@@ -34,7 +30,7 @@
 							<div class="wrapper">
 								<h2 class="case-preview--title">Lazy Lunch</h2>
 								<div class="case-preview--thumb-container">
-									<img class="case-preview--thumb-container" src="assets/img/Lazy_Lunch.png" alt="Mise en situation Projet Lazy Lunch" width="468" height="432"/>
+									<img class="case-preview--thumb-container" src="<!-- @path Lazy_Lunch.png -->" alt="Mise en situation Projet Lazy Lunch" width="468" height="432"/>
 								</div>
 								<div class="case-preview--description">
 										<p class="returnParag">Mobile web application développer dans un cadre pedagogique.</p>
@@ -43,7 +39,7 @@
 										<p>Développé grâce à jQuery, Hammer.js</p>
 								</div>
 								<div class="case-preview--link">
-										<a class="btn" href="<!-- @path lazylunch.html -->" title="Lazy-Lunch" data-ajaxLink>Comprendre mes choix</a>
+										<a class="btn" href="<!-- @path lazylunch.html -->" title="Lazy-Lunch">Comprendre mes choix</a>
 								</div> 
 							</div>
 						</article>
@@ -51,7 +47,7 @@
 							<div class="wrapper">
 								<h2 class="case-preview--title">DW'M'Twitter</h2>
 								<div class="case-preview--thumb-container">
-									<img class="case-preview--thumb-container" src="assets/img/DW'M'Twitter.png" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432"/>
+									<img class="case-preview--thumb-container" src="<!-- @path DW'M'Twitter.png -->" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432"/>
 								</div>
 								<div class="case-preview--description">
 										<p class="returnParag">Datavisualisation développé dans un cadre pédagogique.</p>
@@ -59,7 +55,7 @@
 										<p>Développé grâce à jQuery, D3.js, SVG, Waypoint.js, JSON</p>
 								</div>
 								<div class="case-preview--link">
-										<a class="btn" href="<!-- @path dwmtwitter.html -->" title="DWMTwitter" data-ajaxLink>Comprendre mes choix</a>
+										<a class="btn" href="<!-- @path dwmtwitter.html -->" title="DWMTwitter">Comprendre mes choix</a>
 								</div> 
 							</div>
 						</article>
@@ -67,7 +63,7 @@
 							<div class="wrapper">
 								<h2 class="case-preview--title">backgroundify.js</h2>
 								<div class="case-preview--thumb-container">
-									<img class="case-preview--thumb-container" src="assets/img/DW'M'Twitter.png" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432"/>
+									<img class="case-preview--thumb-container" src="<!-- @path Backgroundify.png -->" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432"/>
 								</div>
 								<div class="case-preview--description">
 										<p class="returnParag">Plugin jQuery développé pour un projet personnel</p>
@@ -85,7 +81,7 @@
 						<div class="wrapper">
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
-								<form class="contact-form" id="form" method="post" action="assets/php/mailer.php" role="form">
+								<form class="contact-form" id="contact-form" method="post" action="<!-- @path mailer.php -->" role="form">
 									<p>
 										<span class="start-message">Salut Emile, je m'appelle</span>
 										<input class="contact-form-input contact-form-input--name" type="text" name="nom" id="form--nom" placeholder="ton nom"/>

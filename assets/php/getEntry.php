@@ -1,7 +1,6 @@
 <?php
 
-	try{ $bdd = new PDO('mysql:host=localhost;dbname=EmileMetaTFA','root','root'); } 
-	catch (Exception $e){ die('Erreur: '. $e->getMessage()); }
+	include "connect.php";
 	$req = $bdd->query('SELECT * FROM visitor');
 	$data = array();
 	while($d = $req->fetch()){

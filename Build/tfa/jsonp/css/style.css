@@ -107,7 +107,30 @@ body{
   text-align: center;
 }
 .country{
-  top: 10%;
+  width: 100%;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.value{
+	opacity: 0;
+	width: 100%;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	top: 105%;
+	left: 0;
+}
+
+.round:hover .value{
+	opacity: 1;
 }
 
 
