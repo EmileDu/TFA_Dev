@@ -1,10 +1,3 @@
- 
-
-
-
-
-
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
@@ -22,7 +15,7 @@
     <meta name="robots" content="INDEX">
 
     <meta property="og:title" content="Emile Duval | Developpeur Front-End">
-    <meta property="og:image" content="asset/img/avatar.jpg">
+    <meta property="og:image" content="assets/favicon-160x160.png">
     <meta property="og:site_name" content="Emile Duval">
     <meta property="og:description" content="Salut moi c'est Emile, front-end développeur qui a pas peur de nouvelles expériences, notament dans le back-end et le mobile.">
     <meta property="og:url" content="http://www.emileduval.be/" >
@@ -50,53 +43,34 @@
     <meta name="msapplication-TileImage" content="assets/mstile-144x144.png">	
 
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href="assets/css/hugrid.css" rel="stylesheet" type="text/css">
-
+		<link type="text/plain" rel="author" href="http://www.emileduval.be/humans.txt">
     <link rel='stylesheet' href='assets/css/app.css'>
 
-    <script src="assets/libs/modernizr.2.8.1.min.js"></script>
+<!--    <script src="assets/libs/modernizr.2.8.1.min.js"></script>-->
   </head>
   <body class="home">
-    <div class="loading" id="loading">
-      <div class="loading--container">
-        <div class="loading--ball loading--ball--me"></div>
-        <div class='loading--wrap loading--wrap--one'>
-          <div class='loading--ball'></div>
-        </div>
-        <div class='loading--wrap loading--wrap--two'>
-          <div class='loading--ball'></div>
-        </div>
-        <div class='loading--wrap loading--wrap--three'>
-          <div class='loading--ball'></div>
-        </div>
-        <div class='loading--wrap loading--wrap--four'>
-          <div class='loading--ball'></div>
-        </div>
-
-        <div class="loading--line loading--line--one"></div>
-        <div class="loading--line loading--line--two"></div>
-        <div class="loading--line loading--line--three"></div>
-        <div class="loading--line loading--line--four"></div>
-      </div>
-    </div>
-    <div class="content" id="content">
 				<header role="banner" class="header">
 					<canvas class="header--experiment" id="canvas-header"></canvas>
 					<h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
 					<p class="header--subtitle">Dév<span class="on-m">eloppeur</span> Front-End<strong> - <span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m">d'</span> un stage</strong></p>
 				</header>
 				<main role="main" class="main">
-					<section class="about-container">
+					<section class="section-container section-container-about">
 						<div class="wrapper">
 							<div class="container">
 									<h1 class="subtitle">Besoin d'un développeur ?</h1>
 									<strong class="subsubtitle">Ça tombe bien, je cherche un stage dans le développement web.</strong>
+<!--
+									<div class="about--link">
+											<a class="btn" href="#contact">Moi choisir comme stagiare</a>
+									</div>
+-->
 									<p class="returnParag">J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
 									<p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
 							</div>
 						</div>
 					</section>
-					<section class="case-study">
+					<section class="section-container section-container-case-study">
 						<article class="case-preview">
 							<div class="wrapper">
 								<h2 class="case-preview--title">Lazy Lunch</h2>
@@ -137,21 +111,22 @@
 									<img class="case-preview--thumb-container" src="assets/img/DW'M'Twitter.png" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432"/>
 								</div>
 								<div class="case-preview--description">
-										<p class="returnParag">Plugin jQuery développé</p>
-										<p class="returnParag">Le but étant de présenter les resultat d’une étude mener sur l’utilisation de twitter par les élèves de DWM de l’ESIAJ. Et de montrer l’impact de ce derniers sur leurs résultats de fin d’année.</p>
-										<p>Développé grâce à jQuery, D3.js, SVG, Waypoint.js, JSON</p>
+										<p class="returnParag">Plugin jQuery développé pour un projet personnel</p>
+										<p class="returnParag">Les elements css n'ayant aucune semantique, l'utilisation d'un background image fait perdre la potentielle semantique de cette image.</p>
+										<p>C'est pour repondre à ce problème que j'ai crée ce plugin, qui va transformer vos image html en image background css.</p>
+										<p>Développé grâce à jQuery</p>
 								</div>
 								<div class="case-preview--link">
-										<a class="btn" href="projets/dwmtwitter.html" title="DWMTwitter" data-ajaxLink>Comprendre mes choix</a>
+										<a class="btn" href="https://github.com/EmileDu/backgroundify.js" title="backgroundify.js" target="_blank">Utiliser le plugin</a>
 								</div> 
 							</div>
 						</article>	
 					</section>
-					<section class="contact">
+					<section class="section-container section-container-contact">
 						<div class="wrapper">
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
-								<form class="contact-form" id="contact-form" method="post" action="assets/php/mailer.php" role="form">
+								<form class="contact-form" id="form" method="post" action="assets/php/mailer.php" role="form">
 									<p>
 										<span class="start-message">Salut Emile, je m'appelle</span>
 										<input class="contact-form-input contact-form-input--name" type="text" name="nom" id="form--nom" placeholder="ton nom"/>
@@ -175,7 +150,7 @@
 									<li class="social-list-item">
 										<a href="mailto:bonjour@emileduval.be">
 											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-												<use xlink:href="assets/img/sprites.svg#icon-mail"></use>
+												<use xlink:href="assets/img/sprites/sprites.svg#icon-mail"></use>
 											</svg>
 											<span class="social-list-item--name">Mail</span>
 										</a>
@@ -183,7 +158,7 @@
 									<li class="social-list-item">
 										<a href="https://twitter.com/Emile_D_" target="_blank">
 											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-												<use xlink:href="assets/img/sprites.svg#icon-twitter"></use>
+												<use xlink:href="assets/img/sprites/sprites.svg#icon-twitter"></use>
 											</svg>
 											<span class="social-list-item--name">Twitter</span>
 										</a>
@@ -191,7 +166,7 @@
 									<li class="social-list-item">
 										<a href="https://plus.google.com/u/0/100374744664485436800/posts" target="_blank">
 											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-												<use xlink:href="assets/img/sprites.svg#icon-googleplus"></use>
+												<use xlink:href="assets/img/sprites/sprites.svg#icon-googleplus"></use>
 											</svg>
 											<span class="social-list-item--name">Google +</span>
 										</a>
@@ -199,7 +174,7 @@
 									<li class="social-list-item">
 										<a href="https://github.com/EmileDu" target="_blank">
 											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-												<use xlink:href="assets/img/sprites.svg#icon-github"></use>
+												<use xlink:href="assets/img/sprites/sprites.svg#icon-github"></use>
 											</svg>
 											<span class="social-list-item--name">Github</span>
 										</a>
@@ -207,7 +182,7 @@
 									<li class="social-list-item">
 										<a href="http://codepen.io/Emile_D/" target="_blank">
 											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-												<use xlink:href="assets/img/sprites.svg#icon-codepen"></use>
+												<use xlink:href="assets/img/sprites/sprites.svg#icon-codepen"></use>
 											</svg>
 											<span class="social-list-item--name">Codepen</span>
 										</a>
@@ -215,7 +190,7 @@
 									<li class="social-list-item">
 										<a href="https://www.linkedin.com/profile/view?id=333895220" target="_blank">
 											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-												<use xlink:href="assets/img/sprites.svg#icon-linkedin"></use>
+												<use xlink:href="assets/img/sprites/sprites.svg#icon-linkedin"></use>
 											</svg>
 											<span class="social-list-item--name">LinkedIn</span>
 										</a>
@@ -225,17 +200,13 @@
 						</div>
 					</section>
 				</main>
-				<footer class="footer" role="contentinfo">
-					<small class="legal-mention">@ <a class='current' href="index.html" title="home" data-ajaxlink>Emile Duval</a> 2014 - Tous droit réservé - <a href="confidentialite.html" title="Politique_Confidentialite" data-ajaxlink>Politique de confidentialité</a> - <a href="http://dwm.re/" target="_blank">DWM</a> - <a href="http://www.infographie-sup.be/" target="_blank">ESIAJ</a> - <a href="credits.html" title="Credits" data-ajaxlink>Crédits</a></small>	
-				</footer>
-    </div>
+		<footer class="footer" role="contentinfo">
+			<small class="legal-mention">@ <a class='current' href="index.html" title="home" data-ajaxlink>Emile Duval</a> 2014 - Tous droit réservé - <a href="http://dwm.re/" target="_blank">DWM</a> - <a href="http://www.infographie-sup.be/" target="_blank">ESIAJ</a> - <a href="credits.html" title="Credits" data-ajaxlink>Crédits</a></small>	
+		</footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/libs/jquery-2.1.1.min.js"><\/script>')</script>
 
-    <script src="assets/libs/jquery.history.js"></script>
-
-    <script src="assets/libs/TweenMax.min.js"></script>
-    <script src="assets/libs/hugrid.js"></script>
+    <script src="assets/js/hugrid.js"></script>
 
     <!-- scripts -->
     <script src='assets/js/main.js'></script>

@@ -18,9 +18,7 @@
 
 /* Layout */
 @import 'layout/header',
-				'layout/nav',
 				'layout/main',
-				'layout/loading',
 				'layout/footer';
 
 @import 'modules/btn',
@@ -30,6 +28,7 @@
 				'modules/case-study',
 				'modules/form',
 				'modules/social',
-				'modules/controls',
+				'modules/nav',
 				'modules/animations',
+				'modules/scrollbar',
 				'modules/hugrid';

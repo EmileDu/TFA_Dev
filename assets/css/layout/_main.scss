@@ -3,13 +3,45 @@ main[role="main"]{
 	position: relative;
 }
 
-.about-container{
-	background: darken($color1, 10%);
-  padding: 4.5rem 0;
+
+.error404 .main{
+	background: $color2;
+	color: $color1;
+	height: 100%;
+	.wrapper{
+		text-align: center;
+		height: 18.88888888888889rem;
+		@include position(absolute, 0px 0px 0px 0px);
+		margin: auto;
+	}
+	.title{
+		margin-bottom: 3rem;	
+	}
+	.error404--link{
+		margin: 3rem auto 0 auto;
+	}
+}
+
+.section-container{
+	padding: 4.5rem 0;
 	min-height: 27rem;
 	.container{
 		width: 100%;
 	}
+}
+
+.section-container-about{
+	background: darken($color1, 10%);
+}
+
+.section-container-contact{
+	background: $color2;
+	color: $color1;
+	padding-bottom: 0;
+}
+
+.section-container-ressource{
+	min-height: auto;
 }
 
 .case-study--content{
@@ -18,14 +50,8 @@ main[role="main"]{
 	}
 }
 
-.contact{
-	background: $color2;
-	color: $color1;
-	padding-top: 4.5rem;
-}
-
 @media only screen and (min-width: $width-tablet){
-	.about-container{
+	.section-container-about{
 		.container{
 			width: 66%;
 			margin: 0 auto;
@@ -41,18 +67,30 @@ main[role="main"]{
 }
 
 @media only screen and (min-width: $width-desktop){
-	.about-container{
-		height: 27rem;
+	.section-container-about{
+		height: 27rem;	
+	}
+	
+	.section-container-about,
+	.section-container-credits,
+	.section-container-ressource,
+	.section-container-confidentialite{
+		.container{
+			width: 65.625%;
+			margin: 0 auto;
+		}
+	}
+
+	.case-study--content{
 		.container{
 			width: 65.625%;
 			margin: 0 auto;
 		}
 	}
 	
-	.case-study--content{
-		.container{
-			width: 65.625%;
-			margin: 0 auto;
+	.error404{
+		.error404--link{
+			width: 16.77777777777778rem;
 		}
 	}
 

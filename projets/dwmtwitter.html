@@ -2,7 +2,7 @@
 <!-- $metaDescription Case Study du projet DW'M'Twitter, datavisualisation, de l'utilisation de Twitter par les élève DWM, développé dans un cadre pédagogique. -->
 <!-- $metaKeywords DW'M'Twitter, DWM, Twitter, Datavisualisation, Visualisation de données, Emile, Duval --> 
 <!-- $ogTitle DW'M'Twitter Case Study | Emile Duval -->
-<!-- $ogImage assets/favicon.png -->
+<!-- $ogImage assets/favicon-160x160.png -->
 <!-- $ogSitename Emile Duval -->
 <!-- $ogDescription Case Study du projet DW'M'Twitter, datavisualisation, de l'utilisation de Twitter par les élève DWM, développé dans un cadre pédagogique. -->
 <!-- $ogUrl http://www.emileduval.be/ -->
@@ -32,71 +32,86 @@
 				<header role="banner" class="header case-study--header">
 					<div class="wrapper">
 						<h1 class="title">DW'M'Twitter</h1>
-						<p>Une  nouvelle façon de manger à la cafétéria</p>
+						<p>Faut-il être sur twitter pour reussir en DWM ?</p>
+						<div class="case-study--link">
+							<a class="btn" href="http://www.emileduval.be/projets/dataviz/" target="_blank">Voir le projet</a>
+						</div>
 					</div>
 				</header>
 				<main role="main" class="case-study--content">
-					<div class="wrapper">
-						<div class="container">
-							<div class="case-study--content-section">
+					<div class="case-study--content-section">
+						<div class="wrapper">
+							<div class="container">
 								<h2 class="subtitle">Introduction</h2>
-								<p class="returnParag">La demande est simple</p>
-								<p>Réalisation d’un web application mobile pour une cafétéria en ligne, afin de comprendre les enjeux lié au web mobile.</p>
+<p class="returnParag">Lundi 10 mars 2014: Workshop Data Visualization</p>
+								<blockquote>Vous devez réaliser une visualisation de données sur le sujet de votre choix</blockquote>
+								<p>Notre choix c’est porter sur l’utilisation de Twitter par les élèves de DWM et l’influence de ce dernier sur leurs réussite, car on voulait un sujet qui interpelle les actuels et futur élèves DWM.</p>
 							</div>
-							<div class="case-study--content-section">
-								<h2 class="subtitle">Notre approche graphique</h2>
-								<p>On a choisit de concentrer notre app sur 5 fonctionnalités qui nous semblaient essentiel pour ce genre d’application.</p>
-								<ol class="returnParag italic">
-									<li>Menu en ligne</li>
-									<li>Commande en ligne</li>
-									<li>Connaitre l’état de la file a la cafétéria</li>
-									<li>Gérer son budget</li>
-									<li>Vote de suggestion pour la semaine suivant</li>
-								</ol>
-								<p>Un design a été construit, un design voulu simple et chaleur. Faut pas oublié que c’est une app « gastronomique » il faut que ça donne envie de mangé.</p>
-								<div class="case-study--content-section--image">
-									<img src="assets/img/CaseStudy--LazyLunch__design.png" alt="Apercu du design de l'application" width="520" height="324"/>
-								</div>
+						</div>
+					</div>
+					<div class="case-study--content-section">
+						<div class="wrapper">
+							<div class="container">
+								<h2 class="subtitle">La chasse au données</h2>
+								<p>Alors que les membres de mon groupes récoltais « à la main » toutes sortent de données, j’ai voulu automatiser un petit peu le processus. ( plus de 300 étudiants répertorié ça commence a faire beaucoup pour le faire manuellement ).</p>
+								<h3 class="subsubtitle">L’API Twitter</h3>
+								<p>C’était l’occasion rêvé d’apprendre a utiliser cette API.</p>
 							</div>
-							<div class="case-study--content-section">																								
-								<h2 class="subtitle">Le développement</h2>
-								<p class="returnParag">Après 5 séances, consacré au wireframes, test utilisateur et conception du graphisme, le développement commence.</p>
-								<p class="returnParag">C’est la première fois que je m’attaque a une web app, il a donc d’abord fallut définir exactement en quoi ça consiste.</p>
-								<p class="returnParag">Pour donner l’impression d’une application native, il faudrait pouvoir lancer l’application en full-screen, avec un icon et un « launch screen » c’est a dire un écran qui s’affiche au démarrage de l’application.</p>
-								<p class="returnParag">Pour vite mettre en place une structure de projets efficace et fonctionnelle, j’ai choisi d’utiliser le boilerplate mobile html5.</p>
-								<a class="returnParag" href="http://html5boilerplate.com/mobile/">http://html5boilerplate.com/mobile/</a>
-								<p class="returnParag">Avec ce template, le full-screen, l’icon, le launch screen sont directement mis en place, il ne reste plus qu’a modifié les fichiers.</p>
-								<p>Parmi les spécifications du smartphone utiliser, deux nous intéresse particulièrement d’un point de vu graphique:</p>
-								<ul class="returnParag">
-									<li>Écran rétina</li>
-									<li>Résolution physique: 480 * 320 pixels</li>
-								</ul>
-								<p class="returnParag">Le design construit par notre groupe avait l’avantage de pouvoir être entièrement fait en CSS. La contrainte du support de la technologie rétina a donc été nécessaire uniquement pour l’image d’avatar, et le loading screen.</p>
-								<p class="returnParag">Apres avoir intégrer le design, il restai le plus dur à faire. Les interactions et et tout le back end.</p>
-								<p>J’ai choisi d’utiliser la librairie Hammer.js pour facilité la gestion des événements tactile. Ça ma permis de mettre en place le tap et le switch pour accéder au menu et au panier.</p>
-								<img src="" alt="" width="" height=""/>
-								<h3 class="subsubtitle">L’optimisation</h3>
-								<p class="returnParag">L’optimisation est un sujet important pour n’importe quel site, mais ça l’est d’autant plus pour un projet mobile, puisque les débits sont inférieurs a ceux disponible sur desktop. On ne peut pas se permettre d’effectuer 10 requête DNS de 10mo chacune.</p>
-								<p>J’ai choisi de faire une font d’icon pour tous les avantages que cette solution apporte par rapport a une image sprite par exemple.</p>
-								<p>Ça m’offre la possibilité de redimensionné les icons sans aucune  perte de qualité. Ca offre aussi la possibilité de changer la couleur des icons juste avec une ligne css.
-						Pour faire cette font d’icon, j’ai utilisé la web app du site fontastic.me.</p>
-								<img src="" alt="" width="" height=""/>
-								<h3 class="subsubtitle">Amélioration de l’experience utilisateur</h3>
-								<p>Le dernier point que j’aimerai aborder est le changement de page.</p>
-								<p>Un problème se pose quand on clique sur un lien: on quitte l’application pour  ouvrir le lien dans le browser, même si ce lien est un lien interne.</p>
-								<p>Autant dire que c’est juste désagréable.</p>
-								<p class="returnParag">Il y avait deux solution à ce problème.</p>
-								<p>L’AJAX m’a semblé la meilleure solution, et c’était surtout l’occasion d’apprendre cette pratique.</p>
+							<div class="case-study--content-section--image">
+								<img src="<!-- @path CaseStudy--DWMTwitter__API.png -->" alt="Apercu du design de l'application" width="960" height="135"/>
 							</div>
-							<div class="case-study--content-section">
+							<div class="container">
+								<p class="returnParag">Mes premiers essais, ont pas été très concluant étant donné que mes derniers travaux en php remonte a il y a quatre ans. Et ça n’éffleurai que les bases a l’époque.
+Il a donc fallut ce remettre dedans.</p>
+								<p class="returnParag">J’ai tous de même réussi a faire des requêtes pour récupéré, l’ensemble des étudiant présent dans trois différents listes.</p>
+								<p>Apres avoir compris comment envoyé des requête à l’API les choses s’enchainent assez vite. J’ai pu commencer a récupéré les informations de chacun des étudiants ( followers, followings, nombre de tweets, date d’inscription, etc… )</p>
+								<h3 class="subsubtitle">Limiter les requêtes</h3>
+								<p class="returnParag">La limite de requête mise en place par twitter ma donné un petit peut de fil à retordre. Quand on sait que récupéré la localisation des followers d’un étudiant pouvait demandé plus de 10 requêtes. il a fallu trouvé une solution pour pouvoir étendre la récolte a tous les étudiants sans recevoir la maudite de l’api.</p>
+								<p class="returnParag">J’ai choisi de mettre en place un système de compteur, qui met automatiquement au pause  mes requêtes juste avant que la limite soit atteinte et ce jusqu’a ce qu’il retombe à zéro.</p>
+								<p>C’est surement pas la meilleur solution, mais pour une récolte de masse comme celle la et qui plus est dans un temps limité (ce workshops ne durent malheureusement que deux semaines ) c’était un solution tout a fait viable.</p>
+							</div>
+						</div>
+					</div>
+					<div class="case-study--content-section">
+						<div class="wrapper">
+							<div class="container">
+								<h2 class="subtitle">Qu’est ce qu’on va faire de vous ?</h2>
+								<p class="returnParag">Après avoir récupérer toutes ces données, il a fallut réfléchir a comment on allait les utilisé.</p>
+								<p class="returnParag">Deux premiers graphique on assez vite émergé.</p>
+								<p>Un graphique du nombre d’inscription par mois.</p>
+							</div>
+							<div class="case-study--content-section--image">
+								<img src="<!-- @path CaseStudy--DWMTwitter__inscription.png -->" alt="Apercu du design de l'application" width="960" height="486"/>
+							</div>
+							<div class="container">
+								<p>Une mappemonde avec les deux pays les plus suivit par les DWM.</p>
+							</div>
+						</div>
+					</div>								
+					<div class="case-study--content-section--image">
+						<img src="<!-- @path CaseStudy--DWMTwitter__pays.png -->" alt="Apercu du design de l'application" width="1920" height="540"/>
+					</div>
+					<div class="case-study--content-section">
+						<div class="wrapper">
+							<div class="container">
+								<p class="returnParag">Le graphique principale quand a lui, a du être travaillé un peu plus longtemps. Sous quel forme présenté les données ? Quel type d’interaction ?</p>
+								<p class="returnParag">On a décide de partir de deux point de départ, la réussite ou l’échec de l’étudiant.
+Et de comparer ce point de départ en fonction de si oui ou non l’étudiant était inscrit sur twitter, et si oui quels sont ces stats, son utilisation.</p>
+							</div>
+						</div>
+					</div>
+					<div class="case-study--content-section--image">
+						<img src="<!-- @path CaseStudy--DWMTwitter__graphprincipale.png -->" alt="Apercu du design de l'application" width="1920" height="621"/>
+					</div>
+					<div class="case-study--content-section">
+						<div class="wrapper">
+							<div class="container">
 								<h2 class="subtitle">Ressenti et Evolution</h2>
-								<p class="returnParag">Parmi les différents workshops effectués, c’est sans doute celui qui m’a le plus parlé. Ça m’a permis de découvrir cette univers, et ces possibilités ainsi que celle des web applications au sens général puisque ce n’est pas exclusivement sur le mobile. J’espère pouvoir vite retravaillé dans ce domaine, que ce sois personnellement ou professionnellement.</p>
-								<p>Parce qu’un projet n’est jamais terminer et encore moins dans mon cas, vu que je suis un peu trop perfectionniste. Aussi j’ai continué a me renseigné, sur le développement mobile, par après et une possible évolution qu’y m’est venu en tête est l’ajout d’un mode hors-ligne, grâce notamment a l’API offline web application.</p>
+								<p class="returnParag">Ce workshop m’a permis de m’initier a de nombreuse « technologies », API Twitter, SVG, D3.js que je voulais utiliser depuis longtemps sans jamais avoir trouvé d’occasion pour.</p>
+								<p class="returnParag">Mon seul regret est que, nos données sont fixe, on exploité les données récupéré en début de workshop, mais celle-ci on forcement évolué entre le début et la fin du workshop, et elles évoluent toujours.</p>
+								<p>Si je pouvais le recommencé, je baserai l’expérience plus sur des données dynamique.</p>
 							</div>
 						</div>
 					</div>
 				</main>
-				<footer class="footer" role="contentinfo">
-					<small class="legal-mention">@ <a href="<!-- @path index.html -->" title="home" data-ajaxlink>Emile Duval</a> 2014 - Tous droit réservé - <a href="<!-- @path confidentialite.html -->" title="Politique_Confidentialite" data-ajaxlink>Politique de confidentialité</a> - <a href="http://dwm.re/" target="_blank">DWM</a> - <a href="http://www.infographie-sup.be/" target="_blank">ESIAJ</a> - <a href="<!-- @path credits.html -->" title="Credits" data-ajaxlink>Crédits</a></small>	
-				</footer>
 <!-- @include _footer -->

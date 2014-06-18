@@ -1,12 +1,12 @@
 .title{
   font-size: em($base-size * ($ratio * $ratio * $ratio * $ratio), $base-size);
 	line-height: 6rem;
-	margin-bottom: 10px;
+	margin-bottom: .55555555555556rem;
 }
 
 .subtitle{
   font-size: em($base-size * ($ratio * $ratio), $base-size);
-  margin: -15px 0 29px 0;
+  margin: -0.83333333333333rem 0 1.61111111111111rem 0;
   line-height: 3rem;
 }
 
@@ -35,6 +35,12 @@
 	display: none;
 }
 
+a{
+	color: $color2;
+	&:hover{
+		color: $color3;	
+	}
+}
 
 @media only screen and (min-width: $width-tablet){
 	.on-s:first-letter{
@@ -51,7 +57,7 @@
 
 @media only screen and (min-width: $width-desktop){
 	.italic{
-		margin-left: 82.25px;
+		margin-left: 4.56944444444444rem;
 	}
 	
 	.on-s:first-letter,

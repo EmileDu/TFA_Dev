@@ -1,0 +1,73 @@
+.controls--list--item{
+	margin-bottom: 0;
+	a{
+		display: block;
+		width: 100%;
+		height: 3rem;
+		background: $color2;
+		@include position(relative);
+		@include transition();
+	}	
+}
+
+.controls--list--item--icon{
+	width: 2.5rem;
+	height: 2.5rem;
+	@include position(absolute, 0px 0px 0px 0px);
+	margin: auto;
+	display: none;
+}
+
+.controls--list--item--name{
+	display: block;
+	line-height: 3rem;
+	height: 3rem;
+	width: 100%;
+	text-align: center;
+	color: $color1;
+	overflow: hidden;
+	@include transition();
+}
+
+.controls--list--item a:hover{
+	background: $color3;
+}
+
+@media only screen and(min-width: $width-tablet){
+	.controls--container{
+		@include position(fixed, 0px 0 0 0px);
+		z-index: 50;
+	}
+
+	.controls--list{
+
+	}
+
+	.controls--list--item{
+		margin-bottom: 1.5rem;
+		a{
+			display: block;
+			width: 3rem;
+			height: 3rem;
+			background: $color2;
+			@include position(relative);
+			@include transition();
+		}	
+	}
+
+	.controls--list--item--icon{
+		display: block;
+	}
+
+	.controls--list--item--name{
+		@include position(absolute, 0px 0 0 3rem);
+		width: 0rem;
+		background: $color2;
+	}
+	
+	.controls--list--item a:hover{
+		.controls--list--item--name{
+			width: 8rem;
+		}
+	}
+}

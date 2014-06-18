@@ -1,6 +1,6 @@
 .header{
   position: relative;
-  padding: 33px 1.77777777777778rem 0 1.77777777777778rem;
+  padding: 1.83333333333333rem 4%;
 }
 
 .home .header{
@@ -9,17 +9,23 @@
 }
 
 .home .header,
-.Credits .header{
+.Credits .header,
+.error404 .header{
 	background: $color2;
   color: $color1;
+	a{
+		color: $color1;
+		&:hover{
+			color: $color3;	
+		}
+	}	
 }
 
 .header--title{
-	margin-left: -3px;
+	margin-left: -0.16666666666667rem;
 	line-height: 4.5rem;
 }
-.header--subtitle{
-}
+
 
 .header--experiment{
 	position: absolute;
@@ -30,4 +36,11 @@
 	width: 100%;
 	height: 100%;
 	margin: auto;
+}
+
+
+@media only screen and (min-width: $width-desktop){
+	.header{
+		padding: 1.83333333333333rem 1.77777777777778rem;
+	}
 }

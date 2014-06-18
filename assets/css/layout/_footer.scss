@@ -6,16 +6,21 @@
 		margin-bottom: 3rem;	
 	}
 }
+
+.error404 .footer{
+	@include position(fixed, 0 0 0px 0px);
+	width: 100%;
+}
 .contact-form-container{
 	float: left;
 	width: 100%;
-	margin-top: 16px;
+	margin-top: 0.88888888888889rem;
 }
 .social-list-container{
 	float: right;
 	width: 100%;
 	@include clearfix();
-	margin-top: 26px;
+	margin-top: 1.44444444444444rem;
 }
 
 .legal-mention{

@@ -2,6 +2,9 @@
   @include clearfix;  
 	padding: 4.5rem 0 4.83333333333333rem 0;
 	min-height: 33rem;
+	&:first-child{
+		padding-top: 0;	
+	}
 	&:after{
 		content: '';
 		display: block;
@@ -13,8 +16,11 @@
 		border-bottom: 1px dotted lighten($color2, 70%);
 		visibility: visible;
 	}
-	&:last-child:after{
-		visibility: hidden;
+	&:last-child{
+		padding-bottom: 0;
+		&:after{
+			visibility: hidden;
+		}
 	}
 }
 .case-preview--title{

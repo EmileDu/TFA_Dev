@@ -5,35 +5,59 @@
 	//-----------------
 	
 	var valid = true,
-			rootUrl = History.getRootUrl(),
 			data,
 			nbPays,
 			pays,
 			zoneHeight,
 			zoneWidth,
-			c = document.getElementById('canvas-header'),
-			ctx = c.getContext('2d');
-	
+			c,
+			ctx;
 	
 	//-----------------
 	/*    Function   */
 	//-----------------
 	
 	
-	// HTML Helper
-	var documentHtml = function(html){
-		// Prepare
-		var result = String(html)
-			.replace(/<\!DOCTYPE[^>]*>/i, '')
-			.replace(/<(html|head|body|title|meta|script|link)([\s\>])/gi,'<div class="document-$1"$2')
-			.replace(/<\/(html|head|body|title|meta|script)\>/gi,'</div>')
-		;
-
-		// Return
-		return $.trim(result);
-	};
+	// Update header Height to always match with baseline
+	function headerHeight(){
+		var $headerHeight = $('.header').outerHeight();
+		if ($headerHeight % 27 != 0) {
+			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
+		}
+	}
 	
-	// Define grid setup for each resolution ( desktop, tablet, mobile )
+	function checkValue(name, value){
+		var message = '';
+		switch(name){
+			case 'nom':
+				if(value == ''){
+					valid = false;
+					message = 'J\'aimerai vraiment savoir ton nom.';
+				} else {
+					valid = true;	
+				}
+				break;
+			case 'email':
+				if(value == ''){
+					valid = false;
+					message = 'J\'aimerai vraiment connaitre ton mail.';
+				} else {
+					valid = true;	
+				}
+				break;
+			case 'message':
+				if(value == ''){
+					valid = false;
+					message = 'Tu veux même pas me dire bonjour ?';
+				} else {
+					valid = true;	
+				}
+				break;
+		}
+		return message;
+	}
+	
+//	 Define grid setup for each resolution ( desktop, tablet, mobile )
 	definegrid = function () {
 		var browserWidth = $(window).width();
 		if (browserWidth >= 1025) {
@@ -74,104 +98,18 @@
 		}
 	}
 	
-	// Show the loading animation on loading start
-	function startLoading(){
-		console.log('start loading');
-		$('#loading').show();
-	}
+	// End of loading function -------------------------------------------
 	
-	
-	// 
-	function progressLoading(){
-		console.log('progress loading');
-	}
-	
-	
-	// When loading is finish succesfully
-	function doneLoading(data, textStatus, jqXHR, url, title, relativeUrl){
-		console.log('done loading');
-		var $data = $(documentHtml(data)),
-				$dataBody = $data.find('.document-body:first'),
-				$dataContent = $dataBody.find('#content').filter(':first'),
-				$dataContent = $dataContent[0].innerHTML,
-				curpage = window.location.pathname.split('/').pop(),
-				homepage = rootUrl;
-		$('#content').html($dataContent);
-		$('body').removeClass().addClass(title);
-		document.title = $data.find('.document-title:first').text();
-		
-		// Inform Google Analytics of the change
-		if ( typeof window._gaq !== 'undefined' ) {
-			window._gaq.push(['_trackPageview', relativeUrl]);
-		}
-		
-	}
-	
-	// When loading is finish but has fail
-	function failLoading(data, textStatus, jqXHR, url){
-		console.log('fail loading');
-		document.location.href = url;
-		return false;
-	}
-	
-	
-	// Hide loading animation on loading end
-	function finishLoading(){
-		console.log('finish loading');
-		$('#loading').hide();	
-	}
-	
-	
-	function checkValue(name, value){
-		var message = '';
-		switch(name){
-			case 'nom':
-				if(value == ''){
-					valid = false;
-					message = 'J\'aimerai vraiment savoir ton nom.';
-				} else {
-					valid = true;	
-				}
-				break;
-			case 'email':
-				if(value == ''){
-					valid = false;
-					message = 'J\'aimerai vraiment connaitre ton mail.';
-				} else {
-					valid = true;	
-				}
-				break;
-			case 'message':
-				if(value == ''){
-					valid = false;
-					message = 'Tu veux même pas me dire bonjour ?';
-				} else {
-					valid = true;	
-				}
-				break;
-		}
-		return message;
-	}
-
-	// Update header Height to always match with baseline
-	function headerHeight(){
-//		$('.header').height($(window).height());
-		var $headerHeight = $('.header').outerHeight();
-		if ($headerHeight % 27 != 0) {
-			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
-		}
-	}
 	function getUserInfo(){
 		$.get('http://ipinfo.io', function(response){
-			var data = {ip:response.ip, country:response.country};
+			var userdata = {ip:response.ip, country:response.country};
 			sendToServer(data);
 		}, 'jsonp');	
 	}
 	
-	function sendToServer(data){
-		$.post('assets/php/addEntry.php', data, function(response){
-		}, 'json')
-		.always(fetchData());
+	function sendToServer(userdata){
+		$.post('assets/php/addEntry.php', userdata, 'json')
+		.done(fetchData());
 	}
 	
 	function fetchData(){
@@ -182,26 +120,29 @@
 	}
 	
 	function initCanvas(){
-		
-		nbPays = 1;
-		pays = [];
-		pays.push(data[0].country);
-		for(var i = 1; i < data.length; i++){
-			flag = false;
-			for(var y = 0; y < pays.length; y++){
-				if(data[i].country == pays[y]){
-					flag = true;
+		if($('body').hasClass('home')){
+				
+			c= document.getElementById('canvas-header'),
+			ctx = c.getContext('2d');
+			nbPays = 1;
+			pays = [];
+			pays.push(data[0].country);
+			for(var i = 1; i < data.length; i++){
+				flag = false;
+				for(var y = 0; y < pays.length; y++){
+					if(data[i].country == pays[y]){
+						flag = true;
+					}
 				}
-			}
-			if(flag == false){
-				pays.push(data[i].country);
-				nbPays++;	
-			}
-		};
-		
-		updateCanvasSize();
-		drawHeader(data, zoneHeight, zoneWidth, nbPays, pays);
-		
+				if(flag == false){
+					pays.push(data[i].country);
+					nbPays++;	
+				}
+			};
+
+			updateCanvasSize();
+			drawHeader(data, zoneHeight, zoneWidth, nbPays, pays);
+		}	
 	}	
 	
 	function getHeaderSize(){
@@ -225,8 +166,7 @@
 		drawHeader(data, zoneHeight, zoneWidth, nbPays, pays);
 		
 	}
-	
-	
+
 	function drawHeader(data, zoneHeight, zoneWidth, nbPays, pays){
 		
 		var previous = {};
@@ -234,18 +174,43 @@
 		$.each(data, function(index, value){
 			date = new Date(value.date);
 			hours = date.getHours();
+			day = date.getDate();
+			var now = new Date().getDate();
+			
 			var y = ( zoneHeight / 23 ) * hours;
 			var x = ( zoneWidth / (nbPays + 1)) * (pays.indexOf(value.country) + 1);
+			var radius = 27;
+			var opacity = 1;
+			
+			if((now - day) >= 30){
+				opacity = .1;
+				radius = 5;
+			} else if((now - day) >= 15 && (now - day) < 30 ){
+				opacity = .2;
+				radius = 8;
+			} else if((now - day) >= 7 && (now - day) < 15 ){
+				opacity = .4;
+				radius = 12;
+			} else if((now - day) > 0 && (now - day) < 7 ){
+				opacity = .7;
+				radius = 17;
+			} else {
+				opacity = 1;
+				radius = 27;
+			}
+			
 			ctx.beginPath();
-			ctx.arc(x, y, 15, 0, 2 * Math.PI, false);
+			ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
 			ctx.fillStyle = 'white';
 			ctx.fill();		
+			
 			if (previous != ''){
 				ctx.beginPath();
 				ctx.moveTo(previous.x, previous.y);
 				ctx.lineTo(x, y);
 				ctx.strokeStyle = 'white';
 				ctx.stroke();
+				ctx.restore();
 			}
 			previous = {x:x, y:y};
 		});
@@ -255,7 +220,12 @@
 	
 	// Call when DOM is ready and wait for document fully loaded, to call init function and end loading
 	function preinit(){
-		getUserInfo();
+		if($('body').hasClass('home')){
+			getUserInfo();
+		}	
+		if($('body').hasClass('error404')){
+			get404
+		}
 		init();
 	}
 	
@@ -265,46 +235,7 @@
 		definegrid();
 		setgridonload();
 		
-		headerHeight();
-
-		//Load page in ajax
-		$('body').on('click tap', '[data-ajaxLink]',function(ev){
-			var $this = $(this),
-					url = $this.attr('href'),
-					title = $this.attr('title') || null;
-			$('body').animate({ scrollTop : 0}, 100);
-			if ( ev.which == 2 || ev.metaKey ) { // If voluntarily opens in a new window ( cmd + click ) 
-				return true; 
-			}
-			
-			History.pushState(null, title, url);
-			ev.preventDefault();
-			return false;
-			
-		});
-								 
-		$(window).bind('statechange', function(ev){
-			var State = History.getState(),
-					url = State.url,
-					title = State.title,
-					relativeUrl = url.replace(rootUrl,'');
-			
-			$.ajax({
-				url: url,
-				beforeSend: startLoading(),
-				xhrFields:{
-					onprogress: progressLoading()
-				},
-			})
-			.done(function(data, textStatus, jqXHR){
-				doneLoading(data, textStatus, jqXHR, url, title, relativeUrl);
-			})
-			.fail(function(data, textStatus, jqXHR){
-				failLoading(data, textStatus, jqXHR, url);
-			})
-			.always( finishLoading() );
-			
-		});					 
+		headerHeight();					 	
 		
 		// Formulaire de contact
 	
@@ -365,13 +296,9 @@
 		});
 	}
 	
-	
 	// When DOM is ready, show loading animation and call preinit function
 	$(document).ready(function () { 
-		
 		preinit();
-		init();
-		
 	}); 
 	
 	// On resize call grid function for update him

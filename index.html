@@ -2,7 +2,7 @@
 <!-- $metaDescription Salut moi c'est Emile, front-end développeur qui a pas peur des nouvelles expériences, notament dans le back-end et le mobile. -->
 <!-- $metaKeywords HTML, CSS, JS, Javascript, Front-end, ESIAJ, HEAJ, Emile, Duval, Stage, Developpeur, Web, albert, jacquard, DWM, Back-end, PHP, jQuery, développement, mobile --> 
 <!-- $ogTitle Emile Duval | Developpeur Front-End -->
-<!-- $ogImage asset/img/avatar.jpg -->
+<!-- $ogImage assets/favicon-160x160.png -->
 <!-- $ogSitename Emile Duval -->
 <!-- $ogDescription Salut moi c'est Emile, front-end développeur qui a pas peur de nouvelles expériences, notament dans le back-end et le mobile. -->
 <!-- $ogUrl http://www.emileduval.be/ -->
@@ -14,17 +14,22 @@
 					<p class="header--subtitle">Dév<span class="on-m">eloppeur</span> Front-End<strong> - <span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m">d'</span> un stage</strong></p>
 				</header>
 				<main role="main" class="main">
-					<section class="about-container">
+					<section class="section-container section-container-about">
 						<div class="wrapper">
 							<div class="container">
 									<h1 class="subtitle">Besoin d'un développeur ?</h1>
 									<strong class="subsubtitle">Ça tombe bien, je cherche un stage dans le développement web.</strong>
+<!--
+									<div class="about--link">
+											<a class="btn" href="#contact">Moi choisir comme stagiare</a>
+									</div>
+-->
 									<p class="returnParag">J'ai fais mes premiers pas dans la programmation vers 16 ans avec ma Casio Graph 35. À l'aise dans le <strong>front-end developpement</strong>, j'aime apprendre au fur et à mesure des projets et découvrir de <strong>nouveaux langages</strong>.</p>
 									<p>Et si vous me voyez sans mon clavier, je suis surement en train de faire de la photo ou m'éclater à l'escalade.</p>
 							</div>
 						</div>
 					</section>
-					<section class="case-study">
+					<section class="section-container section-container-case-study">
 						<article class="case-preview">
 							<div class="wrapper">
 								<h2 class="case-preview--title">Lazy Lunch</h2>
@@ -65,21 +70,22 @@
 									<img class="case-preview--thumb-container" src="assets/img/DW'M'Twitter.png" alt="Mise en situation Projet DWM'M'Twitter" width="468" height="432"/>
 								</div>
 								<div class="case-preview--description">
-										<p class="returnParag">Plugin jQuery développé</p>
-										<p class="returnParag">Le but étant de présenter les resultat d’une étude mener sur l’utilisation de twitter par les élèves de DWM de l’ESIAJ. Et de montrer l’impact de ce derniers sur leurs résultats de fin d’année.</p>
-										<p>Développé grâce à jQuery, D3.js, SVG, Waypoint.js, JSON</p>
+										<p class="returnParag">Plugin jQuery développé pour un projet personnel</p>
+										<p class="returnParag">Les elements css n'ayant aucune semantique, l'utilisation d'un background image fait perdre la potentielle semantique de cette image.</p>
+										<p>C'est pour repondre à ce problème que j'ai crée ce plugin, qui va transformer vos image html en image background css.</p>
+										<p>Développé grâce à jQuery</p>
 								</div>
 								<div class="case-preview--link">
-										<a class="btn" href="<!-- @path dwmtwitter.html -->" title="DWMTwitter" data-ajaxLink>Comprendre mes choix</a>
+										<a class="btn" href="https://github.com/EmileDu/backgroundify.js" title="backgroundify.js" target="_blank">Utiliser le plugin</a>
 								</div> 
 							</div>
 						</article>	
 					</section>
-					<section class="contact">
+					<section class="section-container section-container-contact">
 						<div class="wrapper">
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
-								<form class="contact-form" id="contact-form" method="post" action="assets/php/mailer.php" role="form">
+								<form class="contact-form" id="form" method="post" action="assets/php/mailer.php" role="form">
 									<p>
 										<span class="start-message">Salut Emile, je m'appelle</span>
 										<input class="contact-form-input contact-form-input--name" type="text" name="nom" id="form--nom" placeholder="ton nom"/>
@@ -153,7 +159,4 @@
 						</div>
 					</section>
 				</main>
-				<footer class="footer" role="contentinfo">
-					<small class="legal-mention">@ <a href="<!-- @path index.html -->" title="home" data-ajaxlink>Emile Duval</a> 2014 - Tous droit réservé - <a href="<!-- @path confidentialite.html -->" title="Politique_Confidentialite" data-ajaxlink>Politique de confidentialité</a> - <a href="http://dwm.re/" target="_blank">DWM</a> - <a href="http://www.infographie-sup.be/" target="_blank">ESIAJ</a> - <a href="<!-- @path credits.html -->" title="Credits" data-ajaxlink>Crédits</a></small>	
-				</footer>
 <!-- @include _footer -->
