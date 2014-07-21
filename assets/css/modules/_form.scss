@@ -34,15 +34,15 @@
 .contact-form-input--email,
 .contact-form-input--message{
 	position: relative;
+	width: 100%;
+	height: 1.5rem;
+	line-height: 1.5rem;
 }
 
 .contact-form-input--name, 
 .contact-form-input--email{
-	height: 1.5rem;
 	padding-left: .27777777777778rem;
 	vertical-align:baseline;
-	line-height: 1.5rem;
-	width: 100%;
 	text-indent: 10rem;
 	top: -1.55555555555556rem;
 }
@@ -52,11 +52,9 @@
 }
 
 .contact-form-input--message{
-	width: 100%;
 	resize: none;
 	height: 7.5rem;
 	padding: 0 0.11111111111111rem;
-	line-height: 1.5rem;
 	margin-bottom: 3rem;
 	text-indent: 8.94444444444444rem;
 	top: -1.44444444444444rem;
@@ -73,6 +71,7 @@
 	margin-top: -1.16666666666667rem;
 	margin-bottom: 3rem;
 	height: 3rem;
+	background: $color2;
 	position: relative;
 	.btn{
 		border: 1px solid $color3;

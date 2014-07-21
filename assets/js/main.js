@@ -115,9 +115,7 @@
 	function fetchData(){
 		$.post('assets/php/getEntry.php', function(response){
 			data = response;
-			if (window.innerWidth > 1024){
-				initExperiment();	
-			}
+			initExperiment();	
 		},'json');
 	}
 	
@@ -197,6 +195,7 @@
 			ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
 			ctx.fillStyle = 'white';
 			ctx.fill();		
+			ctx.closePath();
 
 			if (previous != ''){
 				ctx.beginPath();
@@ -205,6 +204,7 @@
 				ctx.strokeStyle = 'white';
 				ctx.stroke();
 				ctx.restore();
+				ctx.closePath();
 			}
 			previous = {x:x, y:y};
 			
@@ -302,9 +302,7 @@
 	$(window).resize(function () {
 		definegrid();
 		setgridonresize();
-		if(window.innerWidth > 1024 && $('body').hasClass('home')){
-			resizeCanvas();
-		}
+		resizeCanvas();
 	});
 
 })(jQuery);

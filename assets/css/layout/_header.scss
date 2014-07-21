@@ -30,6 +30,7 @@
 }
 
 .header--experiment{
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -44,5 +45,9 @@
 @media only screen and (min-width: $width-desktop){
 	.header{
 		padding: 1.83333333333333rem 1.77777777777778rem;
+	}
+	
+	.header--experiment{
+		display: block;	
 	}
 }
