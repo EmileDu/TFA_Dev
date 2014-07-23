@@ -11,7 +11,8 @@
 			zoneHeight,
 			zoneWidth,
 			c,
-			ctx;
+			ctx,
+			regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i;
 	
 	//-----------------
 	/*    Function   */
@@ -41,8 +42,12 @@
 				if(value == ''){
 					valid = false;
 					message = 'J\'aimerai vraiment connaitre ton mail.';
+				} else if (value != '' && regex.test(value)){
+					valid == false;
+					console.log(regex.test(value));
+					message = 'Allez, donne moi ton vrai email.';
 				} else {
-					valid = true;	
+					valid == true;
 				}
 				break;
 			case 'message':
