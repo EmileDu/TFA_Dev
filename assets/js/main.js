@@ -103,8 +103,6 @@
 		}
 	}
 	
-	// End of loading function -------------------------------------------
-	
 	function getUserInfo(){
 		$.get('http://ipinfo.io', function(response){
 			var userdata = {ip:response.ip, country:response.country};
@@ -125,95 +123,7 @@
 	}
 	
 	function initExperiment(){
-		nbPays = 1;
-		pays = [];
-		pays.push(data[0].country);
-		for(var i = 1; i < data.length; i++){
-			flag = false;
-			for(var y = 0; y < pays.length; y++){
-				if(data[i].country == pays[y]){
-					flag = true;
-				}
-			}
-			if(flag == false){
-				pays.push(data[i].country);
-				nbPays++;	
-			}
-		};
-		
-		
-		c = document.getElementById('experiment');
-		ctx = c.getContext('2d');
-		
-		
-		updateSize();
-		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
-		
-	}	
-	
-	function updateSize(){
-		size = getHeaderSize();
-		c.width = size.width;
-		c.height = size.height;
-		
-		zoneHeight = ((size.height / 100) * 10) + ((size.height / 100) * 80);
-		zoneWidth = ((size.width / 100) * 10) + ((size.width / 100) * 80);
-	}
-	
-	function resizeCanvas(){
-		updateSize();
-		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
-	}
-	
-	function drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays){
-		var previous = {};
-
-		$.each(data, function(index, value){
-			date = new Date(value.date);
-			hours = date.getHours();
-			day = date.getDate();
-			var now = new Date().getDate();
-
-			var y = ( zoneHeight / 23 ) * hours;
-			var x = ( zoneWidth / (nbPays + 1)) * (pays.indexOf(value.country) + 1);
-			var radius = 27;
-			var opacity = 1;
-
-			if((now - day) >= 30){
-				opacity = .1;
-				radius = 5;
-			} else if((now - day) >= 15 && (now - day) < 30 ){
-				opacity = .2;
-				radius = 8;
-			} else if((now - day) >= 7 && (now - day) < 15 ){
-				opacity = .4;
-				radius = 12;
-			} else if((now - day) > 0 && (now - day) < 7 ){
-				opacity = .7;
-				radius = 17;
-			} else {
-				opacity = 1;
-				radius = 27;
-			}
-
-			ctx.beginPath();
-			ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
-			ctx.fillStyle = 'white';
-			ctx.fill();		
-			ctx.closePath();
-
-			if (previous != ''){
-				ctx.beginPath();
-				ctx.moveTo(previous.x, previous.y);
-				ctx.lineTo(x, y);
-				ctx.strokeStyle = 'white';
-				ctx.stroke();
-				ctx.restore();
-				ctx.closePath();
-			}
-			previous = {x:x, y:y};
-			
-		});	
+		console.log(data);	
 	}
 	
 	function getHeaderSize(){
@@ -243,8 +153,18 @@
 	
 		
 		// Replace placeholder if enter value is not valid
-		$('input, textarea').on('focusout', function(ev){ $(this).attr('placeholder', checkValue($(this)[0].name, $(this)[0].value)) });
+		$('input, textarea').on('focusout', function(ev){
+			$(this).attr('placeholder', checkValue($(this)[0].name, $(this)[0].value));
+		});
+		$('input, textarea').on('focusin', function(){
+			if ($('#form--submit').hasClass('is-done')){
+				$('#form--submit').removeClass('is-done')
+			} else if($('#form--submit').hasClass('is-fail')){
+				$('#form--submit').removeClass('is-fail');
+			}
+		});
 		
+		// Form function 
 		$('#form--submit').on('click', function (ev) {
 			ev.preventDefault();
 			$('#contact-form').trigger('submit');
@@ -289,13 +209,7 @@
 			return false;
 		});
 		
-		$('input, textarea').on('focusin', function(){
-			if ($('#form--submit').hasClass('is-done')){
-				$('#form--submit').removeClass('is-done')
-			} else if($('#form--submit').hasClass('is-fail')){
-				$('#form--submit').removeClass('is-fail');
-			}
-		});
+		
 	}
 	
 	// When DOM is ready, show loading animation and call preinit function
@@ -311,3 +225,128 @@
 	});
 
 })(jQuery);
+
+
+
+//function initExperiment(){
+//		nbPays = 1;
+//		pays = [];
+//		pays.push(data[0].country);
+//		for(var i = 1; i < data.length; i++){
+//			flag = false;
+//			for(var y = 0; y < pays.length; y++){
+//				if(data[i].country == pays[y]){
+//					flag = true;
+//				}
+//			}
+//			if(flag == false){
+//				pays.push(data[i].country);
+//				nbPays++;	
+//			}
+//		};
+//		
+//		c = document.getElementById('experiment');
+//		ctx = c.getContext('2d');
+//		
+//		updateSize();
+//		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
+//		
+//	}	
+//	
+//	function updateSize(){
+//		size = getHeaderSize();
+//		c.width = size.width;
+//		c.height = size.height;
+//		zoneHeight = ((size.height / 100) * 10) + ((size.height / 100) * 80);
+//		zoneWidth = ((size.width / 100) * 20) + ((size.width / 100) * 80);
+//	}
+//	
+//	function resizeCanvas(){
+//		updateSize();
+//		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
+//	}
+//	
+//	//-----------------
+//	/*     Class     */
+//	//-----------------
+//	
+//	var Particule = function(date, hours, visitorPays, x, y, radius){
+//		
+//		var pays = pays;
+//		var hours = hours;
+//		var date = date;
+//		var x = x;
+//		var y = y;
+//		var r = radius;
+//		
+//		this.draw = function(x, y, radius){
+//			console.log(ctx);
+//			
+//			ctx.beginPath();
+//			ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+//			ctx.fillStyle = 'white';
+//			ctx.fill();		
+//			ctx.closePath();
+//		}
+//		
+//		this.infoPopUp = function(){
+//			
+//		}
+//	}
+//	
+//	function drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays){
+//		var previous = {};
+//
+//		$.each(data, function(index, value){
+//			date = new Date(value.date);
+//			hours = date.getHours();
+//			day = date.getDate();
+//			visitorPays = value.country;
+//			var now = new Date().getDate();
+//			var y = ( zoneHeight / 23 ) * hours;
+//			var x = ( zoneWidth / (nbPays + 1)) * (pays.indexOf(value.country) + 1);
+//			var radius = 27;
+//			var opacity = 1;
+//
+//			if((now - day) >= 30){
+//				opacity = .1;
+//				radius = 5;
+//			} else if((now - day) >= 15 && (now - day) < 30 ){
+//				opacity = .2;
+//				radius = 8;
+//			} else if((now - day) >= 7 && (now - day) < 15 ){
+//				opacity = .4;
+//				radius = 12;
+//			} else if((now - day) > 0 && (now - day) < 7 ){
+//				opacity = .7;
+//				radius = 17;
+//			} else {
+//				opacity = 1;
+//				radius = 27;
+//			}
+//			
+//			var visitor = new Particule(date, hours, visitorPays, x, y, radius);
+//			visitor.draw();
+//			
+////			ctx.beginPath();
+////			ctx.globalAlpha = 1;
+////			ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+////			ctx.fillStyle = 'white';
+////			ctx.fill();		
+////			ctx.closePath();
+//
+//			if (previous != ''){
+//				ctx.beginPath();
+//				ctx.moveTo(previous.x, previous.y);
+//				ctx.lineTo(x, y);
+//				ctx.lineWidth= .5;
+//				ctx.globalAlpha = 0.5;
+//				ctx.strokeStyle = 'white';
+//				ctx.stroke();
+//				ctx.restore();
+//				ctx.closePath();
+//			}
+//			previous = {x:x, y:y};
+//			
+//		});	
+//	}

@@ -22,11 +22,24 @@
 }
 
 .header--title{
-	margin-left: -0.16666666666667rem;
+//	margin-left: -0.16666666666667rem;
+	width: 100%;
+	height: 6rem;
+	@include position(absolute, 0px 0px 0px 0px);
+	margin: auto;
+	text-align: center;
 	line-height: 4.5rem;
+	top: -2rem;
 }
 .header--subtitle{
 	display: inline;
+	width: 100%;
+	height: 1rem;
+	line-height: 1.5rem;
+	@include position(absolute, 0px 0px 0px 0px);
+	margin: auto;
+	text-align: center;
+	top: 2rem;
 }
 
 .header--experiment{

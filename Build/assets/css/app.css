@@ -401,11 +401,31 @@ blockquote {
       color: #eb7347; }
 
 .header--title {
-  margin-left: -0.16666666666667rem;
-  line-height: 4.5rem; }
+  width: 100%;
+  height: 6rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin: auto;
+  text-align: center;
+  line-height: 4.5rem;
+  top: -2rem; }
 
 .header--subtitle {
-  display: inline; }
+  display: inline;
+  width: 100%;
+  height: 1rem;
+  line-height: 1.5rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin: auto;
+  text-align: center;
+  top: 2rem; }
 
 .header--experiment {
   display: none;
