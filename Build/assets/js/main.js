@@ -6,10 +6,6 @@
 	
 	var valid = true,
         data,
-        nbPays,
-        pays,
-        zoneHeight,
-        zoneWidth,
         c = document.querySelector('canvas'),
         ctx = canvas.getContext('2d'),
         regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i,
@@ -19,7 +15,7 @@
         connected = [],
         lastID = 0;
 	
-    //-----------------
+	//-----------------
 	/*     Class     */
 	//-----------------  
   
@@ -76,13 +72,15 @@
           this.position.y = this.radius / 2;
           this.vy *= -1;
         }
+				
+				
         
-        // Check for particules collision 
-//        for(var i = 0; i < particules.length; i++){
-//          if(this.id != particules[i].id && this.iscolliding(particules[i])){
-//            this.bounce(particules[i]);
-//          }
-//        }
+//         Check for particules collision 
+        for(var i = 0; i < particules.length; i++){
+          if(this.id != particules[i].id && this.iscolliding(particules[i])){
+            this.bounce(particules[i]);
+          }
+        }
         
         //Check for connection with other particules
         for(var i = 0; i < particules.length; i++){
@@ -101,22 +99,29 @@
           this.vx = 0;
           this.color = '#eb7347';
           this.opacity = 1;
-          this.dispatch();
+          this.display();
           
         } else {
           this.opacity = .7;
           this.color = '#FFFFFF';
         }
       },
-      draw: function(){
+      draw: function(){ // Draw the particule 
         ctx.globalAlpha = this.opacity;
         ctx.beginPath();
         ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI, false);
+				ctx.moveTo(this.position.x - 5, this.position.y);
+				ctx.lineTo(this.position.x + 5, this.position.y);
+				ctx.moveTo(this.position.x, this.position.y - 5);
+				ctx.lineTo(this.position.x, this.position.y + 5);
+				ctx.lineWidth = 1;
+				ctx.strokeStyle = '#FF0000';
+				ctx.stroke();
         ctx.fillStyle = this.color;
         ctx.fill();		
         ctx.closePath();
       },
-      connection: function(connected){ 
+      connection: function(connected){ // draw line between particule
         for(var i = 0; i < connected.length; i++){
           ctx.globalAlpha = this.opacity;
           ctx.beginPath();
@@ -128,20 +133,24 @@
           ctx.closePath();
         }
       },
-      dispatch: function(){
-                
+      display: function(){ // display visitor information when hover particule     
         var fulldate = new Date(this.info.date);
         var day = fulldate.getDay();
         var month = fulldate.getMonth();
         var year = fulldate.getFullYear();
         var date = ''+day+' / '+month+' / '+year+'';
-        var pos = {x: this.position.x + this.radius + 10, y: this.position.y - 5};
+				var pos = {x: this.position.x, y: this.position.y - 5, r: this.radius};
+				if(this.position.x > c.width - 100){
+					var align = 'right';
+				} else {
+					var align = 'left';
+				}
         var info = {pays: this.info.pays, date: date};
         
-        var tooltip = new Tooltip(pos, info);
+        var tooltip = new Tooltip(pos, info, align);
         tooltip.show();
       },
-      iscolliding: function(a){
+      iscolliding: function(a){ //
         if (this.position.x + this.radius + a.radius > a.position.x 
           && this.position.x < a.position.x + this.radius + a.radius
           && this.position.y + this.radius + a.radius > a.position.y 
@@ -157,37 +166,37 @@
         return false;
       },
       bounce: function(a){
-        var mass1 = this.radius,
-            mass2 = a.radius,
-            velX1 = this.velocity.vx,
-            velX2 = a.velocity.vx,
-            velY1 = this.velocity.vy,
-            velY2 = a.velocity.vy,
-
-            newVelX1 = (velX1 * (mass1 - mass2) + (2 * mass2 * velX2)) / (mass1 + mass2),
-            newVelX2 = (velX2 * (mass2 - mass1) + (2 * mass1 * velX1)) / (mass1 + mass2),
-            newVelY1 = (velY1 * (mass1 - mass2) + (2 * mass2 * velY2)) / (mass1 + mass2),
-            newVelY2 = (velY2 * (mass2 - mass1) + (2 * mass1 * velY1)) / (mass1 + mass2);
-
-        this.velocity.vx = newVelX1;
-        a.vx = newVelX2;
-        this.velocity.vy = newVelY1;
-        a.vy = newVelY2;
+				this.vx = (this.vx * (this.radius - a.radius) + (2 * a.radius * a.vx)) / (this.radius + a.radius);
+				this.vy = (this.vy * (this.radius - a.radius) + (2 * a.radius * a.vy)) / (this.radius + a.radius);
+				a.vx = (a.vx * (a.radius - this.radius) + (2 * this.radius * this.vx)) / (this.radius + a.radius);
+				a.vy = (a.vy * (a.radius - this.radius) + (2 * this.radius * this.vy)) / (this.radius + a.radius);
+					
+				this.position.x += this.vx;
+				this.position.y += this.vx;
+				a.position.x += a.vx;
+				a.position.y += a.vx;
       }
     };
-  
-    function Tooltip(pos, info){
+  	
+    function Tooltip(pos, info, align){
       this.pos = pos;
       this.pays = this.resolvePays(info.pays);
       this.date = info.date;
       this.hours = info.hours;
+			this.align = align || 'left';
     }
   
     Tooltip.prototype = {
       show: function(){
         ctx.font = '15px PT Sans';
-        ctx.fillText(this.pays, this.pos.x, this.pos.y);
-        ctx.fillText('Le '+this.date, this.pos.x, this.pos.y + 20 );
+				ctx.textAlign = this.align;
+				if(this.align != 'left'){
+					ctx.fillText(this.pays, this.pos.x - this.pos.r - 10, this.pos.y);
+					ctx.fillText('Le '+this.date, this.pos.x - this.pos.r - 10, this.pos.y + 20 );
+				} else {
+					ctx.fillText(this.pays, this.pos.x + this.pos.r + 10, this.pos.y);
+					ctx.fillText('Le '+this.date, this.pos.x + this.pos.r + 10, this.pos.y + 20 );
+				}        
       },
       hide: function(){
         
@@ -270,17 +279,10 @@
 	/*    Function   */
 	//-----------------
 	
-    function getID(){
-      return lastID++;
-    }
-  
-    function magnitude(a,b) {
-      return Math.sqrt(a*a + b*b);
-    }
-
-    function randDir() {
-      return (Math.random() > 0.5 ? 1 : -1);
-    }
+	function getID(){
+		return lastID++;
+	}
+	
 	function checkValue(name, value){
 		var message = '';
 		switch(name){
@@ -399,8 +401,8 @@
   
     // 
 	function resizeCanvas(){
-      c.width = window.innerWidth;
-      c.height =  window.innerHeight - window.scrollY;
+      c.width = $('.header').outerWidth();
+      c.height =  $('.header').outerHeight();
       ctx.setTransform(1,0,0,1,0,0);
     }
     
