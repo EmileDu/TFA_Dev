@@ -401,7 +401,7 @@ blockquote {
       color: #eb7347; }
 
 .header--title {
-  width: 100%;
+  max-width: 500px;
   height: 6rem;
   position: absolute;
   top: 0px;
@@ -415,7 +415,7 @@ blockquote {
 
 .header--subtitle {
   display: inline;
-  width: 100%;
+  max-width: 500px;
   height: 1rem;
   line-height: 1.5rem;
   position: absolute;
@@ -485,9 +485,6 @@ main[role="main"] {
   min-height: 27rem; }
   .section-container .container {
     width: 100%; }
-
-.section-container-about {
-  background: #e6e6e6; }
 
 .section-container-contact {
   background: #272727;
@@ -1148,7 +1145,8 @@ a {
   bottom: 0px;
   left: 0px;
   margin: auto;
-  display: none; }
+  display: none;
+  z-index: 90; }
 
 .controls--list--item--name {
   display: block;
@@ -1192,14 +1190,23 @@ a {
     display: block; }
 
   .controls--list--item--name {
+    width: 8rem;
     position: absolute;
     top: 0px;
     left: 3rem;
-    width: 0rem;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
     background: #272727; }
 
   .controls--list--item a:hover .controls--list--item--name {
-    width: 8rem; } }
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%); } }
 a, .social-list-item--icon, .btn {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;

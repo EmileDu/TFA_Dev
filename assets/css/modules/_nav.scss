@@ -11,22 +11,23 @@
 }
 
 .controls--list--item--icon{
-	width: 2.5rem;
-	height: 2.5rem;
-	@include position(absolute, 0px 0px 0px 0px);
-	margin: auto;
-	display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  @include position(absolute, 0px 0px 0px 0px);
+  margin: auto;
+  display: none;
+  z-index: 90;
 }
 
 .controls--list--item--name{
-	display: block;
-	line-height: 3rem;
-	height: 3rem;
-	width: 100%;
-	text-align: center;
-	color: $color1;
-	overflow: hidden;
-	@include transition();
+  display: block;
+  line-height: 3rem;
+  height: 3rem;
+  width: 100%;
+  text-align: center;
+  color: $color1;
+  overflow: hidden;
+  @include transition();
 }
 
 .controls--list--item a:hover{
@@ -60,14 +61,15 @@
 	}
 
 	.controls--list--item--name{
-		@include position(absolute, 0px 0 0 3rem);
-		width: 0rem;
-		background: $color2;
+      width: 8rem;
+      @include position(absolute, 0px 0 0 3rem);
+      @include transform(translateX(-100%));
+      background: $color2;    
 	}
 	
 	.controls--list--item a:hover{
 		.controls--list--item--name{
-			width: 8rem;
+          @include transform(translateX(0%));
 		}
 	}
 }

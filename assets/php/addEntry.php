@@ -12,7 +12,8 @@
 			'country' => $country,
 			'date' => $date
 		));
-		
-		echo 'ok';
+        var_dump($req -> errorInfo());
+//		
+//		echo 'ok';
 	}
 ?>

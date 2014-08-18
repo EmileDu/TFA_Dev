@@ -5,28 +5,282 @@
 	//-----------------
 	
 	var valid = true,
-			data,
-			nbPays,
-			pays,
-			zoneHeight,
-			zoneWidth,
-			c,
-			ctx,
-			regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i;
+        data,
+        nbPays,
+        pays,
+        zoneHeight,
+        zoneWidth,
+        c = document.querySelector('canvas'),
+        ctx = canvas.getContext('2d'),
+        regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i,
+        particules = [],
+        coef = .25,
+        mousePos = {},
+        connected = [],
+        lastID = 0;
 	
+    //-----------------
+	/*     Class     */
+	//-----------------  
+  
+    function Particule(radius, pays, date, color){
+      this.id = getID();
+      
+      this.rr = Math.random()*1000 + 15;
+      var a = Math.random()*360;
+      
+      this.position = {x: (c.width / 100) * 5 + Math.random() * (c.width / 100) * 90,
+                       y: (c.height / 100) * 5 + Math.random() * (c.height / 100) * 90};
+      
+//      var dx = this.position.x - c.width/2;
+//      var dy = this.position.y - c.height/2;
+//      var vm = magnitude(dx,dy);
+      
+//      this.direction = randDir();
+//      this.velocity = Math.random() * 2 - 1;
+      this.vx = Math.random() * 2 - 1;
+      this.vy = Math.random() * 2 - 1;    
+      this.lastVelocity = {};
+      
+      this.opacity = .7;
+      this.radius = radius;
+      this.color = color || '#FFFFFF'; 
+      this.info = { pays: pays, date: date};
+      
+    }
+  
+    Particule.prototype = {
+      update: function(coef){
+        
+        connected = [];
+        var mx = this.position.x - mousePos.x,
+            my = this.position.y - mousePos.y,
+            mdist = Math.sqrt(mx * mx + my * my);
+        
+        this.position.x += this.vx * coef;
+        this.position.y += this.vy * coef;
+
+        if(this.position.x > c.width - (this.radius / 2)) {
+          this.position.x =  c.width - (this.radius / 2);
+          this.vx *= -1;
+        }
+        else if(this.position.x < this.radius / 2) {
+          this.position.x = this.radius / 2;
+          this.vx *= -1;
+        }
+        if(this.position.y > c.height - (this.radius / 2)) {
+          this.position.y = c.height - (this.radius / 2);
+          this.vy *= -1;
+        }
+        else if(this.position.y < this.radius / 2) {
+          this.position.y = this.radius / 2;
+          this.vy *= -1;
+        }
+        
+        // Check for particules collision 
+//        for(var i = 0; i < particules.length; i++){
+//          if(this.id != particules[i].id && this.iscolliding(particules[i])){
+//            this.bounce(particules[i]);
+//          }
+//        }
+        
+        //Check for connection with other particules
+        for(var i = 0; i < particules.length; i++){
+          var px = particules[i].position.x - this.position.x,
+              py = particules[i].position.y - this.position.y,
+              pdist = Math.sqrt(px * px + py * py);
+          if(pdist < 150){
+            connected.push(particules[i]);
+          } 
+        } 
+        this.connection(connected);
+        
+        // Check if hover particules 
+        if((!this.dragging && mdist < this.radius) || this.dragging) {
+          this.vy = 0;
+          this.vx = 0;
+          this.color = '#eb7347';
+          this.opacity = 1;
+          this.dispatch();
+          
+        } else {
+          this.opacity = .7;
+          this.color = '#FFFFFF';
+        }
+      },
+      draw: function(){
+        ctx.globalAlpha = this.opacity;
+        ctx.beginPath();
+        ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();		
+        ctx.closePath();
+      },
+      connection: function(connected){ 
+        for(var i = 0; i < connected.length; i++){
+          ctx.globalAlpha = this.opacity;
+          ctx.beginPath();
+          ctx.moveTo(this.position.x, this.position.y);
+          ctx.lineTo(connected[i].position.x, connected[i].position.y);
+          ctx.lineWidth = .5;
+          ctx.strokeStyle = '#FFFFFF';
+          ctx.stroke();
+          ctx.closePath();
+        }
+      },
+      dispatch: function(){
+                
+        var fulldate = new Date(this.info.date);
+        var day = fulldate.getDay();
+        var month = fulldate.getMonth();
+        var year = fulldate.getFullYear();
+        var date = ''+day+' / '+month+' / '+year+'';
+        var pos = {x: this.position.x + this.radius + 10, y: this.position.y - 5};
+        var info = {pays: this.info.pays, date: date};
+        
+        var tooltip = new Tooltip(pos, info);
+        tooltip.show();
+      },
+      iscolliding: function(a){
+        if (this.position.x + this.radius + a.radius > a.position.x 
+          && this.position.x < a.position.x + this.radius + a.radius
+          && this.position.y + this.radius + a.radius > a.position.y 
+          && this.position.y < a.position.y + this.radius + a.radius){ 
+          var ppx = this.position.x - a.position.x,
+              ppy = this.position.y - a.position.y,
+              ppdist = Math.sqrt(ppx * ppx + ppy * ppy);
+
+          if (ppdist < this.radius + a.radius){
+            return true;
+          }
+        }
+        return false;
+      },
+      bounce: function(a){
+        var mass1 = this.radius,
+            mass2 = a.radius,
+            velX1 = this.velocity.vx,
+            velX2 = a.velocity.vx,
+            velY1 = this.velocity.vy,
+            velY2 = a.velocity.vy,
+
+            newVelX1 = (velX1 * (mass1 - mass2) + (2 * mass2 * velX2)) / (mass1 + mass2),
+            newVelX2 = (velX2 * (mass2 - mass1) + (2 * mass1 * velX1)) / (mass1 + mass2),
+            newVelY1 = (velY1 * (mass1 - mass2) + (2 * mass2 * velY2)) / (mass1 + mass2),
+            newVelY2 = (velY2 * (mass2 - mass1) + (2 * mass1 * velY1)) / (mass1 + mass2);
+
+        this.velocity.vx = newVelX1;
+        a.vx = newVelX2;
+        this.velocity.vy = newVelY1;
+        a.vy = newVelY2;
+      }
+    };
+  
+    function Tooltip(pos, info){
+      this.pos = pos;
+      this.pays = this.resolvePays(info.pays);
+      this.date = info.date;
+      this.hours = info.hours;
+    }
+  
+    Tooltip.prototype = {
+      show: function(){
+        ctx.font = '15px PT Sans';
+        ctx.fillText(this.pays, this.pos.x, this.pos.y);
+        ctx.fillText('Le '+this.date, this.pos.x, this.pos.y + 20 );
+      },
+      hide: function(){
+        
+      },
+      resolvePays: function(ca2){
+        console.log(ca2);
+        var ca2tab = {AC: 'Antigua-et-Barbuda', AF: 'Afghanistan',  AG: 'Algérie', 
+                      AJ: 'Azerbaïdjan',        AL: 'Albanie',      AM: 'Arménie',
+                      AN: 'Andorre',            AO: 'Angola',       AR: 'Argentine',
+                      AS: 'Australie',          AU: 'Autriche',     BA: 'Bahreïn',
+                      BB: 'Barbade',            BC: 'Botswana',     BE: 'Belgique',
+                      BF: 'Bahamas',            BG: 'Bangladesh',   BH: 'Belize',
+                      BK: 'Bosnie-Herzégovine', BL: 'Bolivie',      BM: 'Birmanie',
+                      BN: 'Bénin',              BO: 'Biélorussie',  BP: 'Salomon',
+                      BR: 'Brésil',             BT: 'Bhoutan',      BU: 'Bulgarie',
+                      BX: 'Brunei',             BY: 'Burundi',      CA: 'Canada',
+                      CB: 'Cambodge',           CD: 'Tchad',        CE: 'Sri Lanka',
+                      CF: 'République du Congo',CG: 'République démocratique du Congo',
+                      CH: 'Chine',              CI: 'Chili',        CM: 'Cameroun',
+                      CN: 'Comores',            CO: 'Colombie',     CS: 'Costa Rica',
+                      CT: 'République centrafricaine',              CU: 'Cuba',
+                      CV: 'Cap-Vert',           CY: 'Chypre',       CZ: 'République tchèque',
+                      DA: 'Danemark',           DJ: 'Djibouti',     DO: 'Dominique',
+                      DR: 'République dominicaine',                 EC: 'Équateur',
+                      EG: 'Égypte',             EI: 'Irlande',      EK: 'Guinée équatoriale',
+                      EN: 'Estonie',            ER: 'Érythrée',     ES: 'Salvador',
+                      ET: 'Éthiopie',           FI: 'Finlande',     FJ: 'Fidji',
+                      FR: 'France',             FY: 'Macédoine',    GA: 'Gambie',
+                      GB: 'Gabon',              GE: 'Allemagne',    GG: 'Géorgie',
+                      GH: 'Ghana',              GJ: 'Grenade',      GR: 'Grèce',
+                      GT: 'Guatemala',          GV: 'Guinée',       GY: 'Guyana',
+                      HA: 'Haïti',              HO: 'Honduras',     HR: 'Croatie',
+                      HU: 'Hongrie',            IC: 'Islande',      ID: 'Indonésie',
+                      IN: 'Inde',               IR: 'Iran',         PL: 'Israël',
+                      IT: 'Italie',             IV: 'Côte Ivoire',  IZ: 'Irak',
+                      JA: 'Japon',              JM: 'Jamaïque',     JO: 'Jordanie',
+                      KE: 'Kenya',              KG: 'Kirghizistan', KN: 'Corée du Nord',
+                      KR: 'Kiribati',           KS: 'Corée du Sud', KU: 'Koweït',
+                      KZ: 'Kazakhstan',         LA: 'Laos',         LE: 'Liban',
+                      LG: 'Lettonie',           LH: 'Lituanie',     LI: 'Liberia',
+                      LO: 'Slovaquie',          LS: 'Liechtenstein',LT: 'Lesotho',
+                      LU: 'Luxembourg',         LY: 'Libye',        MA: 'Madagascar',
+                      MD: 'République de Moldavie',                 MG: 'Mongolie',
+                      MI: 'Malawi',             ML: 'Mali',         MN: 'Monaco',
+                      MO: 'Maroc',              MP: 'Maurice',      MR: 'Mauritanie',
+                      MT: 'Malte',              MU: 'Oman',         MV: 'Maldives', 
+                      MX: 'Mexique',            MY: 'Malaisie',     MZ: 'Mozambique',
+                      NG: 'Niger',              NH: 'Vanuatu',      NI: 'Nigeria',
+                      NL: 'Pays-Bas',           NO: 'Norvège',      NP: 'Népal',
+                      NR: 'Nauru',              NS: 'Suriname',     NU: 'Nicaragua',
+                      NZ: 'Nouvelle-Zélande',   PA: 'Paraguay',     PE: 'Pérou',
+                      PK: 'Pakistan',           PL: 'Pologne',      PM: 'Panama',
+                      PT: 'Portugal',           PP: 'Papouasie-Nouvelle-Guinée', 
+                      PU: 'Guinée-Bissau',      QA: 'Qatar',        RO: 'Roumanie',
+                      RP: 'Philippines',        RQ: 'Porto Rico',   RS: 'Russie',
+                      RW: 'Rwanda',             SA: 'Arabie saoudite',
+                      SC: 'Saint-Christophe-et-Niévès',           SE: 'Seychelles',
+                      SF: 'Afrique du Sud',     SG: 'Sénégal',      SI: 'Slovénie',
+                      SL: 'Sierra Leone',       SM: 'Saint-Marin',  SN: 'Singapour',
+                      SO: 'Somalie',            SP: 'Espagne',      ST: 'Sainte-Lucie',
+                      SU: 'Soudan',             SW: 'Suède',        SY: 'Syrie',
+                      SZ: 'Suisse',             TC: 'Émirats arabes unis',
+                      TD: 'Trinité-et-Tobago',  TM: 'Timor oriental',
+                      TH: 'Thaïlande',          TI: 'Tadjikistan',  TN: 'Tonga',
+                      TO: 'Togo',               TP: 'Sao Tomé-et-Principe',
+                      TS: 'Tunisie',            TU: 'Turquie',      TV: 'Tuvalu',
+                      TW: 'Taïwan',             TX: 'Turkménistan', TZ: 'Tanzanie',
+                      UG: 'Ouganda',            UK: 'Royaume-Uni',  UP: 'Ukraine',
+                      UR: 'Union soviétique',   US: 'États-Unis',   UV: 'Burkina Faso',
+                      UY: 'Uruguay',            UZ: 'Ouzbékistan',  VC: 'Saint-Vincent-et-les Grenadines',
+                      VE: 'Venezuela',          VN: 'Viêt Nam',     VT: 'Vatican',
+                      WA: 'Namibie',            WS: 'Samoa',        WZ: 'Swaziland',
+                      YE: 'Yémen',              YU: 'Serbie-et-Monténégro',
+                      ZA: 'Zambie',             ZI: 'Zimbabwe'};
+        return ca2tab[ca2];
+      }
+    }
+  
 	//-----------------
 	/*    Function   */
 	//-----------------
 	
-	
-	// Update header Height to always match with baseline
-	function headerHeight(){
-		var $headerHeight = $('.header').outerHeight();
-		if ($headerHeight % 27 != 0) {
-			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
-		}
-	}
-	
+    function getID(){
+      return lastID++;
+    }
+  
+    function magnitude(a,b) {
+      return Math.sqrt(a*a + b*b);
+    }
+
+    function randDir() {
+      return (Math.random() > 0.5 ? 1 : -1);
+    }
 	function checkValue(name, value){
 		var message = '';
 		switch(name){
@@ -102,37 +356,118 @@
 			makehugrid();
 		}
 	}
-	
-	function getUserInfo(){
-		$.get('http://ipinfo.io', function(response){
-			var userdata = {ip:response.ip, country:response.country};
-			sendToServer(data);
-		}, 'jsonp');	
-	}
-	
-	function sendToServer(userdata){
-		$.post('assets/php/addEntry.php', userdata, 'json')
-		.done(fetchData());
-	}
-	
-	function fetchData(){
-		$.post('assets/php/getEntry.php', function(response){
-			data = response;
-			initExperiment();	
-		},'json');
-	}
-	
-	function initExperiment(){
-		console.log(data);	
-	}
-	
-	function getHeaderSize(){
-		return {
-			height: $('#experiment')[0].clientHeight,
-			width: $('#experiment')[0].clientWidth
+    
+    // Update header Height to always match with baseline
+	function headerHeight(){
+		var $headerHeight = $('.header').outerHeight();
+		if ($headerHeight % 27 != 0) {
+			$('.header').outerHeight(Math.ceil($headerHeight / 27) * 27);
 		}
 	}
+  
+    // Check mouse position on canvas.
+    function getMousePos(canvas, evt) {
+      var rect = canvas.getBoundingClientRect();
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+    }
+  
+    // Call ipinfo.io API to get user information
+	function getUserInfo(){ 
+      $.get('http://ipinfo.io', function(response){
+        var userdata = {ip: response.ip, country: response.country};
+        sendToServer(userdata); // Send data to MySQL bdd
+      }, 'jsonp');	
+	}
+  
+	// Insert new entry with user info into MySQL bdd
+	function sendToServer(userdata){ 
+      $.post('assets/php/addEntry.php', userdata, 'json')
+      .done(fetchData());
+	}
 	
+    // Fetch data into bdd to create dataviz
+	function fetchData(){ 
+      $.post('assets/php/getEntry.php', function(response){
+        data = response;
+        console.log(data.length);
+        initExperiment(data);	
+      },'json');
+	}
+  
+    // 
+	function resizeCanvas(){
+      c.width = window.innerWidth;
+      c.height =  window.innerHeight - window.scrollY;
+      ctx.setTransform(1,0,0,1,0,0);
+    }
+    
+    
+	function initExperiment(){
+      resizeCanvas();
+      $.each(data, function(index, value){
+
+        var now = new Date().getDate();
+        
+        var pays = value.country;
+        var date = new Date(value.date);
+        var day = date.getDate();
+
+        if((now - day) >= 30){
+          var radius = 2;
+        } else if((now - day) >= 15 && (now - day) < 30 ){
+          var radius = 4;
+        } else if((now - day) >= 7 && (now - day) < 15 ){
+          var radius = 6;
+        } else if((now - day) > 0 && (now - day) < 7 ){
+          var radius = 10;
+        } else {
+          var radius = 15;
+        }
+        
+        particules.push(
+          new Particule(radius, pays, date)
+        ); 
+      });  
+	}
+    function drawExperiment(){
+      ctx.save();
+      ctx.clearRect(0, 0, c.width, c.height);
+
+      for (var i = 0; i < particules.length; i++) {
+        var visitor = particules[i];
+        visitor.update(coef);
+        visitor.draw();
+      }
+
+      window.requestAnimFrame(drawExperiment);
+    }
+	
+    window.requestAnimFrame = (function() {
+      return  window.requestAnimationFrame || 
+              window.webkitRequestAnimationFrame || 
+              window.mozRequestAnimationFrame || 
+              window.oRequestAnimationFrame || 
+              window.msRequestAnimationFrame ||
+              function( callback ) { window.setTimeout(callback, 1000 / 60 ); }
+    })();
+  
+    c.addEventListener('mousemove', function(evt) {
+      mousePos = getMousePos(canvas, evt);
+    });
+    canvas.addEventListener('mousedown',function(e){
+      mousedown = true;
+    });
+    canvas.addEventListener('mouseup',function(e){
+      mousedown = false;
+    });
+    canvas.addEventListener('mouseout',function(e){
+      mousedown = false;
+    });
+  
+    window.requestAnimFrame(drawExperiment);
 	// Call when DOM is ready and wait for document fully loaded, to call init function and end loading
 	function preinit(){
 		if($('body').hasClass('home')){
@@ -218,135 +553,20 @@
 	}); 
 	
 	// On resize call grid function for update him
-	$(window).resize(function () {
-		definegrid();
-		setgridonresize();
-		resizeCanvas();
-	});
+//	$(window).resize(function () {
+//		definegrid();
+//		setgridonresize();
+//		resizeCanvas();
+//	});
+  
+    (onresize = function(){
+      resizeCanvas();
+      definegrid();
+      setgridonresize();
+    })();
+  
+    (onscroll = function(){
+//      resizeCanvas();
+    })
 
 })(jQuery);
-
-
-
-//function initExperiment(){
-//		nbPays = 1;
-//		pays = [];
-//		pays.push(data[0].country);
-//		for(var i = 1; i < data.length; i++){
-//			flag = false;
-//			for(var y = 0; y < pays.length; y++){
-//				if(data[i].country == pays[y]){
-//					flag = true;
-//				}
-//			}
-//			if(flag == false){
-//				pays.push(data[i].country);
-//				nbPays++;	
-//			}
-//		};
-//		
-//		c = document.getElementById('experiment');
-//		ctx = c.getContext('2d');
-//		
-//		updateSize();
-//		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
-//		
-//	}	
-//	
-//	function updateSize(){
-//		size = getHeaderSize();
-//		c.width = size.width;
-//		c.height = size.height;
-//		zoneHeight = ((size.height / 100) * 10) + ((size.height / 100) * 80);
-//		zoneWidth = ((size.width / 100) * 20) + ((size.width / 100) * 80);
-//	}
-//	
-//	function resizeCanvas(){
-//		updateSize();
-//		drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays);
-//	}
-//	
-//	//-----------------
-//	/*     Class     */
-//	//-----------------
-//	
-//	var Particule = function(date, hours, visitorPays, x, y, radius){
-//		
-//		var pays = pays;
-//		var hours = hours;
-//		var date = date;
-//		var x = x;
-//		var y = y;
-//		var r = radius;
-//		
-//		this.draw = function(x, y, radius){
-//			console.log(ctx);
-//			
-//			ctx.beginPath();
-//			ctx.arc(x, y, r, 0, 2 * Math.PI, false);
-//			ctx.fillStyle = 'white';
-//			ctx.fill();		
-//			ctx.closePath();
-//		}
-//		
-//		this.infoPopUp = function(){
-//			
-//		}
-//	}
-//	
-//	function drawExperiment(data, zoneHeight, zoneWidth, nbPays, pays){
-//		var previous = {};
-//
-//		$.each(data, function(index, value){
-//			date = new Date(value.date);
-//			hours = date.getHours();
-//			day = date.getDate();
-//			visitorPays = value.country;
-//			var now = new Date().getDate();
-//			var y = ( zoneHeight / 23 ) * hours;
-//			var x = ( zoneWidth / (nbPays + 1)) * (pays.indexOf(value.country) + 1);
-//			var radius = 27;
-//			var opacity = 1;
-//
-//			if((now - day) >= 30){
-//				opacity = .1;
-//				radius = 5;
-//			} else if((now - day) >= 15 && (now - day) < 30 ){
-//				opacity = .2;
-//				radius = 8;
-//			} else if((now - day) >= 7 && (now - day) < 15 ){
-//				opacity = .4;
-//				radius = 12;
-//			} else if((now - day) > 0 && (now - day) < 7 ){
-//				opacity = .7;
-//				radius = 17;
-//			} else {
-//				opacity = 1;
-//				radius = 27;
-//			}
-//			
-//			var visitor = new Particule(date, hours, visitorPays, x, y, radius);
-//			visitor.draw();
-//			
-////			ctx.beginPath();
-////			ctx.globalAlpha = 1;
-////			ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
-////			ctx.fillStyle = 'white';
-////			ctx.fill();		
-////			ctx.closePath();
-//
-//			if (previous != ''){
-//				ctx.beginPath();
-//				ctx.moveTo(previous.x, previous.y);
-//				ctx.lineTo(x, y);
-//				ctx.lineWidth= .5;
-//				ctx.globalAlpha = 0.5;
-//				ctx.strokeStyle = 'white';
-//				ctx.stroke();
-//				ctx.restore();
-//				ctx.closePath();
-//			}
-//			previous = {x:x, y:y};
-//			
-//		});	
-//	}
