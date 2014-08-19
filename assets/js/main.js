@@ -22,21 +22,27 @@
     function Particule(radius, pays, date, color){
       this.id = getID();
       
-      this.rr = Math.random()*1000 + 15;
-      var a = Math.random()*360;
+      if(this.id === 0){
+        this.position = {x: (c.width / 100) * 5 + Math.random() * (c.width / 100) * 90,
+                         y: (c.height / 100) * 5 + Math.random() * (c.height / 100) * 90};
+      } else {
+        do{
+          var collid = false;
+          this.position = {x: (c.width / 100) * 5 + Math.random() * (c.width / 100) * 90,
+                           y: (c.height / 100) * 5 + Math.random() * (c.height / 100) * 90};
+
+          for(var i = 0; i < particules.length; i++){
+            if(this.iscolliding(particules[i])){
+              console.log('collid');
+              collid = true;
+            }
+          }
+        }while(collid === true);
+      }
+
       
-      this.position = {x: (c.width / 100) * 5 + Math.random() * (c.width / 100) * 90,
-                       y: (c.height / 100) * 5 + Math.random() * (c.height / 100) * 90};
-      
-//      var dx = this.position.x - c.width/2;
-//      var dy = this.position.y - c.height/2;
-//      var vm = magnitude(dx,dy);
-      
-//      this.direction = randDir();
-//      this.velocity = Math.random() * 2 - 1;
       this.vx = Math.random() * 2 - 1;
       this.vy = Math.random() * 2 - 1;    
-      this.lastVelocity = {};
       
       this.opacity = .7;
       this.radius = radius;
@@ -53,8 +59,8 @@
             my = this.position.y - mousePos.y,
             mdist = Math.sqrt(mx * mx + my * my);
         
-        this.position.x += this.vx * coef;
-        this.position.y += this.vy * coef;
+//        this.position.x += this.vx * coef;
+//        this.position.y += this.vy * coef;
 
         if(this.position.x > c.width - (this.radius / 2)) {
           this.position.x =  c.width - (this.radius / 2);
@@ -76,11 +82,11 @@
 				
         
 //         Check for particules collision 
-        for(var i = 0; i < particules.length; i++){
-          if(this.id != particules[i].id && this.iscolliding(particules[i])){
-            this.bounce(particules[i]);
-          }
-        }
+//        for(var i = 0; i < particules.length; i++){
+//          if(this.id != particules[i].id && this.iscolliding(particules[i])){
+//            this.bounce(particules[i]);
+//          }
+//        }
         
         //Check for connection with other particules
         for(var i = 0; i < particules.length; i++){
@@ -166,10 +172,10 @@
         return false;
       },
       bounce: function(a){
-				this.vx = (this.vx * (this.radius - a.radius) + (2 * a.radius * a.vx)) / (this.radius + a.radius);
-				this.vy = (this.vy * (this.radius - a.radius) + (2 * a.radius * a.vy)) / (this.radius + a.radius);
-				a.vx = (a.vx * (a.radius - this.radius) + (2 * this.radius * this.vx)) / (this.radius + a.radius);
-				a.vy = (a.vy * (a.radius - this.radius) + (2 * this.radius * this.vy)) / (this.radius + a.radius);
+				this.vx = (this.vx * (1 - 1) + (2 * 1 * a.vx)) / (1 + 1);
+				this.vy = (this.vy * (1 - 1) + (2 * 1 * a.vy)) / (1 + 1);
+				a.vx = (a.vx * (1 - 1) + (2 * 1 * this.vx)) / (1 + 1);
+				a.vy = (a.vy * (1 - 1) + (2 * 1 * this.vy)) / (1 + 1);
 					
 				this.position.x += this.vx;
 				this.position.y += this.vx;
