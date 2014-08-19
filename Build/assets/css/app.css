@@ -716,6 +716,16 @@ a {
     height: 0; }
   .case-preview:first-child {
     padding-top: 0; }
+    .case-preview:first-child:before {
+      content: '';
+      display: block;
+      position: relative;
+      top: -4.5rem;
+      width: 12.20833333333333rem;
+      height: 1.5rem;
+      margin: 0 auto;
+      border-bottom: 1px dotted #dadada;
+      visibility: visible; }
   .case-preview:after {
     content: '';
     display: block;
@@ -1113,9 +1123,6 @@ a {
   top: .11111111111111rem; }
 
 @media only screen and (min-width: 56.88889em) {
-  .social-list {
-    margin-top: 2.77777777777778rem; }
-
   .social-list-item {
     float: none;
     width: auto;

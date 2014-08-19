@@ -6,13 +6,9 @@
 
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+<html lang="fr">
   <head>
     <meta charset="utf-8">
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
 
     <meta name="author" content="Emile Duval">
@@ -55,14 +51,18 @@
 
   </head>
   <body class="home">
+				<!-- HEADER -->
 				<header role="banner" class="header">
-                  <canvas id="canvas" class="header--experiment">
-                    <img src="assets/img/Canvas-noJS-background.png" alt="Canvas no JS background" width="1905" height="1026"/>
-                  </canvas>
-                  <h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
-                  <p class="header--subtitle">Dév<span class="on-m noFirstLetterCap">eloppeur</span> Front-End - <strong><span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m noFirstLetterCap">d'</span> un stage</strong></p>
+					<canvas id="canvas" class="header--experiment">
+						<img src="assets/img/Canvas-noJS-background.png" alt="Canvas no JS background" width="1905" height="1026"/>
+					</canvas>
+					<h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
+					<p class="header--subtitle">Dév<span class="on-m noFirstLetterCap">eloppeur</span> Front-End - <strong><span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m noFirstLetterCap">d'</span> un stage</strong></p>
 				</header>
+				<!-- End HEADER -->
+				<!-- CONTENT -->
 				<main role="main" class="main">
+					<!-- About content -->
 					<section class="section-container section-container-about">
 						<div class="wrapper">
 							<div class="container">
@@ -73,6 +73,7 @@
 							</div>
 						</div>
 					</section>
+					<!-- Project content -->
 					<section class="section-container section-container-case-study">
 						<article class="case-preview">
 							<div class="wrapper">
@@ -125,8 +126,12 @@
 							</div>
 						</article>	
 					</section>
+					<!-- Contact content -->
 					<section class="section-container section-container-contact">
 						<div class="wrapper">
+							<div class="error">
+								
+							</div>
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
 								<form class="contact-form" id="contact-form" method="post" action="assets/php/mailer.php" role="form">
@@ -203,33 +208,28 @@
 						</div>
 					</section>
 				</main>
+				<!-- End CONTENT -->
+		<!-- FOOTER -->
 		<footer class="footer" role="contentinfo">
-			<small class="legal-mention">@ <a class='current' href="index.html" title="home" data-ajaxlink>E<span class="on-m noFirstLetterCap">mile</span> D<span class="on-m noFirstLetterCap">uval</span></a> 2014 - Tous droit réservé - <a href="http://dwm.re/" target="_blank">DWM</a> - <a href="http://www.infographie-sup.be/" target="_blank">ESIAJ</a> - <a href="credits.html" title="Credits" data-ajaxlink>Crédits et Politique de confidentialités</a></small>	
+			<small class="legal-mention">Tous droit réservé - <a href="http://www.emileduval.be" title="home" data-ajaxlink>E<span class="on-m noFirstLetterCap">mile</span> D<span class="on-m noFirstLetterCap">uval</span></a> 2014 - <a href="credits.html" title="Credits" data-ajaxlink>Crédits et Mentions légales</a></small>	
 		</footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<!-- End FOOTER -->
+		<!-- SCRIPT -->
+			<!-- Google Analytics -->
+		<script>
+			var _gaq=[['_setAccount','UA-50282848-1'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+			<!-- jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/libs/jquery-2.1.1.min.js"><\/script>')</script>
+			<!-- Hugrid.js -->
     <script src="assets/js/hugrid.js"></script>
-
-    <!-- scripts -->
+			<!-- Script perso -->
     <script src='assets/js/main.js'></script>
 
-    <script>
-      var _gaq=[['_setAccount','UA-50282848-1'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-
-    <script> 
-      var $buoop = {}; 
-      $buoop.ol = window.onload; 
-      window.onload=function(){ 
-        try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-        var e = document.createElement("script"); 
-        e.setAttribute("type", "text/javascript"); 
-        e.setAttribute("src", "//browser-update.org/update.js"); 
-        document.body.appendChild(e); 
-      } 
-    </script> 
+		<!-- End SCRIPT -->
   </body>
 </html>

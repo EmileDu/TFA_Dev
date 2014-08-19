@@ -6,13 +6,9 @@
 
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fr"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+<html lang="fr">
   <head>
     <meta charset="utf-8">
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
 
     <meta name="author" content="Emile Duval">
@@ -58,7 +54,7 @@
 				<nav class="controls--container">
 					<ul class="controls--list">
 						<li class="controls--list--item">
-							<a href="../index.html" title="home">
+							<a href="http://www.emileduval.be" title="home">
 								<svg class="controls--list--item--icon icon" viewBox="0 0 32 32">
 									<use xlink:href="../assets/img/sprites/sprites.svg#icon-logo"></use>
 								</svg>
@@ -159,33 +155,27 @@ Il a donc fallu se remettre dedans.</p>
 						</div>
 					</div>
 				</main>
+		<!-- FOOTER -->
 		<footer class="footer" role="contentinfo">
-			<small class="legal-mention">@ <a href="../index.html" title="home" data-ajaxlink>E<span class="on-m noFirstLetterCap">mile</span> D<span class="on-m noFirstLetterCap">uval</span></a> 2014 - Tous droit réservé - <a href="http://dwm.re/" target="_blank">DWM</a> - <a href="http://www.infographie-sup.be/" target="_blank">ESIAJ</a> - <a href="../credits.html" title="Credits" data-ajaxlink>Crédits et Politique de confidentialités</a></small>	
+			<small class="legal-mention">Tous droit réservé - <a href="http://www.emileduval.be" title="home" data-ajaxlink>E<span class="on-m noFirstLetterCap">mile</span> D<span class="on-m noFirstLetterCap">uval</span></a> 2014 - <a href="../credits.html" title="Credits" data-ajaxlink>Crédits et Mentions légales</a></small>	
 		</footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<!-- End FOOTER -->
+		<!-- SCRIPT -->
+			<!-- Google Analytics -->
+		<script>
+			var _gaq=[['_setAccount','UA-50282848-1'],['_trackPageview']];
+			(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+			s.parentNode.insertBefore(g,s)}(document,'script'));
+		</script>
+			<!-- jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../assets/libs/jquery-2.1.1.min.js"><\/script>')</script>
+			<!-- Hugrid.js -->
     <script src="../assets/js/hugrid.js"></script>
-
-    <!-- scripts -->
+			<!-- Script perso -->
     <script src='../assets/js/main.js'></script>
 
-    <script>
-      var _gaq=[['_setAccount','UA-50282848-1'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-
-    <script> 
-      var $buoop = {}; 
-      $buoop.ol = window.onload; 
-      window.onload=function(){ 
-        try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-        var e = document.createElement("script"); 
-        e.setAttribute("type", "text/javascript"); 
-        e.setAttribute("src", "//browser-update.org/update.js"); 
-        document.body.appendChild(e); 
-      } 
-    </script> 
+		<!-- End SCRIPT -->
   </body>
 </html>

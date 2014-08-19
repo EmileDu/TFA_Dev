@@ -8,14 +8,18 @@
 <!-- $ogUrl http://www.emileduval.be/ -->
 <!-- $bodyClass home -->
 <!-- @include _header -->
+				<!-- HEADER -->
 				<header role="banner" class="header">
-                  <canvas id="canvas" class="header--experiment">
-                    <img src="<!-- @path Canvas-noJS-background.png -->" alt="Canvas no JS background" width="1905" height="1026"/>
-                  </canvas>
-                  <h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
-                  <p class="header--subtitle">Dév<span class="on-m noFirstLetterCap">eloppeur</span> Front-End - <strong><span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m noFirstLetterCap">d'</span> un stage</strong></p>
+					<canvas id="canvas" class="header--experiment">
+						<img src="<!-- @path Canvas-noJS-background.png -->" alt="Canvas no JS background" width="1905" height="1026"/>
+					</canvas>
+					<h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
+					<p class="header--subtitle">Dév<span class="on-m noFirstLetterCap">eloppeur</span> Front-End - <strong><span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m noFirstLetterCap">d'</span> un stage</strong></p>
 				</header>
+				<!-- End HEADER -->
+				<!-- CONTENT -->
 				<main role="main" class="main">
+					<!-- About content -->
 					<section class="section-container section-container-about">
 						<div class="wrapper">
 							<div class="container">
@@ -26,6 +30,7 @@
 							</div>
 						</div>
 					</section>
+					<!-- Project content -->
 					<section class="section-container section-container-case-study">
 						<article class="case-preview">
 							<div class="wrapper">
@@ -78,8 +83,12 @@
 							</div>
 						</article>	
 					</section>
+					<!-- Contact content -->
 					<section class="section-container section-container-contact">
 						<div class="wrapper">
+							<div class="error">
+								
+							</div>
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
 								<form class="contact-form" id="contact-form" method="post" action="<!-- @path mailer.php -->" role="form">
@@ -156,4 +165,5 @@
 						</div>
 					</section>
 				</main>
+				<!-- End CONTENT -->
 <!-- @include _footer -->
