@@ -63,7 +63,7 @@
 	.controls--list--item--name{
       width: 8rem;
       @include position(absolute, 0px 0 0 3rem);
-      @include transform(translateX(-100%));
+      @include transform(translateX(-200%));
       background: $color2;    
 	}
 	

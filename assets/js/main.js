@@ -5,20 +5,21 @@
 	//-----------------
 	
 	var valid = true,
-        data,
-        c = document.querySelector('canvas'),
-        ctx = canvas.getContext('2d'),
-        regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i,
-        particules = [],
-        coef = .25,
-        mousePos = {},
-        connected = [],
-        lastID = 0;
+			data,
+			c = document.querySelector('canvas'),
+			ctx = c.getContext('2d'),
+			regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i,
+			particules = [],
+			coef = .25,
+			mousePos = {},
+			connected = [],
+			lastID = 0;
 	
 	//-----------------
 	/*     Class     */
 	//-----------------  
-  
+
+		// Particule class
     function Particule(radius, pays, date, color){
       this.id = getID();
       
@@ -52,16 +53,18 @@
     }
   
     Particule.prototype = {
-      update: function(coef){
-        
-        connected = [];
-        var mx = this.position.x - mousePos.x,
-            my = this.position.y - mousePos.y,
-            mdist = Math.sqrt(mx * mx + my * my);
-        
-//        this.position.x += this.vx * coef;
-//        this.position.y += this.vy * coef;
+			update: function(coef){
+				
+				// Update position
+        this.position.x += this.vx * coef;
+        this.position.y += this.vy * coef;
 
+				//Check for mouse hover particule
+				this.isMouseHover();
+				
+				//Check for connection with other particule
+       	this.isConnected();
+			
         if(this.position.x > c.width - (this.radius / 2)) {
           this.position.x =  c.width - (this.radius / 2);
           this.vx *= -1;
@@ -78,8 +81,6 @@
           this.position.y = this.radius / 2;
           this.vy *= -1;
         }
-				
-				
         
 //         Check for particules collision 
 //        for(var i = 0; i < particules.length; i++){
@@ -87,47 +88,16 @@
 //            this.bounce(particules[i]);
 //          }
 //        }
-        
-        //Check for connection with other particules
-        for(var i = 0; i < particules.length; i++){
-          var px = particules[i].position.x - this.position.x,
-              py = particules[i].position.y - this.position.y,
-              pdist = Math.sqrt(px * px + py * py);
-          if(pdist < 150){
-            connected.push(particules[i]);
-          } 
-        } 
-        this.connection(connected);
-        
-        // Check if hover particules 
-        if((!this.dragging && mdist < this.radius) || this.dragging) {
-          this.vy = 0;
-          this.vx = 0;
-          this.color = '#eb7347';
-          this.opacity = 1;
-          this.display();
-          
-        } else {
-          this.opacity = .7;
-          this.color = '#FFFFFF';
-        }
       },
-      draw: function(){ // Draw the particule 
+			draw: function(){ // Draw the particule 
         ctx.globalAlpha = this.opacity;
         ctx.beginPath();
         ctx.arc(this.position.x, this.position.y, this.radius, 0, 2 * Math.PI, false);
-				ctx.moveTo(this.position.x - 5, this.position.y);
-				ctx.lineTo(this.position.x + 5, this.position.y);
-				ctx.moveTo(this.position.x, this.position.y - 5);
-				ctx.lineTo(this.position.x, this.position.y + 5);
-				ctx.lineWidth = 1;
-				ctx.strokeStyle = '#FF0000';
-				ctx.stroke();
         ctx.fillStyle = this.color;
         ctx.fill();		
         ctx.closePath();
       },
-      connection: function(connected){ // draw line between particule
+      drawConnection: function(connected){ // draw line between particule
         for(var i = 0; i < connected.length; i++){
           ctx.globalAlpha = this.opacity;
           ctx.beginPath();
@@ -171,6 +141,35 @@
         }
         return false;
       },
+			isMouseHover: function(){
+				var mx = this.position.x - mousePos.x,
+						my = this.position.y - mousePos.y,
+						mdist = Math.sqrt(mx * mx + my * my);
+				
+        if((!this.dragging && mdist < this.radius) || this.dragging) {
+          this.vy = 0;
+          this.vx = 0;
+          this.color = '#eb7347';
+          this.opacity = 1;
+          this.display();
+          
+        } else {
+          this.opacity = .7;
+          this.color = '#FFFFFF';
+        }
+			},
+			isConnected: function(){
+				connected = []
+				for(var i = 0; i < particules.length; i++){
+          var px = particules[i].position.x - this.position.x,
+              py = particules[i].position.y - this.position.y,
+              pdist = Math.sqrt(px * px + py * py);
+          if(pdist < 150){
+            connected.push(particules[i]);
+          } 
+        } 
+        this.drawConnection(connected);
+			},
       bounce: function(a){
 				this.vx = (this.vx * (1 - 1) + (2 * 1 * a.vx)) / (1 + 1);
 				this.vy = (this.vy * (1 - 1) + (2 * 1 * a.vy)) / (1 + 1);
@@ -184,6 +183,7 @@
       }
     };
   	
+		// Tooltip class
     function Tooltip(pos, info, align){
       this.pos = pos;
       this.pays = this.resolvePays(info.pays);
@@ -203,9 +203,6 @@
 					ctx.fillText(this.pays, this.pos.x + this.pos.r + 10, this.pos.y);
 					ctx.fillText('Le '+this.date, this.pos.x + this.pos.r + 10, this.pos.y + 20 );
 				}        
-      },
-      hide: function(){
-        
       },
       resolvePays: function(ca2){
         console.log(ca2);
@@ -285,8 +282,18 @@
 	/*    Function   */
 	//-----------------
 	
+	// Return icremental number
 	function getID(){
 		return lastID++;
+	}
+	
+	// Check mouse position on canvas.
+	function getMousePos(canvas, evt) {
+		var rect = canvas.getBoundingClientRect();
+		return {
+			x: evt.clientX - rect.left,
+			y: evt.clientY - rect.top
+		};
 	}
 	
 	function checkValue(name, value){
@@ -365,7 +372,7 @@
 		}
 	}
     
-    // Update header Height to always match with baseline
+	// Update header Height to always match with baseline
 	function headerHeight(){
 		var $headerHeight = $('.header').outerHeight();
 		if ($headerHeight % 27 != 0) {
@@ -373,16 +380,7 @@
 		}
 	}
   
-    // Check mouse position on canvas.
-    function getMousePos(canvas, evt) {
-      var rect = canvas.getBoundingClientRect();
-      return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-      };
-    }
-  
-    // Call ipinfo.io API to get user information
+	// Call ipinfo.io API to get user information
 	function getUserInfo(){ 
       $.get('http://ipinfo.io', function(response){
         var userdata = {ip: response.ip, country: response.country};
@@ -396,7 +394,7 @@
       .done(fetchData());
 	}
 	
-    // Fetch data into bdd to create dataviz
+	// Fetch data into bdd to create dataviz
 	function fetchData(){ 
       $.post('assets/php/getEntry.php', function(response){
         data = response;
@@ -412,85 +410,57 @@
       ctx.setTransform(1,0,0,1,0,0);
     }
     
-    
+  
 	function initExperiment(){
-      resizeCanvas();
-      $.each(data, function(index, value){
+		resizeCanvas();
+		$.each(data, function(index, value){
 
-        var now = new Date().getDate();
-        
-        var pays = value.country;
-        var date = new Date(value.date);
-        var day = date.getDate();
+			var now = new Date().getDate();
 
-        if((now - day) >= 30){
-          var radius = 2;
-        } else if((now - day) >= 15 && (now - day) < 30 ){
-          var radius = 4;
-        } else if((now - day) >= 7 && (now - day) < 15 ){
-          var radius = 6;
-        } else if((now - day) > 0 && (now - day) < 7 ){
-          var radius = 10;
-        } else {
-          var radius = 15;
-        }
-        
-        particules.push(
-          new Particule(radius, pays, date)
-        ); 
-      });  
+			var pays = value.country;
+			var date = new Date(value.date);
+			var day = date.getDate();
+
+			if((now - day) >= 30){
+				var radius = 2;
+			} else if((now - day) >= 15 && (now - day) < 30 ){
+				var radius = 4;
+			} else if((now - day) >= 7 && (now - day) < 15 ){
+				var radius = 6;
+			} else if((now - day) > 0 && (now - day) < 7 ){
+				var radius = 10;
+			} else {
+				var radius = 15;
+			}
+
+			particules.push(
+				new Particule(radius, pays, date)
+			); 
+		});  
 	}
-    function drawExperiment(){
-      ctx.save();
-      ctx.clearRect(0, 0, c.width, c.height);
-
-      for (var i = 0; i < particules.length; i++) {
-        var visitor = particules[i];
-        visitor.update(coef);
-        visitor.draw();
-      }
-
-      window.requestAnimFrame(drawExperiment);
-    }
-	
-    window.requestAnimFrame = (function() {
-      return  window.requestAnimationFrame || 
-              window.webkitRequestAnimationFrame || 
-              window.mozRequestAnimationFrame || 
-              window.oRequestAnimationFrame || 
-              window.msRequestAnimationFrame ||
-              function( callback ) { window.setTimeout(callback, 1000 / 60 ); }
-    })();
-  
-    c.addEventListener('mousemove', function(evt) {
-      mousePos = getMousePos(canvas, evt);
-    });
-    canvas.addEventListener('mousedown',function(e){
-      mousedown = true;
-    });
-    canvas.addEventListener('mouseup',function(e){
-      mousedown = false;
-    });
-    canvas.addEventListener('mouseout',function(e){
-      mousedown = false;
-    });
-  
-    window.requestAnimFrame(drawExperiment);
-	// Call when DOM is ready and wait for document fully loaded, to call init function and end loading
-	function preinit(){
-		if($('body').hasClass('home')){
-			getUserInfo();
-		}	
-		init();
+	function drawExperiment(){
+		ctx.clearRect(0, 0, c.width, c.height);
+		for (var i = 0; i < particules.length; i++) {
+			var visitor = particules[i];
+			visitor.update(coef);
+			visitor.draw();
+		}
+		window.requestAnimFrame(drawExperiment);
 	}
-	
+
 
 	function init() {
+		if($('body').hasClass('home')){
+			getUserInfo();
+		}
 		
+		// Define and setup the grid 
 		definegrid();
 		setgridonload();
 		
-		headerHeight();					 	
+		// Update the header height to match with baseline
+		headerHeight();		
+		
 		
 		// Formulaire de contact
 	
@@ -499,6 +469,7 @@
 		$('input, textarea').on('focusout', function(ev){
 			$(this).attr('placeholder', checkValue($(this)[0].name, $(this)[0].value));
 		});
+		
 		$('input, textarea').on('focusin', function(){
 			if ($('#form--submit').hasClass('is-done')){
 				$('#form--submit').removeClass('is-done')
@@ -520,7 +491,6 @@
 			var message = $('#form--message').val();
 			if (valid){
 				if (nom == '' || mail == '' || message == ''){
-					console.log('champ non remplis');
 				} else {
 					$.ajax({
 						type: $(this).attr('method'),
@@ -551,30 +521,30 @@
 			}
 			return false;
 		});
-		
-		
 	}
 	
 	// When DOM is ready, show loading animation and call preinit function
 	$(document).ready(function () { 
-		preinit();
+		init();
 	}); 
-	
-	// On resize call grid function for update him
-//	$(window).resize(function () {
-//		definegrid();
-//		setgridonresize();
-//		resizeCanvas();
-//	});
-  
-    (onresize = function(){
-      resizeCanvas();
-      definegrid();
-      setgridonresize();
-    })();
-  
-    (onscroll = function(){
-//      resizeCanvas();
-    })
 
+	(onresize = function(){
+		resizeCanvas();
+		definegrid();
+		setgridonresize();
+	})();
+ 
+	window.requestAnimFrame = (function() {
+		return  window.requestAnimationFrame || 
+						window.webkitRequestAnimationFrame || 
+						window.mozRequestAnimationFrame || 
+						window.oRequestAnimationFrame || 
+						window.msRequestAnimationFrame ||
+						function( callback ) { window.setTimeout(callback, 1000 / 60 ); }
+	})();
+	
+	c.addEventListener('mousemove', function(evt) { mousePos = getMousePos(canvas, evt); });
+	
+	window.requestAnimFrame(drawExperiment);
+	
 })(jQuery);
