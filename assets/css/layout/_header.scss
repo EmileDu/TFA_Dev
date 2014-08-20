@@ -1,5 +1,6 @@
 .header{
   position: relative;
+	height: 10rem;
   padding: 1.83333333333333rem 4%;
 }
 
@@ -9,7 +10,7 @@
 }
 
 .home .header,
-.Credits .header,
+.credits .header,
 .error404 .header{
 	background: $color2;
   color: $color1;

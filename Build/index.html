@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -45,7 +46,7 @@
     <meta name="msapplication-TileColor" content="#272727">
     <meta name="msapplication-TileImage" content="assets/mstile-144x144.png">	
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic%7CPT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link type="text/plain" rel="author" href="http://www.emileduval.be/humans.txt">
     <link rel='stylesheet' href='assets/css/app.css'>
 
@@ -57,7 +58,7 @@
 						<img src="assets/img/Canvas-noJS-background.png" alt="Canvas no JS background" width="1905" height="1026"/>
 					</canvas>
 					<h1 class="header--title">Emile <span class="on-m on-l">D<span class="on-l noFirstLetterCap">uval</span></span></h1>
-					<p class="header--subtitle">Dév<span class="on-m noFirstLetterCap">eloppeur</span> Front-End - <strong><span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche <span><span class="on-m noFirstLetterCap">d'</span> un stage</strong></p>
+					<p class="header--subtitle">Dév<span class="on-m noFirstLetterCap">eloppeur</span> Front-End - <strong><span class="on-m on-l">À la&nbsp;</span><span class="on-s">recherche </span><span class="on-m noFirstLetterCap">d'</span> un stage</strong></p>
 				</header>
 				<!-- End HEADER -->
 				<!-- CONTENT -->
@@ -129,9 +130,6 @@
 					<!-- Contact content -->
 					<section class="section-container section-container-contact">
 						<div class="wrapper">
-							<div class="error-contact-form">
-								<p></p>
-							</div>
 							<div class="contact-form-container">
 								<h2 class="subtitle">On se contacte ?</h2>
 								<form class="contact-form" id="contact-form" method="post" action="assets/php/mailer.php" role="form">
@@ -139,14 +137,18 @@
 										<span class="start-message">Salut Emile, je m'appelle</span>
 										<input class="contact-form-input contact-form-input--name" type="text" name="nom" id="form--nom" placeholder="ton nom"/>
 									</p>
+									<p class="contact-form-error contact-form-error-name">J'aimerai vraiment savoir ton nom</p>
 									<p>
 										<span class="start-message">Et mon mail est</span>
 										<input class="contact-form-input contact-form-input--email" type="email" name="email" id="form--email" placeholder="ton email"/>
 									</p>
+									<p class="contact-form-error contact-form-error-email">J'aimerai vraiment connaitre ton email.</p>
+									<p class="contact-form-error contact-form-error-wrongemail">Allez, donne moi ton vrai email.</p>
 									<p>
 										<span class="start-message">Je voulais te dire que</span>
 										<textarea class="contact-form-input contact-form-input--message" name="message" id="form--message" placeholder="ton message" maxlength="250"></textarea>
 									</p>
+									<p class="contact-form-error contact-form-error-message">Tu ne veux même pas me dire bonjour ?</p>
 									<div class="contact-form-input contact-form-input--submit" id="form--submit">
 										<button class="btn" type="submit">Envoyer</button>
 									</div>
@@ -171,14 +173,6 @@
 											<span class="social-list-item--name">@Emile_D_</span>
 										</a>
 									</li>          
-									<li class="social-list-item">
-										<a href="https://plus.google.com/u/0/100374744664485436800/posts" target="_blank">
-											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">
-												<use xlink:href="assets/img/sprites/sprites.svg#icon-googleplus"></use>
-											</svg>
-											<span class="social-list-item--name">Emile Duval</span>
-										</a>
-									</li>
 									<li class="social-list-item">
 										<a href="https://github.com/EmileDu" target="_blank">
 											<svg class="social-list-item--icon icon" viewBox="0 0 32 32">

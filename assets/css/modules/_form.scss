@@ -44,7 +44,7 @@
 	padding-left: .27777777777778rem;
 	vertical-align:baseline;
 	text-indent: 10rem;
-	top: -1.55555555555556rem;
+	top: -1.66666666666667rem;
 }
 
 .contact-form-input--email{
@@ -57,12 +57,25 @@
 	padding: 0 0.11111111111111rem;
 	margin-bottom: 3rem;
 	text-indent: 8.94444444444444rem;
-	top: -1.44444444444444rem;
+	top: -1.61111111111111rem;
+}
+.contact-form-error{
+	color: $color3;
+	display: none;
+	height: 1rem;
+	position: relative; 
+	top: -1.55555555555556rem;
+	line-height: 1.5rem;
+
+}
+.contact-form-error-message{
+	top: -11rem;
 }
 
 .start-message{
 	position: relative;
 	z-index: 10;
+	top: -0.11111111111111rem;
 }
 
 .contact-form-input--submit{

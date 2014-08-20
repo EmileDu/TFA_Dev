@@ -20,7 +20,7 @@
 	//-----------------  
 
 		// Particule class
-    function Particule(radius, pays, date, color){
+    function Particule(radius, opacity, pays, date, color){
       this.id = getID();
       
       if(this.id === 0){
@@ -45,7 +45,8 @@
       this.vx = Math.random() * 2 - 1;
       this.vy = Math.random() * 2 - 1;    
       
-      this.opacity = .7;
+      this.opacity = opacity;
+			this.saveOpacity = this.opacity;
       this.radius = radius;
       this.color = color || '#FFFFFF'; 
       this.info = { pays: pays, date: date};
@@ -64,6 +65,10 @@
 				
 				//Check for connection with other particule
        	this.isConnected();
+				var next = particules[this.id + 1];
+				if(next){
+					this.connection(next);
+				}
 			
         if(this.position.x > c.width - (this.radius / 2)) {
           this.position.x =  c.width - (this.radius / 2);
@@ -99,16 +104,26 @@
       },
       drawConnection: function(connected){ // draw line between particule
         for(var i = 0; i < connected.length; i++){
-          ctx.globalAlpha = this.opacity;
+          ctx.globalAlpha = .4;
           ctx.beginPath();
           ctx.moveTo(this.position.x, this.position.y);
           ctx.lineTo(connected[i].position.x, connected[i].position.y);
-          ctx.lineWidth = .5;
+          ctx.lineWidth = .4;
           ctx.strokeStyle = '#FFFFFF';
           ctx.stroke();
           ctx.closePath();
         }
       },
+			connection: function(p){
+				ctx.globalAlpha = .3;
+				ctx.beginPath();
+				ctx.moveTo(this.position.x, this.position.y);
+				ctx.lineTo(p.position.x, p.position.y);
+				ctx.lineWidth = .3;
+				ctx.strokeStyle = '#eb7347';
+				ctx.stroke();
+				ctx.closePath();
+			},
       display: function(){ // display visitor information when hover particule     
         var fulldate = new Date(this.info.date);
         var day = fulldate.getDay();
@@ -152,9 +167,8 @@
           this.color = '#eb7347';
           this.opacity = 1;
           this.display();
-          
         } else {
-          this.opacity = .7;
+          this.opacity = this.saveOpacity;
           this.color = '#FFFFFF';
         }
 			},
@@ -188,13 +202,14 @@
       this.pos = pos;
       this.pays = this.resolvePays(info.pays);
       this.date = info.date;
-      this.hours = info.hours;
 			this.align = align || 'left';
     }
   
     Tooltip.prototype = {
       show: function(){
+				ctx.globalAlpha = 1;
         ctx.font = '15px PT Sans';
+				ctx.fillStyle = '#FFFFFF';
 				ctx.textAlign = this.align;
 				if(this.align != 'left'){
 					ctx.fillText(this.pays, this.pos.x - this.pos.r - 10, this.pos.y);
@@ -296,41 +311,6 @@
 		};
 	}
 	
-	function checkValue(name, value){
-		var message = '';
-		switch(name){
-			case 'nom':
-				if(value == ''){
-					valid = false;
-					message = 'J\'aimerai vraiment savoir ton nom.';
-				} else {
-					valid = true;	
-				}
-				break;
-			case 'email':
-				if(value == ''){
-					valid = false;
-					message = 'J\'aimerai vraiment connaitre ton mail.';
-				} else if (value != '' && regex.test(value)){
-					valid == false;
-					console.log(regex.test(value));
-					message = 'Allez, donne moi ton vrai email.';
-				} else {
-					valid == true;
-				}
-				break;
-			case 'message':
-				if(value == ''){
-					valid = false;
-					message = 'Tu veux même pas me dire bonjour ?';
-				} else {
-					valid = true;	
-				}
-				break;
-		}
-		return message;
-	}
-	
 //	 Define grid setup for each resolution ( desktop, tablet, mobile )
 	definegrid = function () {
 		var browserWidth = $(window).width();
@@ -418,23 +398,28 @@
 			var now = new Date().getDate();
 
 			var pays = value.country;
+			value.date = value.date.replace(/-/g, ' ');
 			var date = new Date(value.date);
 			var day = date.getDate();
-
 			if((now - day) >= 30){
 				var radius = 2;
+				var opacity = 0.4;
 			} else if((now - day) >= 15 && (now - day) < 30 ){
 				var radius = 4;
+				var opacity = 0.5;
 			} else if((now - day) >= 7 && (now - day) < 15 ){
 				var radius = 6;
+				var opacity = 0.6;
 			} else if((now - day) > 0 && (now - day) < 7 ){
 				var radius = 10;
+				var opacity = 0.7;
 			} else {
 				var radius = 15;
+				var opacity = 0.8;
 			}
 
 			particules.push(
-				new Particule(radius, pays, date)
+				new Particule(radius, opacity, pays, date)
 			); 
 		});  
 	}
@@ -447,8 +432,7 @@
 		}
 		window.requestAnimFrame(drawExperiment);
 	}
-
-
+	
 	function init() {
 		if($('body').hasClass('home')){
 			getUserInfo();
@@ -466,8 +450,38 @@
 	
 		
 		// Replace placeholder if enter value is not valid
-		$('input, textarea').on('focusout', function(ev){
-			$(this).attr('placeholder', checkValue($(this)[0].name, $(this)[0].value));
+		$('.contact-form-input--name').on('focusout', function(ev){
+			if($(this)[0].value === ''){
+				valid = false;
+				$('.contact-form-error-name').fadeIn(100);	
+			} else {
+				valid = true;
+				$('.contact-form-error-name').fadeOut(100);	
+			}
+		});
+		
+		$('.contact-form-input--email').on('focusout', function(ev){
+			if($(this)[0].value === ''){
+				valid = false;
+				$('.contact-form-error-wrongemail').fadeOut(100, function(){$('.contact-form-error-email').fadeIn(100);});
+			} else if($(this)[0].value != '' && !regex.test($(this)[0].value)){
+				console.log('wrong');
+				$('.contact-form-error-email').fadeOut(100, function(){$('.contact-form-error-wrongemail').fadeIn(100)});
+			} else {
+				valid = true;
+				$('.contact-form-error-email').fadeOut(100);	
+				$('.contact-form-error-wrongemail').fadeOut(100);	
+			}
+		});
+		
+		$('.contact-form-input--message').on('focusout', function(ev){
+			if($(this)[0].value === ''){
+				valid = false;
+				$('.contact-form-error-message').fadeIn();	
+			} else {
+				valid = true;
+				$('.contact-form-error-message').fadeOut();	
+			}
 		});
 		
 		$('input, textarea').on('focusin', function(){
