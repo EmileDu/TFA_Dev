@@ -4,10 +4,7 @@
   padding: 1.83333333333333rem 4%;
 }
 
-.home .header{
-	@include clearfix();
-  height: 100%;
-}
+
 
 .home .header,
 .credits .header,
@@ -22,6 +19,13 @@
 	}	
 }
 
+.home .header{
+  @include clearfix();
+  height: 100%;
+  background: url(Canvas-noJS-background.png), $color2;
+  background-position: center;
+  background-size: cover;
+}
 .header--title{
 //	margin-left: -0.16666666666667rem;
 	max-width: 500px;
@@ -44,7 +48,7 @@
 }
 
 .header--experiment{
-	display: block;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -53,6 +57,7 @@
 	width: 100%;
 	height: 100%;
 	margin: auto;
+    
 }
 
 
@@ -60,6 +65,11 @@
 	.header{
 		padding: 1.83333333333333rem 1.77777777777778rem;
 	}
+  
+    .home .header{
+      background: $color2;
+      background-image: none;
+    }
 	
 	.header--experiment{
 		display: block;	

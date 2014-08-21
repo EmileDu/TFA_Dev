@@ -374,19 +374,6 @@ blockquote {
   height: 10rem;
   padding: 1.83333333333333rem 4%; }
 
-.home .header {
-  zoom: 1;
-  height: 100%; }
-  .home .header:after {
-    clear: both; }
-  .home .header:before, .home .header:after {
-    content: '\0020';
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    width: 0;
-    height: 0; }
-
 .home .header,
 .credits .header,
 .error404 .header {
@@ -400,6 +387,22 @@ blockquote {
     .credits .header a:hover,
     .error404 .header a:hover {
       color: #eb7347; }
+
+.home .header {
+  zoom: 1;
+  height: 100%;
+  background: url(../img/Canvas-noJS-background.png), #272727;
+  background-position: center;
+  background-size: cover; }
+  .home .header:after {
+    clear: both; }
+  .home .header:before, .home .header:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0; }
 
 .header--title {
   max-width: 500px;
@@ -429,7 +432,7 @@ blockquote {
   top: 2rem; }
 
 .header--experiment {
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -442,6 +445,10 @@ blockquote {
 @media only screen and (min-width: 56.88889em) {
   .header {
     padding: 1.83333333333333rem 1.77777777777778rem; }
+
+  .home .header {
+    background: #272727;
+    background-image: none; }
 
   .header--experiment {
     display: block; } }
